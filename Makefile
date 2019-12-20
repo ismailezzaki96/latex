@@ -35,7 +35,6 @@ LATEXFILES = 	*.acn\
 	*.xdy\
 	*.tdo\
 
-# Usually, only these lines need changing
 filename  := "presentation"
 
 all:
