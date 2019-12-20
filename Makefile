@@ -1,6 +1,5 @@
 # LaTeX Makefile
 LATEXFILES = 	*.acn\
-	*.acr\
 	*.alg\
 	*.aux\
 	*.bbl\
