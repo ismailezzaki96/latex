@@ -1,24 +1,34 @@
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
-\begin{frame}\frametitle{A trivial Set Cover algorithm}
-\begin{algorithm}[H]\footnotesize
-        \Input{A set cover instance $({\cal S,U})$ and a variable ${\cal S}_{\rm dom}$.}
-        \Output{A minimum set cover of $({\cal S,U})$.}
-\If{${\cal S}=\emptyset$}{
-\Return $\emptyset$\;
-}
-Let $S \in {\cal{S}}$ be a set of maximum cardinality\;
-${\cal{C}}_1 = \{S\}\cup {\tt MSC}(\{S'\backslash S \mid S' \in{\cal S}\backslash \{S\}\}, {\cal U}\backslash S )$\;
-${\cal{C}}_2 = {\tt MSC}({\cal S}\backslash \{S\},{\cal U})$\;
-${\cal S}_{\rm dom} \leftarrow \emptyset$\;
-\If{${\cal U} \subseteq {\cal C}_1$}{
-${\cal S}_{\rm dom} \leftarrow {\cal C}_1$\;
-\If{${\cal U} \subseteq {\cal C}_2$}{
-\If{$|{\cal C}_2| < |{\cal C}_1|$}{
-${\cal S}_{\rm dom} \leftarrow {\cal C}_2$\;
-}
-}
-}
-\Return ${\cal S}_{\rm dom}$\;
-\caption{{\tt MSC}$({\cal S,U})$}
-\end{algorithm}
+\begin{frame}\frametitle{Algebraic structure}
+
+An algebraic structure consists of
+a set of elements B 
+binary operators ${+, \times}$
+and a unary operator ${1‘ }$
+Such that following holds :
+$\forall a,b \in B $\\
+\textit{Closure}:\begin{center}
+
+$a+b \in  B$	and	$a\times b \in B$ \end{center}
+
+
+\textit{Commutativity}: \begin{center}
+
+$a+b = b+a$	and	$a\times b = b\times a$
+\end{center}
+
+\textit{Associativity}: 
+\begin{center}
+ 
+
+$a+(b+c)=(a+b)+c$ and	$a\times (b\times c) = (a\times b)\times c$ 
+\end{center}
+
+
+\textit{Identity}: 
+\begin{center}
+
+$a+0 =  a$		and	$a\times 1=a$ 
+\end{center}
+
 \end{frame}
