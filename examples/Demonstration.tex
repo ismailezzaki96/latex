@@ -4,30 +4,37 @@
 \label{columns}
 \begin{frame}\frametitle{Demonstration of Clifford’s rule }
 
-Clifford apply a general definition of product given by Gressman : “a product of two extensives quantities u and v is defined as extensive quantity or a scalar.”
-
-1\\
-
-clifford consider a n-fundamental units $(e_1,e_2,...,e_n)$ \\
-
-all $(e_j)^2=+1$or $-1$  and $e_j.e_k=-e_k.e_j (j \neq k)$ where e denotes the identity. 
-all product of linear factors must contain either basic terms of odd order $(ej, e_j e_k e_l, ... $such that $j \neq k \neq l)$,
-or basic terms of even order $( 1, e_j e_k, ...$ such that $j \neq k)$. \\
-
-There can be no such term of higher order than the n. 
-
-the total number of basic terms is $2^n$ units.
+\begin{itemize}
+	\item 
+Clifford apply a general definition of product given by Gressman : “\textbf{a product of two extensives quantities u and v is defined as extensive quantity or a scalar}.”
 
 
+	\item 
 
+Clifford consider a n-fundamental units $(e_1,e_2,...,e_n)$ \\
+
+\begin{center}
+	$(e_j)^2=+1$or $-1$  and $e_j.e_k=-e_k.e_j (j \neq k)$ 
+\end{center}
+	\item 
+%where e denotes the identity. \\
+All product of linear factors : \\odd order $(ej, e_j e_k e_l, ... $such that $j \neq k \neq l)$,
+\\or  even order $( 1, e_j e_k, ...$ such that $j \neq k)$. \\
+
+%There can be no such term of higher order than the n. 
+
+	\item 
+The total number of basic terms is $2^n$ units.
+
+
+\end{itemize}
 
 \end{frame}
 
 
 \begin{frame}\frametitle{Demonstration of Clifford’s rule }
-2\\
 
-he writes $w$ for the product of all $n-$units, $w \equiv e_1 e_2...e_n$ and enquires into the value of its square:
+He writes $w$ for the product of all $n-$units, $w \equiv e_1 e_2...e_n$ and enquires into the value of its square:
 $w^2 \equiv e_1 e_2....e_n e_1 e_2...e_n$,\\
 which after $r-$interchanges becomes:   
 
@@ -38,11 +45,27 @@ $w^2 \equiv  (-1)^r (e_{1})^2 (e_{2})^2 ...(e_{n})^2  \equiv (-1)^r if ()e_j)^2=
 
 
 \begin{frame}\frametitle{Demonstration of Clifford’s rule }
-3\\
 
  Next, he considers the nature of the multiplication w ej' He observes that:\\
  
-relation 8 ansd 9 
+\[
+
+   e_j w = 
+\begin{cases}
++ e_1 e_2 e_3 ...e_n,& \text{if } (e_j)^2 = + 1\\
+- e_1 e_2 e_3 ...e_n,              &  \text{if } (e_j)^2 = - 1
+\end{cases}
+
+\\ 
+\text{and }
+\\
+    w e_j= 
+\begin{cases}
+(1)^n e_1 e_2 e_3 ...e_n,& \text{if } (e_j)^2 = + 1\\
+(1)^{n-1} e_1 e_2 e_3 ...e_n,              &  \text{if } (e_j)^2 = - 1
+\end{cases}
+
+\]
  
 for both cases $(e_j)^2 = \pm 1$, $w e_j = \pm e_j w$ according as n is odd or even .\\
  
@@ -92,7 +115,10 @@ quadratic form :\\
 
 
 we get Clifford's rule \\
-$e_j e_k + e_k e_j = 2 Dirac_{jk} 1 , (j,k=I, ... ,n).$
+{\color{red}
+\textbf{\begin{center}
+	$e_j e_k + e_k e_j = 2 \delta_{jk} 1 \;\;,\;\; (j  ,k=I, ... ,n).$
+\end{center}}}
 
 
 \end{frame}
