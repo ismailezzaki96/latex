@@ -13,8 +13,7 @@ cd latex
 // exucute these commends before edit files 
 // open terminal in folder latex
 
-git reset --hard origin/master
-git clean -f -d
+git pull
 
 
 // now you can edit files and make changes
@@ -22,7 +21,7 @@ git clean -f -d
 
 
 // when you done 
-get add .
+git add .
 // you can also add comments
 git commit -m "ha li bedelt"
 git push -u origin master
