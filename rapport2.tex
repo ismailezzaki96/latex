@@ -1,0 +1,1663 @@
+\documentclass[12pt,  a4paper, openright]{report} %twoside,
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hmargin=2cm,vmargin=2cm]{geometry}
+\usepackage[francais]{babel}
+\usepackage{color}
+\usepackage{here}
+\usepackage[Conny]{fncychap} % Sonny, Lenny, Glenn, Conny, Rejne, Bjarne
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\definecolor{Zgris}{rgb}{0.87,0.85,0.85}
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+	\begin{lrbox}{\BBbox}\begin{minipage}{\linewidth}}
+		{\end{minipage}\end{lrbox}\noindent\colorbox{Zgris}{\usebox{\BBbox}} \\
+	[.5cm]}
+
+
+
+
+%\hypersetup{pdfborder={0 0 0},colorlinks,urlcolor=false,citecolor=blue,linkcolor=blue}
+\renewcommand\thefootnote{\textcolor{black}{\arabic{footnote}}}
+\newcommand{\reporttitle}{Transition de phase dans les trous noirs au delà de la relativité génerale}     % Titre
+\newcommand{\reportauthor}{AICHA \textsc{EL HAMDAOUI}} % Auteur
+\newcommand{\reportsubject}{\textbf{Mémoire}\\présenté pour obtenir le diplôme de master en: \\
+	\textbf{Physique des Hautes Énergies, Astrophysique et Physique computationnelle  }  } % Sujet
+\newcommand{\HRule}{\rule{\linewidth}{0.7mm}}
+
+
+\newcommand{\chaptertoc}[1]{\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}
+	\markboth{\slshape\MakeUppercase{#1}}{\slshape\MakeUppercase{#1}}}
+
+
+
+
+\begin{document}
+	
+
+
+
+
+\begin{titlepage}
+	
+	\begin{figure}[h!]
+		\begin{minipage}[b]{0.25\linewidth}
+			\begin{center}
+				\includegraphics[width=20mm]{images/un.png}
+			\end{center}
+			
+		\end{minipage}\hfill
+		\begin{minipage}[b]{0.45\linewidth}   
+			\begin{center}
+				\includegraphics[width=40mm]{images/sem.png}
+			\end{center}
+			
+		\end{minipage}
+		\begin{minipage}[b]{0.27\linewidth}
+			\begin{center}
+				\includegraphics[width=33mm]{images/labo.png}
+			\end{center}
+			
+		\end{minipage}\hfill
+		
+	\end{figure}
+	\begin{center}
+		\huge{ Université Cadi Ayyad} \\
+		\large Faculté des Sciences Semlalia\\
+		Laboratoire de Physique des Hautes Énergies et Astrophysique
+	\end{center}
+	
+	\HRule 
+	\begin{center}
+		
+		{\Large \reportsubject}\\[0.5cm]
+		\vspace{0.4cm}
+		
+		
+		\Large Sous le thème:\\
+		\HRule \\[0.8cm]
+		{\Huge \bfseries \reporttitle}\\[0.4cm]
+		
+		\HRule \\[0.8cm]
+		
+		\begin{Large}
+			
+			\begin{minipage}[b]{0.45\linewidth}
+				\begin{flushleft}
+					\emph{Auteur :}\\
+					\reportauthor
+				\end{flushleft}       
+			\end{minipage}
+			\begin{minipage}[b]{0.45\linewidth}   
+				\begin{flushright}
+					\begin{tabular}{l}
+						Sous la direction de: \\
+						Mohamed \textsc{Chababe} 
+		
+					\end{tabular}
+					
+				\end{flushright}   
+			\end{minipage}\hfill
+			
+			
+			
+		\end{Large}
+		
+		
+		%\vfill
+		\vspace{0.5cm}
+		%{\large }
+		
+	\end{center}
+	\begin{flushleft}
+		Soutenu le 19  Juillet 2019 devant la commission d'examen:\\ \vspace{1cm}
+		
+		\begin{minipage}{0.45\linewidth}
+			\begin{itemize}
+				\item[-] Prof:  \textsc{A.Adhchour}
+				\item[-] Prof:  \textsc{M.Oulne}
+				\item[-] Professeur:  \textsc{M.Chabab}
+				
+			\end{itemize}
+		\end{minipage}\hfill
+		\begin{minipage}{0.55\linewidth}
+			\begin{itemize}
+				\item[-] P.E.S Université Cadi Ayyad de Marrakech
+				\item[-] P.E.S Université Cadi Ayyad de Marrakech
+				\item[-] P.E.S Université Cadi Ayyad de Marrakech
+				
+			\end{itemize} 	     
+		\end{minipage}
+		
+		
+	\end{flushleft}
+	\vspace{0.8cm}
+	\begin{center}
+		Année universitaire 2018/2019
+	\end{center}
+\end{titlepage}
+
+\newpage
+\begin{center}
+\begin{LARGE}
+	\textit{Remerciement\vspace*{2cm}}\\
+\end{LARGE}
+
+\end{center}
+
+\textit{ Au terme de la rédaction de ce mémoire,je tiens tout d'abord à remercie sincèrement Mr \textbf{Mohamed Chabab} ,professeur au département de Physique de la Faculté des Sciences Semlalia et directeur du laboratoire de physique des hautes énergies etastrophysique,pour son suivi et pour son énorme soutien,qu'il n'a cessé de nous prodiguer tout au long de la période du projet .\\
+	\\
+	\\
+	J'adresse toute ma gratitude à Monsieur Le Professeur\textbf{Mustapha Oulne}  et à Monsieur Le
+	Professeur \textbf{Abdrahim Adahchour}  d'avoir immédiatement accepté d'être membres de ce jury.\\
+	\\
+	\\
+	Je tiens à remercier particulièrement Monsieur \textbf{Samir IRAOUI}, doctorant de LPHEA, qui
+	n'a pas été avare de son temps, il m'a beaucoup aidé tout au long de cette expérience, et m'a
+	fourni les outils nécessaires pour faire ce travail.\\
+	\\
+	\\
+	Je tiens à remercier aussi toute l’équipe pédagogique de la faculté des Sciences Semlalia pour
+	les efforts fournis pour préparer les conditions de travail optimales.\\
+	\\
+	\\
+	Je suis particulièrement sensible à la très bonne ambiance du Laboratoire de Physique des Hautes
+	Énergies et Astrophysique .\\
+	\\
+	\\
+	Enfin,je dédie ce modeste travail à mes parents,mes frères , mes amis et Ceux qui ont partagé avec moi tous les moments d'émotion lors de la réalisations de ce travail.}
+
+
+\tableofcontents
+
+
+	
+	\chapter*{Introduction}
+	L'approche du sujet par un modèle théorique nécessite l'explication de la "vitesse de libération", qui nous permettra de donner une des définitions possible d'un trou noir.\\
+	Supposez que vous vous trouvez à la surface d'une planète. Vous jetez un caillou en l'air. En supposant que vous ne le lancez pas trop fort, il montera pendant un certain temps, mais finalement l'accélération due à la gravité de de la planète le fera retomber. 
+	Si vous lanciez le caillou assez fort, cependant, vous pourriez le faire échapper à l'attraction gravitationnelle de la planète. Il existe donc une vitesse minimale à partir de laquelle un objet lancé peut échapper à l'attraction gravitationnelle de la planète : on appelle cette vitesse la vitesse de libération.\\ 
+	Pour la modélisation mathématique, on recherche donc la vitesse nécessaire pour quitter le champ gravitationnel à l'infini, parce que c'est à l'infini que l'attraction gravitationnelle sera nulle. Le point de départ est la surface de la planète, l'infini le point d'arrivée.
+	On utilise la constance de l'énergie mécanique pour écrire :\\
+	\begin{equation}
+		E_{clib}+E_{p0}=E_{clib}(infini)+E_{p}(infini),
+	\end{equation}
+
+	où  $E_{clib} = E_{c} (0)$  est l'énergie cinétique initiale, et $ E_{p}$ désigne l'énergie potentielle.\\
+	L'énergie potentielle de gravitation est , par définition, égale à $-\dfrac{mGM}{r}$ \\
+	(où on note m la masse du corps, M la masse de la planète, G la constante de gravitation universelle et r la distance au centre de la planète).Or $ Ep (infini)  = 0, $ car l'énergie potentiel dans le champ de gravitation de l'astre est nulle puisque l'objet a échappé à celui-ci.
+	
+	
+	
+	
+	De plus, on veut que la vitesse à l'infini soit égale à 0 (car on cherche la vitesse minimale pour échapper au champ gravitationnel). Donc $Ec (infini)  = 0$. 
+	D'où :
+	\begin{equation}
+	\dfrac{1}{2} m v_{lib}^{2} = m \dfrac{GM}{r}
+	\end{equation}
+	
+	donc :
+	\begin{equation}
+	v_{lib}^{2}=\dfrac{2GM}{r}
+	\end{equation}
+
+	La vitesse de libération augmente avec la masse de la planète considérée et la proximité au centre. D'où l'idée d'imaginer un astre de très grande masse condensée dans un si petit rayon que la vitesse de libération serait égale, voire même supérieure à la vitesse de la lumière: ainsi, rien de ce qui se trouve à la surface de l'astre ne pourrait s'en échapper, sachant que rien ne peut aller plus vite que la lumière et que même la lumière ne pourrait quitter l'astre. Mathématiquement on peut donc poser :
+	\begin{equation}
+	v_{lib} = c
+	\end{equation}
+
+	ce qui nous donne :
+	\begin{equation}
+	R = \dfrac{2GM}{c^{2}}
+	\end{equation}
+
+	Ainsi, si on condense une masse M dans un rayon égal à $\dfrac{2GM}{c^{2}}$, on obtiendra un astre duquel rien ne pourra s'échapper.\\
+	On appelle un tel rayon le Rayon de Schwarzschild; il est caractéristique des trous noirs.
+	Donc un trou noir est formé lorsque la taille d’un objet de masse M devient inférieure à son
+	rayon de Schwarzschild. Et la région située à l’intérieur du rayon de Schwarzschild se nomme la
+	zone de non-retour. De même on appelle la zone sphérique qui délimite la région de non retour
+	par l’horizon des événements.\\
+	Pour étudier les trous noirs ,il faut etudier La thermodynamique des trous noirs .C'est la branche de l'étude des trous noirs qui s'est développée à la suite de la découverte d'une analogie profonde entre certaines propriétés des trous noirs et les lois de la thermodynamique au début des années 1970. Cette analogie est ensuite devenue pertinente grâce à la découverte par Stephen Hawking du phénomène d'évaporation des trous noirs (1975), démontrant qu'un trou noir n'est pas un objet complètement sombre, mais émet un très faible rayonnement thermique \cite{1} .\\
+	Ce rapport présente la physique des trous noirs et leurs thermodynamiques.\\ Le première chapitre du rapport décrit les trous noirs en astrophysique. Le
+	chapitre 2 décrit  les trous noirs en relativité générale.Puis une introduction sur la thermodynamique des trous noirs en se concentrait sur le calcul des grandeurs
+	thermodynamiques des trous noirs. Enfin,on discute sur le comportent thermodynamique d’un trou noir AdS et de RN-AdS.
+	
+	
+	
+	
+	\chapter{Les trous noirs en astrophysique}
+	L’astrophysique est une science dont l’objet est l’étude physique des corps célestes. Elle
+se propose d’interpréter et d’unifier les données observées par la recherche astronomique
+en élaborant des lois physiques qui peuvent les expliquer \cite{2}. On s’intéresse dans ce
+chapitre d’étudier les trous noirs en Astrophysique.
+	\section{formation des trous noirs}
+	Pour la plupart des personnes qui savent ce qu’est un trou noir, il pense que l’origine d’un trou noir est absolument la mort d’une étoile or tous les astres de l’univers peuvent former un trou noir, en effet, pour former un trou noir il faut une masse élevée .Prenons tout d’abord une étoile de taille moyenne c'est-à-dire dont la masse est à peu près égale à la masse du Soleil (de 0.5 à 4 masses du Soleil). Une fois que l’étoile à utiliser tout son réservoir en hydrogène l’étoile entame son réservoir en hélium mais le rythme de la fusion nucléaire de l’hélium pour donner du carbone s’accélère pour donner une étoile appelée Géante rouge.  Ensuite la vie de l’étoile n’est pas encore complètement finie en effet après avoir utiliser toutes ces réserves en hélium pour former du carbone et de l’oxygène. A ce stade les étoiles sont alors dépourvu de toutes les couches de gaz autour d’elle alors le noyau de celle-ci commence alors à se refroidir pour obtenir une faible température , cette étoile devient alors une Naines Blanches.\\ 
+	Si on prend une étoile de masse comprise entre quatre et dix masses du Soleil environ alors on obtient une Super Géante rouge qui ont les mêmes propriétés que les Géantes Rouges mais avec une masse supérieure à dix masses solaires. Quand les Super Géantes commencent à ne plus avoir assez de combustibles pour faire des réactions de fusion thermodynamique, celles-ci commencent alors à s’effondrer sur elles mêmes et à cause de leur très grande masse ces étoiles parviennent alors à former de très grandes réactions qui par leur force forment alors des supernovas, les restes de la Super Géantes alors se trouvent dans l’univers comme ceux-ci sont très proches et de très faibles tailles, puisque ce sont des protons et des électrons, il se recombinent pour former des neutrons et ainsi continuer à « vivre » pour former une étoile à neutrons de très faibles diamètres (environ 20 km) elles sont aussi appelées pulsars.\\
+	Maintenant prenons une étoile dont la masse est supérieure à dix masses solaires alors quand l’étoile commence à ne plus avoir assez de carburant (hélium et hydrogène) celle-ci s’effondre mais ne laisse pas place à une supernova et une étoile à neutron comme les Super Géantes en effet celle-ci s’effondre mais comme leur gravité est très importante puisque leur masse est aussi très grande alors elle s’effondre et comme elle n’a plus de carburant elle ne peut plus effectuer une réaction chimiques pour s’enlever de sa force de gravité et de plus sa taille diminue aussi à grande vitesse jusqu’à atteindre la limite de d’Oppenheimer- Volkoff.\\
+	À partir de cette limite l’effondrement est tel que plus aucune particule ou autre rayon comme la lumière ne peut s’en échapper et on assiste alors à la formation d’un trou noir.\\
+	En astrophysique, la limite d'Oppenheimer-Volkoff, du nom de deux physiciens qui la calculèrent la première fois, représente la masse maximale théorique que peut avoir une étoile à neutrons. Au-delà de cette valeur, l'objet s'effondre alors en trou noir. La valeur de cette limite est d'environ 3,3 masses solaires et est à comparer avec la limite de Chandrasekhar pour les naines blanches. Cette limite est la valeur de la masse maximum du coeur de l'étoile \cite{3}.
+	\begin{center}
+		\includegraphics[scale=0.5]{Capture2.png}
+		
+	\end{center}
+	Figure 1.1 –Les étapes de formation d’un trou noir
+	\section{Les différents types de trous noirs}
+	En fonction de leur masse, on distingue quatre types de trous noirs.
+	\subsection{ trous noirs stellaires }
+	La grande majorité des trous noirs seraient d’origine stellaire, c'est-à-dire de l’effondrement gravitationnel d’une vieille étoile massive sur elle-même. Ceux-ci ont une masse d'au moins quelques masses solaires. Ce type de trou noir ne fait que quelques kilomètres de diamètre. Leur formation peut engendrer des ondes gravitationnelles.
+	Les principaux progéniteurs de trous noirs stellaires par effondrement sont les étoiles Wolf-Rayet qui est une étoile chaude, massive et évoluée présentant un taux de perte de masse très élevé . 
+	\subsection{ Les trous noirs supermassifs }
+	La formation des trous noirs supermassifs est encore fortement débattue car elle se fait sur de grandes échelles de temps (contrairement à la formation d’un trou noir stellaire). Comme il n’existe pas d’étoile de masse si grande, les trous noirs supermassifs ne peuvent pas directement être conçut d’un effondrement stellaire.Il pourrait s’agir d’une étoile massive qui s’effondre et qui donne naissance à un trou qui grandit peu à peu en se nourrissant d’autres étoiles ou bien d’un énorme nuage de gaz qui s’écroule directement sous sa propre gravité. Bien que l’origine des trous noirs supermassifs ne soit pas clairement définie, leur existence est en tout cas tout à fait possible.\\ 
+	En astrophysique, un trou noir supermassif est un trou noir dont la masse est d’environ un million à un milliard de masse solaires .La densité de ce genre de trou noir  est très faible (parfois plus faible que celle de l’eau), des études montrent que plus un trou noir est grand, plus sa densité diminue, même si sa masse croit sans limite.
+	\begin{figure}[H]
+			\begin{center}
+		\includegraphics[scale=0.5]{Capture1.png}
+		
+	\end{center}
+
+	 \caption{Le trou noir supermassif est situé au centre de la galaxie .}
+	
+	\end{figure}
+	\subsection{ Les trous noirs intermédiares }
+	Les trous noirs intermédiaires sont des objets récemment découverts, de masse entre 100 et
+	10 000 masses solaires. On peut donc dire que les trous noirs intermédiaires ne peuvent pas se former par simple effondrement d’étoiles massives.\\
+	En Novembre 2004,une équipe d’astronome découvre le premier trou noir intermédiaire, orbitant à 3 années-lumières seulement au centre de notre galaxie. C’est un trou noir de 1 300 masses solaires. Grâce à ces observations, nous pouvons dire que les trous noirs de masse intermédiaire jouent un rôle dans la formation des trous noirs supermassifs.
+	\subsection{ Les trous noirs primordiaux } 
+	Ce type de trou noir ne peut pas être expliqué de la même manière que les trois précédents puisque celui-ci n'a jamais été vraiment prouvé, ce n'est que une hypothèse.\\ 
+	Leur existence, toujours hypothétique, remonterait au début de la création de notre univers, il y a de cela 13,7 milliards d'années, bien avant l’émission de la première lumière de l'Univers.Son Masses Solaires n'ont pas été totalement définies, elles sont juste bien plus faible que celle des autres trous noirs.\\
+Contrairement aux autres trous noirs, les trous noirs primordiaux perdent leur masse
+de plus en plus rapidement et finissent par disparaître. Ce phénomène a été baptisé "évaporation quantique " par Stephen Hawking en 1975 \cite{4}.
+	\section{Détection des trous noirs } 
+	Les trous noirs, par leur caractère « invisible » ne se détectent que par leurs effets sur l’environnement. On peut distinguer deux grandes catégories de méthodes de détection :
+	- quand le trou noir est accompagné d’une étoile « normale », on parle alors	
+	de système binaire.
+	- quand le trou noir est seul, on le dit alors célibataire.	
+	\subsection{ Trou noir dans un système binaire }
+	Etant donné son fort champ gravitationnel, le trou noir peut avoir une étoile comme satellite. C’est l’étude de la lumière émise par cette dernière qui nous permet de détecter le trou noir : dans un système binaire, les deux astres tournent l’un autour de l’autre. Lorsqu’on mesure le spectre infrarouge de l’étoile, on s’aperçoit qu’il varie périodiquement. Ceci est une application de l’effet redshift.
+	Ce spectre prouve que l’étoile tourne autour d’un objet massif et invisible qui peut être soit une naine blanche, soit une étoile à neutrons, soit un trou noir. Pour faire la distinction, on mesure la masse de l’astre invisible en analysant son spectre, comme les étoiles à neutrons et les naines blanches ont une masse limite, si cette dernière est dépassée, le compagnon invisible est un trou noir.\\
+	\begin{figure}[H]
+		\begin{center}
+			\centering
+x
+		\includegraphics[scale=0.5]{Capture4.png}
+\caption{Conséquences de la variation de la longueur d'onde sur le spectre d'une étoile .}
+
+	\end{center}
+\end{figure}
+
+	
+	Il existe un autre moyen de détecter les trous noirs dans des systèmes binaires. En effet, lorsqu’une étoile est proche d’un trou noir, elle lui cède de sa matière. Cette matière est inexorablement attirée par le trou noir et tourne autour de celui-ci en formant un disque d'accrétion. En se rapprochant de la singularité, la matière s’échauffe et émet des rayons X. Cette émission est aléatoire car le disque d’accrétion, par son extrême chaleur, est très instable ; il se produit alors des « bulles chaudes » provoquant des sursauts de rayons X \cite{5}.
+	Pour différencier l’étoile à neutrons du trou noir, on doit observer le centre du disque d’accrétion :\\
+	- celui d’une étoile à neutrons est lumineux en raison de la matière	
+	qui heurte la surface de l’étoile effondrée.\\
+	- par contre, celui d’un trou noir sera sombre car la matière aura été	
+	aspirée et donc aucune lumière ne nous arrivera.
+	\begin{figure}[H]
+		
+	
+	\begin{center}
+		\includegraphics[scale=0.5]{Capture5.png}
+		
+	\end{center}
+	\caption{Différence entre un trou noir et un étoile à neutrons.} 
+\end{figure}
+	
+	\subsection{ Trou noir célibataire }
+	Un trou noir célibataire est difficile à détecter ; le meilleur moyen est d’utiliser ses propriétés liées à la lumière, et notamment l'effet de lentille gravitationnelle.
+	
+	Les trous noirs dévient la trajectoire des rayons lumineux , c'est pourquoi on peut avoir deux images identiques d'une même étoile située derrière le trou noir.\\
+	\begin{figure}[H]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.5]{Capture6.png}
+			
+	\end{center}
+\caption{l'effet lentille gravitationnelle.}
+\end{figure}
+	
+	Dans la réalité, les deux images de l’étoile sont très proches voir confondues ce qui donne une étoile très lumineuse qui, si elle est détectée, nous informera sur la présence d’un corps céleste qui peut s’avérer être un trou noir.
+	Comme pour les trous noirs dans les systèmes binaires, on peut les détecter grâce à leur rayonnement X. En effet, le trou noir célibataire possède lui aussi un disque d’accrétion : la méthode utilisée pour la détection d’un trou noir en système binaire peut donc être appliquée. Cependant, le disque d’accrétion d’un trou noir célibataire est très faible et devient indétectable par nos instruments de mesures s'ils sont distants de plus de 10 années-lumière.
+	La détection d’un trou noir célibataire reste donc très théorique, même si on a réussi à observer un exemple flagrant de lentille convergente gravitationnelle.
+	
+	\section{Propriétés des trous noirs }
+	Quasi toutes les propriétés des objets tombés dans le trou noir disparaissent. Seules subsistent trois propriétés : la masse, la charge électrique et le moment angulaire. C’est le théorème de la calvitie démontré par Werner Israel en 1967 : un trou noir (on dit qu'il n'a pas de poils) est entièrement connu par ces trois caractéristiques.\\
+	On a dès lors quatre trous noirs possibles : celui qui a une masse sans charge électrique et qui ne tourne pas sur lui-même (trou noir de Schwarszchild), celui qui a une masse plus une charge électrique et qui ne tourne pas sur lui-même  (trou noir de Reissner-Nordström) et celui qui a une masse sans charge et un moment cinétique ( trou noir de Kerr),et enfin celui qui a une masse ,une charge et un moment cinétique (trou Kerr Neumann) quatre solutions exactes des équations de la relativité (voir le chapitre 2). 
+		
+		\begin{table}[H]
+			\begin{center}
+			\centering
+		
+			{ \renewcommand{\arraystretch}{1.9}
+				
+				\begin{tabular}{|l|l|l|}
+					\hline
+					& $J=0$ & $J\neq 0$\\
+					\hline
+					$Q=0$ & Schwarzschild &  Kerr \\
+					
+					\hline
+					$Q\neq 0$ & Reissner-Nordstrom  & Kerr-Neweman \\
+					\hline
+					
+					\hline
+					
+			\end{tabular}}
+			\end{center}
+			\caption{Les types théoriques du trou noir.}
+		\end{table}
+		
+	\section{Conclusion }
+	l’historique des faits se rapportant aux trous noirs, ces faits se sont surtout dérouler lors du dernier siècle, ensuite nous avons vu comment se forme les trous noirs ainsi que les moyens expérimentaux pour les détecter. Pour continuer, nous avons besoin de connaitre les différents types de trous noirs théoriques avec leurs propriétés et de traiter  la partie la plus physique, c'est la thermodynamique du trou noir.
+	\newpage 	 
+	
+	\chapter{Les trous noirs en relativité générale}
+	\section{Introducion}
+	La relativité générale décrit un espace-temps « élastique », courbé par la matière, l’énergie, le rayonnement de sorte que tout mouvement, bien qu’ayant lieu en ligne droite (on nomme géodésique la trajectoire d’un objet dans cet espace-temps), est dévié chaque fois qu’il doit suivre une courbure de l’espace.\\
+	L’espace-temps est caractérisé par sa métrique, c’est-à-dire par le carré de la distance entre
+	deux de ses points $ds^{2}$. Par exemple, la métrique de Minkowski ou la métrique de la relativité
+	restreinte s’écrit en coordonnées cartésiennes :
+	\begin{equation}
+	ds^{2} = dt^{2} -dx ^{2} - dy^{2} - dz^{2}
+	\end{equation}
+	Elle définit un espace-temps sans courbure où les géodésiques sont des droites.
+	On ne doit pas à Einstein, qui ne croit pas en l’existence de ces monstres, mais à Schwarzschild, la résolution des équations de la relativité correspondant à la description des trous noirs. C’est à Wheeler qu’on doit l’appellation « trou noir » pour nommer ce dont Oppenheimer avait déjà fait la théorie en 1939 en montrant qu’une étoile à neutrons de plus de 3 masses solaires devait s’effondrer en trou noir.
+	\section{Principe d’équivalence}
+	D'après la loi d'attraction de Newton universelle, deux masses m1 et m2 distantes de
+	r sont soumises à une attraction mutuelle donnée par
+	\begin{equation}
+	F = G\dfrac{m1m2}{r^{2}} 
+	\end{equation}
+	
+	Alors que le principe fondamentale de la dynamique indique une proportionnalité entre
+	l'accélération subie par un corps et sa masse inertielle.\\
+	Si on considère par conséquent l'application de la loi de gravitation universelle entre la
+	terre de masse gravitationnelle $m_{t}$ et un corps de masse gravitationnelle $m_{g}$, le principe
+	fondamental de Newton s’écrit sous la forme suivante
+	\begin{equation}
+	F=m_{i}a= m_{g}G\dfrac{m_{g}}{r^{2}}e_{r}
+	\end{equation}
+	
+	où $m_{i}$ représente la masse inertielle de ce même corps.\\
+	En effet, en supposant que mi = mg et en se plaçant dans le référentiel en chute libre
+	suffisamment petit pour que le champ reste constant, la force d'inertie va compenser la force
+	gravitationnelle et les équations du mouvement ne font plus apparaître le champs gravitationnel.
+	Un observateur en chute libre ne peut déterminer s'il est soumise ou non à un tel champ
+	extérieur. De manière générale, il est toujours possible de définir en tout point un référentiel
+	localement inertiel dans lequel les équations de mouvement ne font plus intervenir le champ
+	gravitationnel \cite{6}.
+	\section{Équations d’Einstein}
+	L’équation d'Einstein ou équation du champ d'Einstein, publiée par Albert Einstein, pour la première fois le 25 novembre 1915, est l'équation aux dérivées partielles principales de la relativité générale. C'est une équation dynamique qui décrit comment la matière et l'énergie modifient la géométrie de l'espace-temps. Cette courbure de la géométrie autour d'une source de matière est alors interprétée comme le champ gravitationnel de cette source. Le mouvement des objets dans ce champ est décrit très précisément par l'équation de sa géodésique.
+	
+	On ne peut pas démontrer les équations d’Einstein. Toutefois on peut argumenter de la
+	façon suivante :\\
+	$\ast$ C’est l’équation la plus simple possible satisfaisant au principe précédent.\\
+	$\ast$ Elle est mathématiquement cohérent et définit un problème de valeurs initiales.\\
+	$\ast$ Elle redonne l’équation de Newton dans une limite appropriée (la limite non relativiste).\\
+	\\
+	La forme mathématique de l’équation d’Einstein s’écrit \cite{7}
+	\begin{equation}
+	R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}+g_{\mu\nu}\Lambda=8\pi GT_{\mu\nu}
+	\end{equation}
+	
+	-$ R_{\mu\nu}$ : est le tenseur de Ricci, calculé à partir de la courbure de Riemann : $R_{\alpha\beta}$ =$ R_{\mu\alpha\mu\beta}$\\
+	\\
+	-$g_{\mu\nu}$ est la métrique de l’espace temps.\\
+	\\
+	-R : scalaire de Ricci.\\
+	\\
+	- $\Lambda$: constante cosmologique.\\
+	\\
+	- G : constante gravitationnelle de Newton.\\
+	\\
+	-$T_{\mu\nu}$: est le tenseur d’énergie-impulsion.\\
+	\\
+	où la courbure de Riemann et le symbole de Christoffel :
+	\begin{equation}
+	R_{\beta\gamma\delta}^{\alpha}= \partial_{\gamma}\Gamma_{\beta\delta}^{\alpha}-\partial_{\delta}\Gamma_{\beta\delta}^{\varepsilon}+ \Gamma_{\beta\delta}^{\varepsilon}         \Gamma_{\varepsilon\gamma}^\alpha- \Gamma\Gamma_{\beta\gamma}^{\varepsilon}\Gamma_{\varepsilon\delta}^{\alpha}
+	\end{equation}
+	
+	
+	\begin{equation}
+	\Gamma_{\alpha\beta\gamma} = \dfrac{1}{2}( \partial_{\alpha}g_{\beta\gamma}+\partial_{\delta}g_{\gamma\alpha}-\partial_{\gamma}g_{\alpha\beta})
+	\end{equation}
+	
+	Il est possible d’obtenir l’équation d’Einstein à partir du principe de moindre action, avec
+	l’action d’Einstein-Hilbert définie par $(\Lambda = 0)$ :
+	\begin{equation}
+	S_{EH} = \int (L_{G} + L_{M})\sqrt{-g} d^{4}x =  \int\left(\dfrac{R}{2k} + L_{M} \right)\sqrt{-g} d^{4}x
+	\end{equation}
+	avec $L_{G}$ et $L_{M}$ représentent la densité lagrangienne de la gravité et de la matière présente
+	respectivement, où $k = \dfrac{8Gpi}{c^{4}}$  et$ \sqrt{-g} = d^{4}x$ est l’élément de volume spatio-temporel peu importe le système de référence.\\
+	Le principe de moindre action stipule qu’une variation de l’action d’Einstein-Hilbert par rapport
+	à la métrique inverse doit être nulle ce qui nous permet d’obtenir :
+	\begin{equation}
+	\dfrac{\delta S_{EH}}{\delta g^{\mu\nu}} = \int\left[\dfrac{1}{2k}\dfrac{\delta (\sqrt{-g}R)}{
+		\delta g^{\mu\nu}}+\dfrac{\delta \sqrt{-g}L_{M}}{\delta g^{\mu\nu}} \right]\delta g^{\mu\nu}d^{4}x
+	\end{equation}
+	\begin{equation}
+	= \int\left[\dfrac{1}{2k}\dfrac{\delta R}{\delta g^{\mu\nu}}+\dfrac{1}{2k}\dfrac{R\delta \sqrt{-g}}{\sqrt{-\sqrt{g}\delta g^{\mu\nu}}}+\dfrac{1}{\sqrt{-g}}\dfrac{\delta L_{M}}{\delta g^{\mu\nu}}\right]\delta g^{\mu\nu}\sqrt{-g}d^{4}x 
+	\end{equation}
+	
+	$$=0$$
+	Danc on trouve:
+	\begin{equation}
+	\dfrac{\delta R}{\delta g^{\mu\nu}}+\dfrac{R\delta\sqrt{-g}}{\sqrt{-g}\delta g^{\mu\nu}}=-2k\dfrac{1}{\sqrt{-g}}\dfrac{\delta L_{M} }{\delta g^{\mu\nu}}
+	\end{equation}
+	
+	alors:
+	$$\dfrac{\delta R}{\delta g^{\mu\nu}}=R_{\mu\nu}$$ et $$\dfrac{R\delta\sqrt{-g}}{\sqrt{-g}\delta g^{\mu\nu}}=-\dfrac{1}{2}Rg_{\mu\nu}$$
+	et on définisse le tenseur d'énergie à partir de $L_{M}$  $$T_{\mu\nu}=-2k\dfrac{1}{\sqrt{-g}}\dfrac{\delta L_{M} }{\delta g^{\mu\nu}}$$
+	
+	Danc La forme mathématique de l’équation d’Einstein s’écrit  :
+	\begin{equation}
+	R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}=T_{\mu\nu}
+	\end{equation}
+	
+	
+	\section{Le trou noir dans un espace asymptotiquement plat}
+	L’intensité du champ gravitationnel est maximale à proximité du trou noir, mais elle décroît
+	à mesure qu’on s’en éloigne. De plus si on est infiniment éloigné du trou noir, ce champ gravitationnel est carrément inexistant et l’espace temps est essentiellement plat.
+	Donc la métrique asymptotiquement plate, est la solution des équations d’Einstein pour laquelle
+	la métrique tend vers celle de l’espace-temps plat (Minkowski) pour r tend vers l’infini.
+	Dans la suite on va discuter la métrique des différents types théoriques des trous noirs à savoir :\\
+	\\
+	- Le trou noir de Schwarzschild.\\
+	\\
+	- Le trou noir de Reissner Nordstrom.\\
+	\\
+	- Le trou noir de Kerr.\\
+	\\
+	- Le trou noir de Kerr-Newman.
+	\subsection{ la métrique de Schwarzschild }
+	La "métrique de Schwarzschild" (1916) est une solution de l'équation d'Einstein dans le cas d'un champ gravitationnel isotrope. Elle fournit les trois preuves principales de la Relativité Générale: le décalage des horloges, la déviation de la lumière par le Soleil et l'avance du périhélie de Mercure. Ces trois preuves sont très importantes car l'équation d'Einstein n'était pas démontrée expérimentalement à l'époque.\\
+	\\
+	On a $$T_{\mu\nu}=0$$, donc $$R_{\mu\nu}=0$$ 
+	Nous devons donc trouver la métrique qui satisfait cette relation.L'idée est donc de trouver une métrique si possible indépendante du temps ,c'est à dire $ dt=-dt$ et à symétrie sphérique  c'est à dire $d\phi=-d\phi$  et $d\theta=-d\theta$.\\
+	Dès lors, l'équation de la métrique se réduit à :
+	\begin{equation}
+	ds^{2}=A(r)c^{2}dt^{2}-B(r)dr^{2}-C(r)r^{2}d\theta^{2}-C(r)r^{2}sin^{2}(\theta)d\phi^{2}
+	\end{equation}
+	Montrons maintenant que nous pouvons choisir un système de coordonnées pour lequel C(r)=1.\\
+	Introduisons pour cela une distance définie par :\\
+	$$r'=\sqrt{C(r)}r$$
+	d'ou:\\
+	$$C(r)r^{2}=r'^{2}$$
+	Il vient dès lors :\\
+	$$\dfrac{d(r'^{2})}{dr}=C'(r)r^{2}+2C(r)r$$
+	d'ou:\\
+	$$r'dr'=C(r)rdr[1+\dfrac{r}{2C(r)}C'(r)]$$
+	Mettons le tout au carré et divisons à gauche et à droite par $C(r)r^{2}=r'^{2}$ :
+	$$dr^{2}=\dfrac{1}{C(r)}[1+\dfrac{r}{2C(r)}C'(r)]^{-2}dr'^{2}$$
+	d'ou:\\
+	$$Bdr^{2}=\dfrac{B}{C(r)}[1+\dfrac{r}{2C(r)}C'(r)]^{-2}dr'^{2}=B'(r')dr'^{2}$$
+	Dès lors, l'équation de la métrique s'écrit :\\
+	$$ds^{2}=A(r')c^{2}dt^{2}-B'(r')dr'^{2}-r'^{2}d\theta^{2}-r'^{2}sin(\theta)^{2}d\phi^{2}$$
+	C'est donc comme si C(r)=1 :\\
+	\begin{equation}
+	ds^{2}=A(r)c^{2}dt^{2}-B(r)dr^{2}-r^{2}d\theta^{2}-r^{2}sin(\theta)^{2}d\phi^{2}
+	\end{equation}
+	
+Donc :
+\begin{equation}
+g_{\mu\nu}=diag(A(r),-B(r),-r^{2},-r^{2}sin^{2}\theta)
+\end{equation}
+et le tenseur métrique contravariant correspondant (dont nous allons avoir besoin plus loin):
+\begin{equation}
+g^{\mu\nu}=diag(A(r)^{-1},-B(r)^{-1},-r^{-2},-r^{-2}sin^{-2}\theta)
+\end{equation}
+
+tel que: $g^{\mu\nu}g_{\mu\nu}=\delta_{\nu}^{\mu}$\\
+Maintenant, pour déterminer les coefficients restants (soit A et B) nous allons nous aider de la relation que doit satisfaire la métrique :\\
+
+$$R_{\mu\nu}=R_{\mu\alpha\nu}^{\alpha}=R_{\mu,\alpha\nu}^{\alpha}$$
+Les composantes non nulles du tenseur métrique sont :\\
+\subsection*{Calcul des symboles de Christoffel}
+Les seuls symboles non nuls sont :\\
+$$\Gamma_{rr}^{r}=\dfrac{1}{2}g^{rr}g_{(rr,r)}=\dfrac{B'}{2B}$$
+$$\Gamma_{\phi\phi}^{r}=\dfrac{1}{2}g^{rr}(-g_{(\phi\phi,r)})=-\dfrac{r}{B}cos^{2}\theta$$
+$$\Gamma_{\theta\theta}^{r}=\dfrac{1}{2}g^{rr}(-g_{(\theta\theta,r)})=-\dfrac{r}{B}$$
+$$\Gamma_{tt}^{r}=\dfrac{1}{2}g^{rr}(-g_{(tt,r)})=\dfrac{A'}{2B}$$
+$$\Gamma_{r\theta}^{\theta}=\Gamma_{r\theta}^{\theta}=\dfrac{1}{2}g^{\theta\theta}(-g_{(\theta\theta,r)})=\dfrac{1}{r}$$
+$$\Gamma_{\phi\phi}^{\theta}=\dfrac{1}{2}g^{\theta\theta}(-g_{(\phi\phi,\theta)})=sin\theta cos\theta$$
+$$\Gamma_{\phi r}^{\phi}=\Gamma_{r\phi}^{\phi}=\dfrac{1}{2}g^{\phi\phi}(g_{(\phi\phi,r)})=\dfrac{1}{r}$$
+$$\Gamma_{\phi\theta}^{\phi}=\Gamma_{\theta\phi}^{\phi}=\dfrac{1}{2}g^{\phi\phi}(g_{(\phi\phi,\theta)})=-tan\theta$$
+$$\Gamma_{rt}^{t}=\Gamma_{tr}^{t}=\dfrac{1}{2}g^{tt}(g_{(tt,r)})=\dfrac{A'}{2A}$$
+\subsection*{Calcul des composantes du tenseur de Ricci :}
+On trouve que les seuls composantes non nulle du tenseur de Ricci:
+\begin{equation}
+R_{tt}=-\dfrac{A'}{2B}+\dfrac{A'^{2}}{4AB}+\dfrac{A'B'}{4B^{2}}-\dfrac{A'}{rB}
+\end{equation}
+\begin{equation}
+R_{rr}=\dfrac{A''}{2A}-\dfrac{A'^{2}}{4A^{2}}-\dfrac{A'B'}{4AB}-\dfrac{B'}{rB}
+\end{equation}
+\begin{equation}
+R_{\theta\theta}=\dfrac{A'r}{2AB}-\dfrac{rB'}{2B^{2}}+\dfrac{1}{B}-1
+\end{equation}
+\begin{equation}
+R_{\phi\phi}=sin^{2}\theta \left[\dfrac{A'r}{2AB}-\dfrac{rB'}{2B^{2}}+\dfrac{1}{B}-1 \right]=sin^{2}\theta R_{\theta\theta}
+\end{equation}
+
+\subsection*{Résolution de l’équation du champ}
+Nous résolvons cette équation dans l’espace vide autour de l’astre, donc elle s’écrit :\\
+$$R_{\mu\nu}=0$$
+Nous voyons qu’il suffit d’annuler $R_{rr}$ ,$ R_{\theta\theta}$ ,$R_{tt}$ ; d’autre part :\\
+$$\dfrac{R_{rr}}{B}+\dfrac{R_{tt}}{A}=-\dfrac{1}{rB} \left(\dfrac{A'}{A}+\dfrac{B'}{B} \right)$$
+Nous obtenons donc l’équation :\\
+$$\dfrac{A'}{A}=-\dfrac{B'}{B}$$\\
+soit: $AB=Cte$\\
+Nous devons imposer à la métrique de devenir celle de Minkowski à l’infini ; donc à l’infini $A= B = 1$ et :
+$$A=\dfrac{1}{B}$$
+Il nous reste à annuler $R_{rr}$ et $R_{\theta\theta}$. Utilisons la relation précédente, il vient :\\
+$$R_{\theta\theta}=-1+rA'+A$$
+$$R_{rr}=\dfrac{A''}{2A}+\dfrac{A'}{rA}=\dfrac{R'_{\theta\theta}}{2rA}$$
+Nous voyons que sur les trois équations, deux seulement sont indépendantes. Il nous suffit donc d’annuler $R_{\theta\theta}$ :\\
+$(rA)'=1 $ donc $rA=r+Cte $ alors: $A=1+\dfrac{Cte}{r}$
+Pour fixer la constante d’intégration, nous utilisons le fait qu’à grande distance la composante $g_{tt}$ doit être voisine de $1 + \dfrac{2\varphi}{c^{2}}$ , $\varphi$ étant le potentiel newtonien :$ \varphi=-\dfrac{GM}{r}$ ; M est la masse
+gravitationnelle active du trou noir. Il vient $ Cte = \dfrac{2GM}{c^{2}}$ , et :
+\begin{equation}
+A=1-\dfrac{2GM}{rc^{2}}
+\end{equation}
+et
+\begin{equation}
+B=\dfrac{1}{1-\dfrac{2GM}{rc^{2}}}
+\end{equation}  
+
+
+Donc la métrique devient :
+\begin{equation}
+ds^{2}=\left(1 -\dfrac{2GM}{rc^{2}} \right) c^{2}dt^{2}- \left(1 -\dfrac{2GM}{rc^{2}} \right)^{-1}dr^{2}-r^{2}d\theta^{2}-r^{2}sin^{2}(\theta) d\phi^{2}
+\end{equation}
+On observe donc que quand r tend vers l’infini ou M tend vers 0, la métrique tend vers celle
+de Minkowski, l’espace-temps est asymptotiquement plat \cite{8} .
+\subsection*{ singularité : }
+La métrique montre deux singularitées pour deux valeurs de r différentes:\\
+\\
+-La coordonnée r = 0, où la composante $g_{00}$ diverge.\\
+\\
+- La coordonnée $ r = \dfrac{2GM}{c^{2}} = r_{s}$ (rayon de Schwarzschild), où $g_{11}$  qui tend vers l’infinie.\\
+Pour déterminer la singularité physique, un critère simple qui caractérise un problème sérieux est une courbure qui devient infinie. Nous savons quelle est mesurée par le tenseur de Riemann et il n’est pas simple de dire quand un tenseur diverge,car ses composantes dépendent des coordonnées. Mais nous pouvons construire des scalaires à partir du tenseur de courbure et comme les scalaires ne dépendent pas des coordonnées il sera instructif de considérer leur comportement. Par exemple, on calcule le scalaire invariant à partir de tenseur de Riemann :
+\begin{equation}
+R^{\mu\nu\alpha\beta}R_{\mu\nu\alpha\beta}=\dfrac{12r_{s}^{2}}{r^{6}}
+\end{equation}
+Le scalaire est infini en r=0. Cela suffit à nous convaincre que r = 0 est une vraie singularité
+et la singularité à r = $r_{s}$ est une singularité de coordonnées . 
+\subsection*{ La solution de Schwarzschild dans les coordonnées de Kruskal-Szekers : }
+En 1960, Martin Kruskal et George Szekeres construisent une nouvelle métrique permettant d'étudier tous les types de mouvements d'un corps à l'extérieur et sous le rayon de Schwarzschild.\\
+Kruskal et Szekeres utilisent des coordonnées sans dimension,  u pour la coordonnée radiale et  v pour la coordonnée temporelle, définies dans le but d'éliminer le terme $(1-\dfrac{r_{s}}{r})$ dans la nouvelle métrique. Elles reconstruisent  r(u,v),t(u,v) par des fonctions transcendantes.\\
+Les variables  u et v sont définies par \cite{9}
+\begin{equation}
+u^{2}-v^{2}=(\dfrac{r}{r_{s}}-1)e^{\dfrac{r}{r_{s}}}
+\end{equation}
+\begin{equation}
+\dfrac{u+v}{u-v}=e^{\dfrac{ct}{r_{s}}}
+\end{equation}
+
+On distingue deux cas pour le temps :\\
+si $r(u,v)>r_{s}$ alors 
+\begin{equation}
+\tanh\dfrac{ct}{2r_{s}}=\dfrac{v}{u}
+\end{equation}
+
+si $r(u,v)<r_{s}$ alors 
+\begin{equation}
+\tanh\dfrac{ct}{2r_{s}}=\dfrac{u}{v}
+\end{equation}
+On obtient la métrique diagonale :
+\begin{equation}
+ds^{2}=\dfrac{4r_{s}^{3}}{r}e^{-\frac{r}{r_{s}}}(du^{2}-dv^{2})+r^{2}(d\theta^{2}+sin^{2}\theta d\phi^{2})
+\end{equation}
+
+qui est définie pour tout  $r(u,v)>0$. Le temps t est par contre infini au rayon de Schwarzschild (u =+v  et  u=-v).La métrique en coordonnées u et v peut être prolongé à la région entre
+la singularité et l’horizon des événements, et par conséquent la condition r = 0 correspond au
+parabole $ v^{2}-u^{2} = 1$.\\
+On a donc maintenant deux singularités : \\
+$u=\sqrt{v^{2}-1}$ et $u=-\sqrt{v^{2}-1}$\\
+Les droites  r=Cste en coordonnées de Schwarzschild sont les hyperboles\\ $ u^{2}-v^{2}=Cste$ en coordonnées de Kruskal. Leurs asymptotes sont les bissectrices $ u=v$ et $ u=-v$. Les droites  t=Cste en coordonnées de Schwarzschild sont les droites $ \dfrac{v}{u}=Cste$ passant par l'origine en coordonnées de Kruskal. Les singularités sont représentées par les frontières des zones hyperboliques grises sur le dessin ci-dessus.\\
+\\
+Les géodésiques de type lumière sont les lignes orientées à 45 degré. Il est facile de vérifier que pour  $ds=0$ , on a $ du^{2}=dv^{2}$.\\
+\\
+La métrique de Schwarzschild différencie deux régions de l'espace-temps délimitées par l'horizon des événements. La région $ r>2M$ est segmentée en deux avec la métrique de Kruskal-Szekeres.
+
+La condition $ r>r_{s}$ correspond $ u^{2}>v^{2}$ à $ u>|v|$ et $u<-|v|$\\
+La totalité de la géométrie de Schwarzschild est donc représentée par quatre régions différentes en coordonnées de Kruskal.
+\begin{center}
+	\includegraphics[scale=0.5]{image2.png}
+	
+\end{center}
+Figure 2.2 – L’espace-temps en représentation de coordonnées de Kruskal-Szekeres
+pour un trou noir de Schwarzschild.
+
+\subsection{La métrique de Reissner Nordstrom}
+En astrophysique, un trou noir de Reissner-Nordström est un trou noir qui possède une masse M, une charge électrique non nulle Q, et pas de moment angulaire (i.e. un trou noir chargé, mais sans rotation). Puisque la répulsion électromagnétique d'une masse chargée, lors de la compression durant la formation du trou noir, est très largement supérieure à l'attraction gravitationnelle (par environ 40 ordres de grandeur), on pense qu'il s'est formé très peu de ces trous noirs.\\
+\\
+C'est La solution de l'équation d'Einstein en présence de charge Q \cite{7},il été obtenue en 1918 par Hans Reissner et Gunnar Nordström:\\
+\begin{equation}
+R_{\mu\nu}-\dfrac{1}{2}g_{\mu\nu}R+g_{\mu\nu}\Lambda=8G\pi T_{\mu\nu}
+\end{equation}
+
+avec:
+\begin{equation}
+T_{\mu\nu}=\dfrac{1}{4\pi}F_{\mu}^{\delta}F_{\nu\delta}-\dfrac{1}{4}g_{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}
+\end{equation}
+
+On utilise la même démarche par avant pour déterminer la métrique de trou noir chargé,
+l’expression finale est donnée par :
+\begin{equation}
+ds^{2}=-(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})dt^{2}+(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})^{-1}dr^{2}-r^{2}d\theta^{2}-r^{2}sin^{2}(\theta)d\phi^{2}
+\end{equation}
+où les unités géométriques ont été utilisées, c'est-à-dire que la vitesse de la lumière, la constante gravitationnelle et la constante de Coulomb sont égales à 1 $(c=G=1)$ 
+\subsection*{La singularité :}
+Tandis que les trous noirs chargés avec $|Q|<M$ (et surtout avec  $|Q|<< M$) sont similaires aux trous noirs de Schwarzschild, les trous noirs de Reissner-Nordström ont deux horizons : l'horizon des événements et l'horizon interne de Cauchy . Comme pour les autres trous noirs, l'horizon des événements dans l'espace-temps peut être localisé en résolvant l'équation de la métrique : $ g_{00}=0$. Les solutions montrent que l'horizon des événements est situé à :\\
+\\
+-L’horizon intérieur :
+\begin{equation}
+r_{-} = M -\sqrt{M^{2}-Q^{2}}
+\end{equation}
+
+-L’horizon extérieur :
+\begin{equation}
+r_{+} = M + \sqrt{M^{2}-Q^{2}}
+\end{equation}
+La solution dégénère en une singularité lorsque  $|Q|=M$.\\
+\\
+On pense que les trous noirs avec $ |Q|>M$ n'existent pas dans la nature, puisqu'ils contiendraient une singularité nue. Leur existence serait en contradiction avec le principe de censure cosmique du physicien britannique Roger Penrose, qui est généralement considéré comme vrai.
+\subsection{La métrique de Kerr:}
+l'analyse des trous noirs est restée longtemps tributaire de la métrique de schwarzchild et La métrique de Reissner Nordstrom,elles s'appliquent à un trou noir immobile (c’est-à-dire dépourvu de moment d’inertie). Elles ne sont donc pas représentatives de la majorité des trous noirs : en s’effondrant sur elle-même, une étoile conserve son moment d’inertie. Il était donc indispensable de disposer d’une métrique prenant en compte ledit moment d’inertie.\\
+\\
+C’est un mathématicien néo-zélandais, Roy Patrick Kerr , qui découvrit en 1963, une solution exacte des équations d’Einstein permettant de décrire le comportement de l’espace-temps autour d’un trou noir en rotation \cite{1}. Cette solution a révolutionné l’étude des trous noirs. Elle a ouvert un véritable âge d’or dans cette discipline. La métrique sur laquelle elle repose est aujourd’hui appelée métrique de Kerr.\\
+\\
+Soit un trou noir de masse M en rotation et soit J son moment d’inertie.\\
+
+La métrique de Kerr qui décrit l’espace-temps autour de ce trou noir s’exprime de la manière suivante :
+\begin{equation}
+ds^{2}=-(1-\dfrac{2Mr}{\Sigma})dt^{2}+\dfrac{\Sigma}{\Delta}dr^{2}+\Sigma d\theta^{2}+\dfrac{Asin^{2}\theta}{\Sigma} d\phi^{2}-\dfrac{4Marsin^{2}\theta }{\Sigma} dt d\phi
+\end{equation}
+
+avec:
+
+$$A=(r^{2}+a^{2})^{2}-\Delta a^{2}sin^{2}\theta$$
+\\
+$$\Sigma =r^{2}+a^{2}cos^{2}\theta$$
+\\
+$$\Delta=r^{2}-2Mr+a^{2}$$
+\\
+M: est la masse.\\
+J=aM est le moment angulaire du tro noir.\\ on travail dans la convention de c=G=1\\
+Le paramètre $a$ représente le moment cinétique du trou noir. Si le trou noir est immobile $ a= 0 $ et on retrouve la métrique de Schwarzschild. Le moment cinétique maximum est atteint lorsque $\alpha=\dfrac{r_{s}}{2}$ On parle alors de trou noir extrême (ou extrémal).
+\subsection*{La singularité}
+La métrique de Kerr ne possède qu’une singularité intrinsèque là où $ \Sigma= 0$,c'est à dire si : $r = 0$ et $ cos\theta = 0$.
+Si on pose $r = 0$ et $\theta =\dfrac{\pi}{2}  $ dans la la formule (2.33) on retrouve l’équation d’un cercle de rayon a dans le plan z = 0 :
+\begin{equation}
+x^{2} + y^{2} = a^{2}
+\end{equation}
+avec Le changement des coordonnées de Boyer-Lindquist $r,\theta,\phi$ vers les coordonnées cartésiennes x,y,z est donnés par :\\
+$\bullet$ $x = \sqrt{r^{2}+a^{2}} sin\theta cos\phi$ \\
+$\bullet$ $y = \sqrt{r^{2}+a^{2}}sin\theta cos\phi$ \\
+$\bullet$ $z = rcos\theta$ \\
+Cette équation définit la forme de singularité de trou noir de Kerr. Il existe aussi deux autres
+singularité où $\Delta = 0$, cela impose que :\\
+$\bullet$ $r_{+}=M+\sqrt{M^{2}-a^{2}}$ : représente l’horizon extérieur.\\
+$\bullet$ $r_{-}=M-\sqrt{M^{2}-a^{2}}$ : représente l’horizon intérieur.
+\subsection*{Ergosphère :}
+L'ergosphère est dite limite statique en ce sens que les particules qui la franchissent sont obligatoirement entraînées dans le sens de rotation du trou noir, autrement dit, elles y possèdent un moment angulaire de même signe que  J.Cet entraînement confère du moment cinétique et de l'énergie mécanique à une particule qui pénètre dans l'ergosphère puis s'en échappe, de sorte que le trou noir voit son moment cinétique diminuer. C'est le processus de Penrose, qui permet de pomper de l'énergie à un trou noir en rotation. \\
+Cette surface est obtenu lorsque $g_{tt}$ s’annule ($g_{rr}$ infini),on a :\\
+$$g_{00} = -(1 - \dfrac{2Mr}{\Sigma} ) = -\dfrac{1}{\Sigma}(\Delta - a^{2}\cos^{2}\theta)$$
+- $g_{00}$ s’annule pour : \\
+$r = r_{s+} = M^{2} + \sqrt{M^{2}-a^{2}cos^{2}\theta}$ et $r = r_{s-} = M^{2} -\sqrt{M^{2}-a^{2} cos^{2}\theta }$.$r_{s-}$ est complètement intérieure à $r_{s+}$.\\
+- La surface $r_{s+}$ est appelée limite statique, le volume compris entre $r_{s+}$ et $ r = r_{+} $ est appelé l’ergosphère.
+\begin{center}
+	\includegraphics[scale=0.5]{Capture.png}
+\end{center}
+Figure 2.3 – Représentation d’un trou noir de Kerr
+\subsection{La métrique de Kerr-Newmann}
+En astronomie, un trou noir de Kerr-Newman est un trou noir de masse M avec une charge électrique Q non nulle et un moment cinétique J également non nul. Il tient son nom du physicien Roy Kerr, découvreur de la solution de l'équation d'Einstein dans le cas d'un trou noir en rotation non chargé, et Ezra T. Newman, codécouvreur de la solution pour une charge non nulle, en 1965.\\
+Le trou noir de Kerr-Newmann est décrit par la métrique du même nom, qui s'écrit :
+\begin{equation}
+ds^{2}=-\dfrac{\Delta}{\rho^{2}}(dt-asin^{2}\theta d\phi)^{2}+\dfrac{sin^{2}}{\rho^{2}}[(r^{2}+a^{2})d\phi-adt]^{2}+\dfrac{\rho^{2}}{\Delta}dr^{2}+\rho^{2}d\theta^{2}
+\end{equation}
+
+où :
+
+$$\Delta=r^{2}-2Mr+a^{2}+Q^{2}$$
+et :
+$$\rho^{2}=r^{2}+a^{2}cos^{2}\theta$$ 
+et finalement :
+$$a=\dfrac{J}{M}$$
+Quand $Q=a=0$, la métrique de Kerr-Newmann se réduit à la métrique de Schwarzschild (cas non chargé et sans rotation). Lorsque $a=0$, elle se réduit à la métrique de Reissner-Nordström, et lors que $ Q=0$ à la métrique de Kerr. Lorsque $ M=Q=0$, le cas se réduit à la métrique d'un espace de Minkowski vide, mais dans des coordonnées sphéroïdales peu habituelles.
+
+De la même manière que la métrique de Kerr, celle de Kerr-Newmann décrit un trou noir seulement lorsque $a^{2}+Q^{2}< M^{2}$.	
+	
+Le résultat de Newmann représente la solution la plus générale de l'équation d'Einstein pour le cas d'un espace-temps stationnaire, axisymétrique, et asymptotiquement plat en présence d'un champ électrique en quatre dimensions. Bien que la métrique de Kerr-Newmann représente une généralisation de la métrique de Kerr, elle n'est pas considérée comme très importante en astrophysique puisque des trous noirs « réalistes » n'auraient généralement pas une charge électrique importante.
+\chapter{La thermodynamique des trous noirs}
+\section{Problématique}
+En concluant que rien, ni matière ni rayonnement, ne peut sortir de la sphère horizon
+d'un trou noir,donc  les trous noirs n'avaient pas d'entropie. L'entropie d'un corps est directement liée à sa température. Or un corps dont la température n'est pas nulle rayonne. Comme aucun rayon ne peut échapper d'un trou noir, sa température est nécessairement nulle. \\
+Pourtant, peu de temps après la découverte des premiers trous noirs, Jacob Bekenstein et Stephen Hawking vont révolutionner la compréhension que nous avons de ces objets aux propriétés extravagantes. En 1972, Jacob Bekenstein va formuler l'hypothèse que les trous noirs ont une entropie et donc qu'il rayonne. Stephen Hawking découvrira deux ans plus tard le mécanisme à l'origine de ce rayonnement.\\
+Le rayonnement de Hawking est de nature quantique. Il est au cœur d'un paradoxe qui n'est pas résolu et qui suscité de nombreuses polémiques dans le milieu scientifique : le paradoxe de l'information \cite{10}.
+\section{Les quatre lois de la dynamique des trous noirs}
+\subsection{Loi Zéro}
+La gravité de surface k d'un trou noir stationnaire est constante sur toute
+la surface de l'horizon.\\
+La thermodynamique ne permet pas l'équilibre lorsque les différentes parties d'un système ont des températures différentes. L'existence d'un état d'équilibre thermodynamique
+est postulée par la loi zéro de la thermodynamique. Pour la physique des trous noirs, la
+loi zéro joue un rôle similaire.
+\subsection{Premier loi}
+Lorsqu'un système contenant un trou noir passe d'un état stationnaire à un autre,  la
+variation de sa masse entraîne une variation de l'énergie cinétique angulaire $\Omega_{h}\delta J$, une variation de l'énergie potentielle électrique $\Phi_{h}\delta Q$ et une variation d'énergie de rayonnement $\dfrac{k}{8\pi}\delta A$.
+\begin{equation}
+\label{ff}
+dM=\dfrac{k}{8\pi}\delta A+\Omega_{h}\delta J+\Phi_{h}\delta Q
+\end{equation}
+On peut la comparer avec le premier principe de la thermodynamique :
+\begin{equation}
+dE = T\delta S +\delta W
+\end{equation}
+Le terme $dE$ ressemble bien au terme $c^{2}dM$, on a pris $(c^{2} = 1)$, de l'équation du trou
+noir, et le terme $\delta W $correspond à $\Omega_{h}\delta J+\Phi_{h}\delta Q$. Pour que l'analogie entre trous noirs et thermodynamique présente un sens physique, il faut donc supposer que le terme $\dfrac{k}{8\pi}\delta A$ puisse s'identifier au terme de la quantité de chaleur fournie au système $\delta Q = T \delta S$. On peut voir que $\dfrac{k}{8\pi}$ est analogue à la température de la même manière que A est analogue à l'entropie \cite{11}.
+\subsection{Deuxième loi}
+Dans n'importe quel processus classique, l'aire du trou noir A ne diminue pas.
+\begin{equation}
+\Delta  A \geq  0
+\end{equation}
+
+Cette forme, analogue au second principe de la thermodynamique, est une conséquence
+du théorème de l'aire de Hawking qui pose que dans  un processus quelconque d'interaction d'un ou plusieurs trous noirs entre eux et/ou avec un environnement, la somme des aires des horizons des trous noirs est une fonction croissante du temps.
+\begin{equation}
+A_{3} \geq A_{1} + A_{2}
+\end{equation}
+
+Cette seconde loi est analogique avec loi second loi de la thermodynamique :\\
+L'entropie d'un système isolé ne peut qu'au gmenter $\delta S \geq 0$ \cite{12}.
+\subsection{Troisième loi}
+Cette lois est analogue au troisième principe de la thermodynamique :\\
+- Les processus isothermes réversibles deviennent isentropiques dans la limite de la
+température zéro .\\
+- Il est impossible de réduire la température d'un système à zéro absolu par un nombre
+fini d'opérations.\\
+De même pour la  troisième loi de la thermodynamique pour les trous noirs :il est impossible d'obtenir $k = 0$, la gravité de la surface de l'horizon, par n'importe processus physique.\\
+Barden, Carter et Hawking formulèrent l'analogue du troisième principe pour les trous
+noirs de la manière suivante : Il est impossible, quelle que soit la procédure, de réduire la
+température d'un trou noir à zéro par une séquence finie d'opérations \cite{13,12,1}.\\
+Le tableau 3.1 représente une récapitulation de l’analogie entre les lois de la thermodynamique ordinaire et ceux du trou noir :\\
+\\
+\begin{table}
+	{ \renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|l|l|l|}
+\hline
+ Pincipe & Thermodynamique Standard  & Thermodynamique des trous noirs\\
+ \hline
+ Principe zéro & La température T d’un corps est &  La gravité de surface k d’un trou \\
+            &             la même  partout  dans celui-ci &  noir stationnaire est constante  \\
+             &              à l’équilibre thermique.  &  sur tout l’horizon des événements \\
+\hline
+Premier principe & $dE=T\delta S+ \delta W$ . & $dM=\dfrac{k}{8\pi}\delta A+\Omega_{h}\delta J+\Phi_{h}\delta Q$ \\
+\hline
+Deuxième principe & L'entropie d'un système isolé ne   & L'air A de l'horizon des événements \\
+       &  peut qu'augmenter $\delta S \geq 0$.   &  de chaque trou noir ne peut pas  \\
+         &     & décroître $\delta A\geq 0$.\\
+\hline
+Troisième principe & On ne peut atteindre $T = 0$ & On ne peut pas atteindre $k = 0$\\
+               &      par aucun processus physique.   &  par aucun processus. \\
+\hline
+\end{tabular}}
+\caption{L'analogie entre la thermodynamique standard et la thermodynamique des trousnoirs.}
+\end{table}
+
+
+\section{Rayonnement du trou noir}
+\subsection{Effet Hawking}
+Pour l'explication du rayonnement de Hawking, il faut d'abord expliquer la fluctuation du vide, en effet, Le vide est un endroit qui est tout sauf vide. En effet il s'y crée en permanence des paires de
+particules/antiparticules pour de brefs instants. Ceci est possible grâce au principe d'incertitude
+de Heisenberg : l'énergie du vide, que l'on suppose nulle, ne peut être définie qu'à $\Delta E$ près
+pendant un temps $\Delta T$ avec la relation $\Delta E \Delta T > \dfrac{h}{4 \pi}$. où h est la constante de Planck. Des paires particules/antiparticules d'énergie $\pm \Delta E$ vont donc se créer et se recombiner en permanence, avec une durée de vie de l'ordre de$ \dfrac{h}{\Delta T}$. Notez qu'une des deux particules possède une énergie positive, et l'autre une énergie négative, de façon à ce que l'énergie totale soit toujours constante.Ce phénomène est appelé fluctuations du vide quantique.\\
+\\
+Imaginons un pair de particules créée prés de l'horizon d'un trou noir. Il est alors possible
+sous l'effet des forces de marées que la particule d'énergie négative, tombe derrière l'horizon,
+et la particule d'énergie positive restante peut s'éloigner à une grande distance du trou noir.
+la particule ne pouvant plus se recombiner avec son antiparticule, elle va devenir réelle et
+apparaître à un observateur distant comme ayant été émise par le trou noir. Cette particule
+a emporté de l'énergie, il faut donc que le trou noir perde la même quantité d'énergie pour
+compenser.\\
+On voit donc un apparaître d'un rayonnement d'évaporation en provenance du trou noir. donc,
+il possède une température qui s'appelle aussi température de Hawking.
+\subsection{Température et Luminosité du trou noir}
+L'évaporation d'un trou noir s'accompagne de l'émission de photons, donc d'un rayonnement électromagnétique. Ce dernier permet de définir la température du trou noir comme pour un corps noir.  Cette température est inversement proportionnelle à la masse du corps et la température des trous noirs supermassifs est donc encore beaucoup plus petite \cite{14}.\\
+Comme conséquence de l'évaporation, la diminution de masse du trou noir. On peut parler
+donc de la luminosité et la durée de vie de ce dernier.prenons tout d'abord l'expression de la température de Hawking en unités standard :
+\begin{equation}
+T=\dfrac{\hbar c^{3}}{8\pi k_{b}GM}
+\end{equation}
+Avec $k_{b}$ est la constante de Boltzmann, $\hbar = \dfrac{h}{2\pi}$ (h
+est la constante de Plank ).\\
+Connaissant le rayon de Schwarzschild, on peut calculer l'air de l'horizon A par:
+\begin{equation}
+A=4\pi r_{s}^{2}=\dfrac{16 \pi G^{2}M^{2}}{c^{4}}
+\end{equation}
+la luminosité de rayonnement d'Hawking est donnée par:
+\begin{equation}
+L=A\sigma T^{4}=\dfrac{\hbar c^{2}}{3840\pi r_{s}^{2}}=\dfrac{\hbar c^{6}}{15639\pi G^{2}M^{2}}
+\end{equation}
+Avec $\sigma = \dfrac{\pi^{2}k_{b}^{4}}{60\hbar^{3}c^{4}}$ \cite{15} est la constante de Stefan-boltzman.
+\subsection{Durée de vie d’un trou noir}
+On sait aussi que d'après l'équation d'Einstein reliant l'énergie à la masse $(E = Mc^{2})$, que
+$dE = c^{2}dM$ or $\dfrac{-dE}{dt}$ est égale à la luminosité du trou noir et ainsi on peut trouver la durée de vie d'un trou noir :
+\begin{equation}
+\dfrac{-dE}{dt}=\dfrac{\hbar c^{2}}{15360\pi G^{2}M^{2}}
+\end{equation}
+Alors
+\begin{equation}
+\dfrac{-dM}{dt}=\dfrac{\hbar c^{4}}{15360\pi G^{2}M^{2}}
+\end{equation}
+
+Pour trouver la durée de vie de trou noir $\tau$ en fonction de la masse initiale M du
+trou noir, on sépare les variables de l’équation (3.18) et on intègre entre un temps initial
+supposant égale 0 et un certain temps $\tau$. on obtient
+\begin{equation}
+\tau=\int_0^\pi dt=-\dfrac{15360\pi G^{2}}{\hbar c^{4}}\int_0^M M^{2}dM
+\end{equation}
+
+Finalement, la durée de vie de trou noir de masse initiale M est égale
+
+\begin{equation}
+\tau=\dfrac{5120\pi G^{2}}{\hbar c^{4}}M^{3}
+\end{equation}
+Après les calculs des constantes, on obtient
+\begin{equation}
+\tau = 10^{-16}M^{3}s.kg^{-3}
+\end{equation}
+
+est la durée de vie d’un trou noir une fois qu’il commence à s’évaporer.
+
+\chapter{THERMODYNAMIQUE DES TROUS NOIRS DANS UN ESPACE RN ADS}
+\section*{Introduction}
+Dans le chapitre président, on voit l'absence de terme pression-volume $P\delta V$ dans l'équation \ref{ff} au contre de la premier loi de la thermodynamique habituelle .Au cours des dernières années, une nouvelle perspective a émergé qui intègre
+ces notions dans la thermodynamique du trou noir. Kastor et al. \cite{16} ont remarqué que la
+pression peut être associée à une constante cosmologique négative $\varLambda$ , une forme d’énergie
+dont la pression (positive) est égale en amplitude à sa densité d’énergie (négative).
+Un trou noir RN AdS est une solution aux équations
+d’Einstein qui s’écrit sous la forme
+\begin{equation}
+R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}+g_{\mu\nu}\Lambda=8\pi GT_{\mu\nu}
+\end{equation}
+où $\Lambda$ est souvent paramétré par le rayon cosmologique l qui représente la courbure de
+l’espace RN AdS par
+\begin{equation}
+\Lambda=-\dfrac{3}{l^{2}}
+\end{equation}
+et $T_{\mu\nu}$ est le tenseur énergie-impulsion de la matière.\\
+
+En traitant la constante cosmologique comme une pression thermodynamique et sa quantité conjuguée comme un volume thermodynamique \cite{16},pour les trous noirs asymptotiquement AdS en quatre dimensions,on identifie la pression avec \cite{16}
+\begin{equation}
+\label{pre}
+P=-\dfrac{\Lambda}{8\pi}=\dfrac{3}{8\pi l^{2}}
+\end{equation}
+Avec cette identification, il est possible d’écrire le premier principe de la thermodynamique
+des trous noirs \ref{ff}  dans sa forme généralisée suivante
+\begin{equation}
+dM=T\delta S+V\delta P+\Omega_{h}\delta J+\Phi_{h}\delta Q
+\end{equation}
+
+\section{Thermodynamique du trou noir  AdS}
+Dons cette section  on va étudier le trou noir de masse M et de charge $ Q = 0 $ en calculant
+les grandeurs thermodynamiques qui le caractérise, ainsi, on va étudier la transition de phase 
+de ce genre de trou noir.\\
+La solution qui décrit ce type de trou noir est donnée par la métrique suivante :
+\begin{equation}
+ds^{2}=-f(r)dt^{2}+f(r)^{-1}dr^{2}+r^{2}d\theta^{2}+r^{2}sin\theta d\phi^{2},
+\end{equation}
+où
+\begin{equation}
+\label{trr}
+f(r)=1-\dfrac{2M}{r}+\dfrac{r^{2}}{l^{2}}
+\end{equation}
+L'horizon du trou noir est déterminé par la condition$ f(r_{h}) = 0$. D’après l’équation \ref{trr} on obtient:
+\begin{equation}
+\label{jem}
+M=\dfrac{r_{h}}{2}(1+\dfrac{r_{h}^{2}}{l^{2}})
+\end{equation}
+ON voit bien que la masse M est une fonction croissante monotone qui s’annule linéairement lorsque $r_{h}\longrightarrow 0.$
+Le trou noir de  AdS admet une solution  à symétrie sphérique.
+Dans ce cas  l’air de l’horizon est donnée par  $A=4\pi r_{h}^{2}$ .
+Or on a déjà vue que $S=\dfrac{A}{4}$,alors
+\begin{equation}
+\label{tem}
+S=\pi r_{h}^{2}
+\end{equation}
+En utilisant le premier principe de la thermodynamique des trous noirs,on
+a identié la masse du trou noir avec l'enthalpie d'un système thermodynamique, $M \equiv H$.
+\begin{equation}
+dM=TdS+VdP,
+\end{equation}
+la température de Hawking peut être calculée par
+\begin{equation}
+T=(\dfrac{\partial M}{\partial S})_{P}
+\end{equation}
+D'après les équations \ref{jem} et \ref{tem} , on peut déterminer l’expression de T comme
+\begin{equation}
+\label{fem}
+T=\dfrac{1}{4\pi}(1+\dfrac{3r_{h}^{2}}{l^{2}})
+\end{equation} 
+La variable conjuguée à la pression (ou constante cosmologique) est donnée par
+\begin{equation}
+V=(\dfrac{\partial M}{\partial P})_{S} =\dfrac{4\pi}{3}r_{h}^{3},
+\end{equation}
+qui n’est rien d’autre que le volume géométrique d’une sphère de rayon $r_{h}$. Il est clair
+maintenant que toute les variables thermodynamiques T, S, V et P vérifient la relation
+de Smarr \cite{16} .
+D'aprés \ref{fem} et \ref{pre} ,l'expression de la pression devient 
+\begin{equation}
+P=-\dfrac{1}{8\pi r_{h}^2}+\dfrac{T}{2r_{h}}
+\end{equation}
+nous employons une nouvelle quantité $\nu$, correspondant au "volume spécifique" de le fluide, défini par :$ 2r_{h}$. L'équation d'état pour le cas du trou noir AdS est \cite{18}:
+\begin{equation}
+\label{rgh}
+P=-\dfrac{1}{2\pi \nu^2}+\dfrac{T}{\nu}
+\end{equation}
+Le diagramme isotherme $P-\nu$ qui traduit l'équation d'état \ref{rgh} est représenté  sur la figure \ref{pv}
+\begin{figure}
+	\begin{center}
+	\includegraphics[scale=1]{images/pv.png}
+	
+	\caption{Le diagramme isotherme $P-\nu$ du trou noir de AdS. }
+	\label{pv}
+	\end{center}
+	
+\end{figure}
+
+\begin{equation}
+M=2TS-2PV
+\end{equation}
+Pour obtenir plus d'informations sur la stabilité thermodynamique, on peut étudier l'énergie libre de Gibbs G donnée par
+\begin{equation}
+G=M-TS
+\end{equation}
+En utilisant les relation \ref{jem}, \ref{fem} et \ref{tem}, on trouve :
+\begin{equation}
+\label{esx}
+G=\dfrac{r_{h}}{4}(1-\dfrac{r_{h}^{2}}{l^{2}}),
+\end{equation}
+Or on $P=\dfrac{3}{8\pi l^{2}}$,l'equation \ref{esx} devient
+\begin{equation}
+G=-\dfrac{2\pi}{3}Pr_{h}^{3}+\dfrac{r_{h}}{4}.
+\end{equation}
+L’énergie libre ici dépend de la pression et le rayon de l’horizon. Le rayon de l’horizon est
+dépendu de la température de Hawking du trou noir. Donc l’énergie libre du trou noir est
+dépendue implicitement de température.\\
+ Nous traçons dans la figure\ref{gtttrn} l’énergie libre de Gibbs G en fonction de température T et dans la figure \ref{trhh} la température T en fonction de $r_{h}$
+ 
+ \begin{figure}[H]
+ \begin{center}
+ 	\includegraphics[scale=1]{images/gtrn.png}
+\caption{L'énergie libre de Gibbs
+	d'un trou noir de Shwarzchild-AdS en
+	fonction de T . On fixe l= 1}
+\label{gtttrn}
+ \end{center}
+ \end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1]{images/trhh.png}
+		\caption{La température en fonction de rh. On fixe l= 1}
+		\label{trhh}
+	\end{center}
+\end{figure}
+
+ d'après ces deux figure on voit que on a trois zones. la zone où $T<T_{m}$ , il n’y a pas de trous noirs mais une phase de rayonnement thermique dans l’espace AdS pur  où le bain de chaleur de fond est trop froid
+\cite{19}. Lorsque $T = T_{m}$, l’énergie libre présente un point d’inflexion , il y aura
+une transition de phase bien définie à cette température,cette température minimale qui assure l’existence du trou noir se calcule facilement à partir de la condition $\dfrac{\partial T}{\partial r_{h}} = 0$. Utilisons l’équation \ref{fem}, on obtient
+
+\begin{equation}
+r_{hm}=\dfrac{l}{\sqrt{3}},
+\end{equation}
+\begin{equation}
+T_{m}=\dfrac{\sqrt{3}}{2\pi l}.
+\end{equation}
+D’autre part,pour la zone $T_{m}<T<T_{HP}$ dans la figure\ref{gtttrn}, il y a deux trous noirs qui peuvent être en équilibre avec un rayonnement thermique,le petit trou noir (caractérisé par une chaleur spécifique négative) est localement instable et se décompose en un rayonnement thermique ou sur le grand trou noir. D’autre part, le grand trou noir avec une énergie libre positive n’est pas globalement stable, ce qui est localement stable .Autrement dit, les deux petits et grands états du trou noir dans cette plage de température sont moins susceptibles qu’un rayonnement thermique pur.\\
+Lorsque la température est dans la région de $T > T_{HP}$, il y a encore deux trous noirs que le grand trou noir est maintenant globalement stable, ce qui a une
+capacité calorifique positive et une énergie libre négative, mais le petit trou noir a un courant
+négatif de capacité et l’énergie libre positive de sorte qu’il est instable de se dégrader dans l’état
+globalement stable du trou noir. Le système est globalement stable dans la phase des
+larges trous noirs. On remarque que G s’annule à $ T = T_{HP}$ , ce point est appelé le point de
+transition de phase d’Hawking-Page (Hawking et Page 1983) \cite{20}, parce que à partir de
+ce point la phase du rayonnement thermique commence à pénétrer dans la configuration
+des larges trous noirs.
+On calcule la température $ T_{HP}$ et le rayon $r_{hHP}$ qui correspondent à
+la transition de phase de Hawking-Page en résolvant l’équation G = 0. On obtient alors
+
+\begin{equation}
+\label{sdf}
+T_{HP}=\dfrac{1}{\pi l}
+\end{equation}
+Finalement,on peut résumée ces phases selon les conditions suivantes :\\
+\\
+$\bullet$  Pour $T < T_{m}$, seulement la phase rayonnement thermique pure qui existe.\\
+\\
+$\bullet$ Pour $ T_{m} < T < T_{HP}$ , on a $ G_{rayonement} < G_{trou noir}$, la phase rayonnement thermique est plus stable et donc plus dominante.\\
+\\
+$\bullet$ Pour $T > T_{HP}$ , on a $G_{large trou noir} < G_{rayonnemnt}$, la phase large trou noir c’est la plus stable et la pus dominante.\\
+\\
+La ligne de coexistence des deux phases : rayonnement thermique/large trou noir, est
+déterminée à partir de l’équation \ref{sdf}. Elle s’écrit comme suit :
+
+\begin{equation}
+P_{HP}=\dfrac{3\pi}{8}T_{HP}^{2}
+\end{equation}
+
+\subsection{La stabilité et la chaleur spécifique}
+Dons cette partie on veut étudier l'une des grandeurs thermodynamiques, c'est la capacité calorifique . Elle représente la quantité de chaleur nécessaire pour modifier la température d’un objet ou d'un corps d'une quantité donnée. On va utiliser cette variation de chaleur spécifique en fonction de rayon de l'horizon,Pour le confirmer avec les résultats trouvés à partir du diagramme $G-T$ .\\
+Le changement de signe de la chaleur spécifique signifiait un transition de phase du trou noir. Ainsi, la phase stable est caractérisée par une chaleur spécifique positive, et la phase instable par une chaleur spécifique négative.\\
+La capacité thermique à pression constante peut être calculée en utilisant la relation suivante :
+\begin{equation}
+\label{sq}
+C_{p}=T(\dfrac{\partial S}{\partial T})_{p}=T(\dfrac{\partial S}{\partial r_{h}})_{p}(\dfrac{\partial r_{h}}{\partial T})_{p}.
+\end{equation}
+
+Alors
+\begin{equation}
+C_{p}=-\dfrac{2\pi r_{h}^{2}(1+8\pi Pr_{h}^{2})}{-1+8\pi Pr_{h}^{2}}
+\end{equation}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1]{images/cp1.png}
+		\caption{Diagramme $C_{p}-r_{h}$ pour une pression P = 0.06.}
+		\label{cprhh}
+	\end{center}
+\end{figure}
+
+Le diagramme $C_{p} - r_{h}$ est affiché sur la figure \ref{cprhh}. On peut voir que la valeur de la chaleur spécifique s’annule lorsque $r_{h}\longrightarrow 0$. Cependant $C_{p}$ a une asymptote verticale au point $r_{h} = \dfrac{l}{\sqrt{3}} =r_{hm}$, qui n’est autre que celui correspondant à la température minimale $T_{m}=\dfrac{3\sqrt{3}}{4 l}$.\\
+La figure 4.4 montre deux région :\\
+\\
+$\bullet$ La région de $r_{h} < r_{hm}$, qui correspond à $ T < T_{m}$, c’est la phase radiation thermique, où la chaleur spécifique est négative,dans ce cas le système thermodynamique est instable (localement).\\
+\\
+$\bullet$ La région de $r_{h} > r_{hm}$ ,est la phase large trou noir où la chaleur spécifique est positive, donc c’est la région stable.
+
+\section{Thermodynamique du trou noir RN AdS}
+Dans cette section on va étudier la thermodynamique et la transition de phase d’un
+trou noir chargé dans un espace AdS (RN-AdS). La solution qui décrit ce type de trou
+noir est donnée par la métrique suivante :
+\begin{equation}
+ds^{2}=-f(r)dt^{2}+f(r)^{-1}dr^{2}+r^{2}d\theta^{2}+r^{2}sin\theta d\phi^{2},
+\end{equation}
+
+où
+\begin{equation}
+\label{ddd}
+f(r)=1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}}+\dfrac{r^{2}}{l^{2}},
+\end{equation}
+
+L’horizon du trou noir est déterminé par la condition$ f(r_{h}) = 0$. D’après l’équation \ref{ddd} on obtient:
+\begin{equation}
+\label{xx}
+M=\dfrac{r_{h}}{2}\left( 1+\dfrac{Q^{2}}{r_{h}^{2}}+\dfrac{r_{h}^{2}}{l^{2}}\right) ,
+\end{equation}
+
+On interprète la constante cosmologique $\Lambda$ comme une pression thermodynamique $P=\dfrac{3}{8\pi l^{2}}$ , la masse devient
+\begin{equation}
+M=\dfrac{1}{2} \left( r_{h}+\dfrac{Q^{2}}{r_{h}}+\dfrac{8\pi}{3}r_{h}^{3}P\right) ,
+\end{equation}
+
+En utilisant le premier principe de la thermodynamique des trous noirs,on a identifié la masse du trou noir avec l’enthalpie d’un système thermodynamique, $M \equiv H$.
+\begin{equation}
+dM=TdS+VdP,
+\end{equation}
+Ceux-ci sont définis comme
+\begin{equation}
+T=(\dfrac{\partial M}{\partial S})_{Q,P}=\dfrac{1}{4\pi}(\dfrac{2M}{r_{h}^{2}}-\dfrac{Q^{2}}{r_{h}^{3}}+\dfrac{2r_{h}}{l^{2}})
+\end{equation}
+Or\\
+$P=\dfrac{3}{8\pi l^{2}} $ ,l'exprécient de T devient
+\begin{equation}
+\label{yy}
+T=\dfrac{1}{4r_{h}\pi}(1-\dfrac{Q^{2}}{r_{h}^{2}}+8\pi Pr_{h}^{2})
+\end{equation}
+
+\begin{equation}
+\Phi=(\dfrac{\partial M}{\partial Q})_{S,P}=\dfrac{Q}{r_{h}}
+\end{equation}
+
+où $\Phi$ est la différence de potentiel entre l'horizon et l'infini, T est la température de  Hawking.\\
+
+La variable conjuguée à la pression (ou constante cosmologique) est donnée par
+\begin{equation}
+V=(\dfrac{\partial M}{\partial P})_{S,Q} =\dfrac{4\pi}{3}r_{h}^{3}
+\end{equation}
+
+qui n’est rien d’autre que le volume géométrique d’une sphère de rayon $r_{h}$. Il est clair
+maintenant que toute les variables thermodynamiques T, S, V et P vérifient la relation
+de Smarr \cite{17}
+\begin{equation}
+M=2TS-2PV+\Phi Q
+\end{equation}
+
+Pour trouver l’équation d’état , on utilise l’équation \ref{yy} et on trouve :
+\begin{equation}
+P=\dfrac{T}{2r_{h}}-\dfrac{1}{8\pi r_{h}^{2}}+\dfrac{Q^{2}}{4\pi r_{h}^{4}}
+\end{equation}
+Si on considère la pression et la température physiques  :\\
+$P_{ph}=\dfrac{\hbar c}{l_{p}^{2}}P$ et $T_{ph}=\dfrac{\hbar c}{k}T$ \\
+avec $l_{p}^{2}=\dfrac{\hbar G}{c^{3}}$est la longueur de Planck, k la constante de Boltzmann.
+\begin{equation}
+\label{12}
+P_{ph}=\dfrac{\hbar c}{l_{p}^{2}}(\dfrac{T}{2r_{h}}-\dfrac{1}{8\pi r_{h}^{2}}+\dfrac{Q^{2}}{4\pi r_{h}^{4}})
+\end{equation}
+En comparant \ref{12} avec l’équation de Van der Waals, on peut conclure le volume spécifique
+\cite{21} :
+\begin{equation}
+\nu=2l_{p}^{2}r_{h}
+\end{equation}
+l’équation
+Danc d’état peut maintenant s’écrire
+\begin{equation}
+\label{dff}
+P=\dfrac{T}{\nu}-\dfrac{1}{2\pi \nu^{2}}+\dfrac{2Q^{2}}{\pi \nu^{4}}
+\end{equation}
+La représentation de l'équation \ref{dff} dans le diagramme $P -\nu$ pour trois valeurs différentes
+de la température :$ T = T_{c}$, $T > T_{c}$, $T < T_{c}$ ,avec $T_{c}$ est la la température critique, donne la figure \ref{pvrn}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=1]{images/pvrn.png}
+	
+	\caption{La pression sur l'horizon
+		d’un trou noir de RN-AdS en fonction de
+	$\nu$ pour différentes valeurs de température.
+		On fixe$ Q = 1$.}
+	\label{pvrn}
+\end{center}
+\end{figure}
+
+On remarque dans ce figure ,que pour $ T < T_{c}$ montre un comportement qui ressemble à celui des
+gaz réels de Van der Waals, c’est la transition de phase entre le phase "petit" et la phase
+"large" trou noir.\\
+
+Pour calculer les coordonnées de point critique, on utilise les deux équations :
+
+\begin{equation}
+\dfrac{\partial P}{\partial \nu}=0  
+\end{equation}
+et
+\begin{equation}
+\dfrac{\partial^{2} P}{\partial^{2} \nu}=0
+\end{equation}
+La dérivée première nulle implique que la courbe $ P - \nu$ possède un extrémum, et la dérivée
+seconde nulle implique que le point extrémum est un point d’inflexion.
+La résolution de ce système donne les coordonnées du point critique (volume et pression), ainsi
+que la température correspondante :
+\begin{equation}
+\label{pc}
+P_{c}=\dfrac{1}{96\pi Q^{2}},
+\end{equation}
+\begin{equation}
+\label{tc}
+\nu_{c}=2\sqrt{6}Q,
+\end{equation}
+\begin{equation}
+\label{vc}
+T_{c}=\dfrac{\sqrt{6}}{18\pi Q},
+\end{equation}
+Examinant les coordonnées critiques, nous trouvons une relation importante
+\begin{equation}
+\dfrac{P_{c}\nu_{c}}{T_{c}}=\dfrac{3}{8},
+\end{equation}
+qui représente la constante universelle de Van der Waals .
+\subsubsection{Énergie libre de Gibbs et la température de coexistence}
+Dans ce paragraphe, on veut présenter l’effet de transition de phase du trou noir sur quelques
+grandeurs thermodynamiques à savoir.
+
+Ensuite, nous nous concentrons sur l’étude de la criticité. À cette fin, nous devons d’abord étudier
+l’énergie libre de Gibbs G(T, P) . C’est le potentiel thermodynamique qui correspond à l’étude de type d’un
+trou noir de RN-AdS dans l’ensemble canonique (Q est fixe). Son expression est donnée par :
+\begin{equation}
+G = M - TS,
+\end{equation}
+utilisons les équations \ref{xx}, \ref{yy} et \ref{tem}, on peut facilement écrire G en fonction de $r_{h}$
+
+\begin{equation}
+G=\dfrac{3Q^{2}}{4r_{h}}-\dfrac{2\pi}{3}r_{h}^{3}+\dfrac{r_{h}}{4}.
+\end{equation}
+et G  en fonction de $\nu$ 
+\begin{equation}
+G=\dfrac{1}{4}\left(\dfrac{\nu}{2}-\dfrac{\pi}{3}P\nu^{3}+\dfrac{6Q^{2}}{\nu} \right) 
+\end{equation}
+Dans le cas l'ensemble grand canonique à potentiel $\phi $ fixe, 
+$G = M-TS-\phi Q$.\\
+\\
+Maintenant, après avoir calculé l'essentiel des quantités thermodynamiques, nous tournons notre attention
+d'analyser la transition de phase correspondante. Pour cela, nous traçons dans la figure\ref{tv}, la variation de la température en fonction du volume
+spécifique $\nu$ et  le comportement de l'énergie libre de Gibbs pour des valeurs de pression fixes \ref{gt}.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=1]{images/tvv.png}
+	\caption{La température d’un trou noir de RN-AdS en fonction de $\nu$ pour différentes valeurs de pression.}
+	\label{tv}
+\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=1]{images/gt.png}
+		\caption{L’énergie libre de Gibbs en fonction de T , on fixe
+			Q = 1.}
+		\label{gt}
+	\end{center}
+\end{figure}
+
+Pour $ P < P_{c}$, On peut voir que l’allure de G montre une transition de phase du premier
+ordre.  la courbe   $ T  -\nu$ a un
+maximum et un minimum local, mais la région délimitée par ces deux extrémum  est instable, c’est là où le trou noir peut être présent simultanément sous deux
+phases ; petit/large trou noir ; en équilibre. La température est constante à l’intérieur de
+la région de coexistence.\\
+Pour $P = P_{c}$ la transition de phase est de deuxième ordre, l’équation d’état produit une
+seule racine réelle "double", le système dans une phase critique où la zone de coexistence se
+réduit à un point déterminé par les coordonnées du point critique \ref{pc}, \ref{vc} et \ref{tc}.
+Pour $P> P_{c}$ l’équation d’état ne produit qu’une seule racine réelle, le système n’est
+stable que sous une seule phase, c’est une phase supercritique.
+
+
+La température de coexistence est la température de la transition du premier ordre ; où on
+peut avoir l’équilibre entre les deux phases petit et grand trou noir, pour déterminer cette
+température,on va étudier la zone transition du phase à partir du
+diagramme $T - r_{h}$, qui présenté par la figure \ref{trrh}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1]{images/trh.png}
+		\caption{la représentation de la zone de transition dans le diagramme$ T- r_{h}$.}
+		\label{trrh}
+	\end{center}
+\end{figure}
+
+Le diagramme \ref{trrh} montre trois régions : la région $r < r_{mi}$ représente la région du petit
+trou noir RN AdS, la région $r > r_{max}$ représente la région du grand trou noir RN AdS et la
+région intermédiaire $r_{rmin} < r < r_{max}$ est considérée comme une région de la coexistence des
+deux phases, c'est la zone de transition.
+\subsection{ La stabilité et la chaleur spécifique}
+Dans ce paragraphe on va calculer une autre grandeur thermodynamique importante c’est
+la capacité calorifique à pression constante, donc son expression est donnée par \ref{sq}
+
+$$C_{p}=\dfrac{2\pi r_{h}^{2}(8\pi r_{h}^{4}-Q^{2}+r_{h}^{2})}{8\pi r_{h}^{4}+3Q^{2}-r_{h}^{2}}$$
+
+Or $\nu=2r_{h}$ car $l_{p}=1$,alors l'expression de $C_{p}$ devient 
+\begin{equation}
+C_{p}=\dfrac{2\pi^{2}\nu^{6}P-4\pi \nu^{2}Q^{2}+\pi \nu^{2}}{4\pi \nu^{4}P-2\nu^{2}+24Q^{2}}
+\end{equation}
+Le dénominateur de cette équation a :\\
+$\bullet$ Pour $P>P_{c}$ ,$C_{p}$ ne diverge pas.\\
+
+$\bullet$ deux racines réels positives si $P<P_{c}$ sont:
+\begin{equation}
+\nu_{min}=\sqrt{\dfrac{1+\sqrt{1-\dfrac{P}{P_{c}}}}{4\pi P}},
+\end{equation} 
+
+\begin{equation}
+\nu_{max}=\sqrt{\dfrac{1-\sqrt{1-\dfrac{P}{P_{c}}}}{4\pi P}},
+\end{equation}
+$\bullet$ un seul racine au point critique où $P = P_{c}$
+\begin{equation}
+\nu_{c}=\sqrt{\dfrac{1}{4\pi P_{c}}}
+\end{equation} 
+D'après ses figures on voit que :\\
+
+Pour $P > P_{c}$, $C_{p}$ ne diverge pas et elle est toujours positive.Et puisque le signe de la capacité peut déterminer la stabilité thermodynamique du trou noir, la positivité d’une telle quantité assure un équilibre stable ,donc on a une seule phase qui est la phase "large trou noir".\\
+pour $P < P_{c}$,la chaleur spécifique passe de positif à négatif, puis à nouveau positif,la positivité d’une telle quantité assure un équilibre stable \cite{22}. Donc  pour les petits trous noirs  $\nu<\nu_{max}$ et les grands trous noirs $\nu>\nu_{min}$ montre une stabilité de système  thermodynamique pour les deux phases et  pour
+une gamme intermédiaire de l'horizon d'événement $ r_{h}$ le trou noir est thermodynamiquement instable.\\
+
+%\begin{columns}
+%	\begin{column}{5cm}
+%		\includegraphics[scale=0.5]{images/pinfpc.png}
+%	\end{column}
+%
+%
+%
+%\begin{column}{5cm}
+%	\includegraphics[scale=0.5]{images/ppp.png}
+%\end{column}
+%
+%\end{columns}
+
+
+Pour $P = Pc$, la capacité thermique est toujours positive, donc toutes
+les phase sont stable sauf au point critique où $C_{p}$ diverge vers l’infini. C’est le point qui
+indique la transition de phase petit/large trou noir.\\ 
+\\
+%Maintenant, après avoir calculé l'essentiel des quantités thermodynamiques, nous tournons notre attention d'analyser la transition de phase correspondante. Pour cela, nous traçons dans la figure , la variation de  l’entropie et de la température,On voit que le diagramme T -S est exactement le même que le diagramme T -S criticité du système de gaz liquide de van der Waals. Comme discuté dans \cite{23,24}.Pour décrire la transition de phase, il faut remplacer la partie oscillante
+%entre S1 et S2 du diagramme T - S par une ligne isotherme, $T = T_{*}$, selon Maxwell
+%loi de superficie égale:
+%
+%Cette prescription reflète le fait que les deux phases ont la même énergie libre de Gibbs à la
+%transition de phase.
+
+\subsection{ Règle du palier de Maxwell}
+le but de cette paragraphe est de calculer la température de coexistence
+ainsi que la les points limitant cette zone .\\
+\\
+En thermodynamique, la règle du palier de Maxwell, permet, à partir d'une équation d'état représentant à la fois les états liquide et gazeux d'un corps pur, de calculer la pression de vapeur saturante à laquelle s'effectue la transition de phase entre les deux états à une température donnée.\\
+
+Cette règle, établie à l'origine empiriquement à partir de l'équation d'état de van der Waals. Cette construction s’applique dans le
+plan (P, V ) à température constante et dans le plan (T, S) à pression constante. On a 
+\begin{equation}
+\label{vart}
+G=M-TS
+\end{equation}
+La variation de \ref{vart}, à constante P et Q, conduit à
+\begin{equation}
+\label{varr}
+ dG=-SdT
+\end{equation}
+
+Intégrer l’équation \ref{varr} en gardant à l’esprit que les phases coexistantes avoir la même énergie libre par définition, on trouve la loi de la zone égale dans le diagrame $T-S$  \cite{23,24}:
+\begin{equation}
+\int_{S_1}^{S_2} TdS=T_{co}(S_{1} - S_{2}),
+T_{co}=T_{1},
+T_{co}=T_{2}.
+\end{equation}
+
+\section{Géométrie thermodynamique et transition de phase}
+Une autre approche pour étudier le comportement thermodynamique du système est la géométrie thermodynamique. Cette méthode nécessite une métrique appropriée en utilisant des quantités thermodynamiques. Pour construire une métrique appropriée, on peut utiliser un potentiel thermodynamique avec
+ensemble spécifique de paramètres étendus. Puis en calculant le scalaire de Ricci de la métrique introduite
+et en déterminant les points de divergence, on peut étudier les deux types de transition de phase. Il
+a été démontré que le résultat obtenu est similaire au résultat de la capacité calorifique. Ça veut dire
+les points de divergence du scalaire de Ricci et la divergence / point zéro de la capacité thermique coïncident.\\
+Comme mentionné en introduction, il existe plusieurs méthodes pour construire un espace-temps géométrique telles que
+Métrique Weinhold, Ruppeiner, Quevedo et HPEM. Nous passons d'abord en revue les quatre mesures mentionnées
+et étudiez la transition de phase du trou noir chargé en accélération AdS chargé dans une phase non étendue
+espace et espace de phase étendu. Ensuite, nous comparerons les résultats avec la capacité thermique et
+trouvera la métrique appropriée pour étudier la transition de phase d'un trou noir chargé en accélération AdS.\\
+Comme mentionné, nous considérons la charge électrique comme un paramètre fixe dans la transition de phase
+de la capacité thermique dans un ensemble canonique. Mais la construction d'une métrique thermodynamique peut constituer une variable considérable. Pour trou noir accéléré chargé en AdS dans un espace de phase non étendu,
+nous supposons que la pression est une quantité thermodynamique fixe et considérons la masse totale comme
+potentiel thermodynamique et l'entropie et la charge électrique comme paramètres étendus. À présent
+nous voulons étudier la transition de phase du trou noir accéléré chargé en AdS par ce qui précède
+métriques thermodynamiques mentionnées.
+
+\subsection{Métrique de Weinhold et Ruppeiner}
+La première formulation géométrique a été introduite par Weinhold\cite{52}. Il a défini la métrique thermodynamique
+ comme la dérivée seconde de la masse (énergie interne) par rapport à l'entropie et
+d'autres paramètres étendus. La métrique de Weinhold est donnée par,
+\begin{equation}
+g_{ij}^{w}=\dfrac{\partial^{2}M(x^{k})}{\partial x^{i} \partial x^{j} };  x^{i}=(S,N^{a}) 
+\end{equation}
+
+où S est l'entropie et $N^{a}$ détermine toutes les autres variables étendues du système.\\
+Cette métrique de Weinhold est conforme à la métrique de Ruppeiner 
+avec  la température comme facteur conforme
+\begin{equation}
+g_{ij}^{w}= T g_{ij}^{R}
+\end{equation}
+
+la métrique de Ruppeiner \cite{53} est définie comme la dérivée seconde de l’entropie par rapport à l’énergie
+interne et d’autres variables extensives. La metrique de Ruppeiner est défini par,
+\begin{equation}
+\label{xss}
+g_{ij}^{R}=-\dfrac{\partial^{2}S(x^{k})}{\partial x^{i} \partial x^{j} }=\dfrac{1}{T}\dfrac{\partial^{2}M(x^{k})}{\partial x^{i} \partial x^{j} };  x^{i}=(U,N^{a}) 
+\end{equation}
+
+où U est l'entropie et $N^{a}$ détermine les variables extensives du système.\\
+Dans l'espace des états on considère $x^{\mu} = (S, Q)$ comme variables extensives. Un calcul simple de courbure de la métrique\ref{xss} donne
+\begin{equation}
+R=-\dfrac{1}{\sqrt{g}}\left[\dfrac{\partial}{\partial S}\left( \dfrac{g_{SQ}}{g_{SS}\sqrt{g}}\dfrac{\partial g_{SS}}{\partial Q}-\dfrac{1}{\sqrt{g}}\dfrac{\partial g_{QQ}}{\partial S}\right)  +\dfrac{\partial}{\partial Q}\left( \dfrac{2}{\sqrt{g}}\dfrac{\partial g_{SQ}}{\partial S}-\dfrac{1}{\sqrt{g}}\dfrac{\partial g_{QQ}}{\partial S}-\dfrac{1}{\sqrt{g}}\dfrac{\partial g_{SS}}{\partial Q}-\dfrac{g_{SQ}}{g_{SS}\sqrt{g}}\dfrac{\partial g_{SS}}{\partial S}\right)\right] 
+\end{equation}
+Danc n peut exprimer le scalaire de Ricci de la  métrique de Ruppeiner  comme
+\begin{equation}
+R^{R}=\dfrac{8PS(8PS^{2}+\pi Q^{2})(S(8PS-3)+3\pi Q^{2})}{(S(8PS-1)+\pi Q^{2})^{2}(\pi Q^{2}-S(8PS+1))}
+\end{equation}
+nous avons tracé le scalaire  Ricci  de Ruppeineren ce qui concerne l'entropie dans les figures suivants\\
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{images/metriqueR.png}
+\caption{La courbure scalaire de la géométrie de Ruppeiner pour une transition de phase
+	de première ordre $P < P_{c}$ (à gauche) et de deuxième ordre où $P = P_{c}$ (à droite) . On fixe Q = 1.}
+\end{figure} 
+
+Nous pouvons remarquer que le point de divergence n’est pas identique à celui de la
+capacité thermique $(S_{min}, S_{max})$ pour $P < P_{c}$ et Sc pour$ P = P_{c}$. Par conséquent,
+c'est à dire 
+que le point de divergence n'est pas identique à la divergence / point zéro de la capacité calorifique, c'est pourquoi
+Métrique n'est pas en mesure de décrire la transition de phase de cette solution de trou noir.
+\subsection{Métrique de Quevedo}
+Comme nous le savons, la métrique de Ruppeiner et la métrique de Weinhold ne sont pas invariantes sous Legendre.
+transformation. Pour cette raison, Quevedo a introduit une métrique invariante de Legendre,
+dans l'espace de l'état d'équilibre \cite{54}. Le Quevedo a deux types de métriques correspondantes
+qui sont donnés par \cite{55},
+
+\begin{equation}
+dS_{Q}^{2}=g{ij}^{Q}dx^{i}dx^{j},
+\end{equation}
+
+Or $g_{ij}^{Q}$ est donnée par 
+\begin{equation}
+g{ij}^{Q}=\left( S\dfrac{\partial M}{\partial S}+Q\dfrac{\partial M}{\partial Q}\right)
+\begin{pmatrix}
+ -\dfrac{\partial^{2}M}{\partial S^{2}}  & 0\\
+  0                                     & \dfrac{\partial^{2}M}{\partial Q^{2}}                  
+\end{pmatrix}
+\end{equation}
+
+le scalaire de Ricci de cette métrique est
+
+\begin{equation}
+R_{ij}^{Q}=\dfrac{32\pi^{2} S^{2}\left(9\pi^{2}Q^{4}(28PS-1)+3\pi Q^{2}S(4PS(16PS-5)+3)+8PS^{3}(4PS(1-40PS)+1) \right) }{\left(-8PS^{2}-3\pi Q^{2}+S \right)^{2}\left(8PS^{2}+3\pi Q^{2}+S \right)^{3}  }
+\end{equation}
+
+nous avons tracé le scalaire  Ricci  de Quevedoen ce qui concerne l'entropie dans les figures suivants \\
+
+\begin{figure}[H]
+	\includegraphics[scale=0.8]{images/metriqueQ.png}
+	\caption{La courbure scalaire de la géométrie de Quevedo pour une transition de phase
+		de première ordre $P < P_{c}$ (à gauche) et de deuxième ordre où $P = P_{c}$ (à droite) . On fixe Q = 1.}
+\end{figure}
+
+Il est clair que cette métrique présente des points de divergence qui coïncident avec
+ceux de la capacité thermique. On peut dire que cette géométrie est capable de décrire la
+transition de phase 1er/2ème ordre pour les trous noirs de RN-AdS.
+
+\subsection{Métrique de Hendi, Panahiyan et Eslam HPEM}
+En 2015 Hendi et ses collaborateurs ont introduit une nouvelle métrique \cite{56} qui contenait les deux types de transition de phase. C’est un métrique qui rectifie les lacunes de la
+géométrie de Ruppeiner et Quevedo. La géométrie de HPEM est donnée par
+\begin{equation}
+g_{ij}^{HPEM}=\left( \dfrac{S M_{s}}{M_{QQ}^{3}}\right)
+\begin{pmatrix}
+-M_{SS}  & 0\\
+0        & M_{QQ}
+\end{pmatrix}
+\end{equation}
+
+Calculant le sclaire de HPEM Ricci,son dénominateur est 
+\begin{equation}
+demn(R_{HPEM})=S^{3}M_{S}^{3}M_{SS}^{2}
+\end{equation}
+
+On trace le scalir Ricci de HPEM  en fonction de l'entropie\\
+
+\begin{figure}[H]
+	\includegraphics[scale=0.8]{images/matriqueH.png}
+	\caption{La courbure scalaire de la géométrie de HPEM pour une transition de phase
+		de première ordre $P < P_{c}$ (à gauche) et de deuxième ordre où $P = P_{c}$ (à droite) . On fixe Q = 1.}
+\end{figure}
+
+On peut voir que les points de divergence coïncident exactement avec les points de
+divergence de la capacité calorifique ainsi que son point zéro. Alors on peut dire que cette
+métrique peut décrire la transition de phase et déterminer le trou noir extrémal donné
+par $C_{p} = 0$ ou T = 0.\\
+\\
+En étudiant la géométrie thermodynamique dans l'espace de phase, on remarque que
+Ruppeiner n'est pas un candidat approprié pour étudier la transition de phase pour le
+trou noir RN-AdS. Par contre les métriques HPEM et Quevedo sont capables de décrire
+correctement la transition de phase thermodynamique.
+
+
+
+%\section{Équations géodésiques du mouvement}
+%Dans cette section, nous considérons le mouvement d’un photon libre se propageant en arrière-plan géométrie de la métrique donnée par \ref{ddd} définit par $\theta=0$. Sa dynamique peut être traitée via la formalisme lagrangien  comme
+%\begin{equation}
+%l=-\dfrac{1}{2}\left( -f(r)\overset{.}{t^{2}}+ \dfrac{\overset{.}{r^{2}}}{f(r)} +r^{2}\overset{.}{\phi^{2}}\right)  
+%\end{equation}
+%A partir de cette lagrangien on peut calculer les moments 
+% 
+%\begin{equation}
+%p_{\mu}=\dfrac{\partial l}{\partial \overset{.}{x^{\mu}}}
+%\end{equation}
+%avec $x_{\mu} = (t, r, \theta, \phi)$  .
+%% nous limiterons notre analyse aux géodésiques équatoriales en définissant $\theta =\dfrac{\pi}{2}$ et$ \theta˙ = 0$. Les symétries espace-temps (c'est-à-dire la métrique) ont deux vecteurs de Killing qui impliquent la existence de deux constantes de mouvement
+% \begin{equation}
+% p_{t}=-f(r)\overset{.}{t}\equiv -E =const, 
+% \end{equation}
+% \begin{equation}
+%  p_{\phi}=r_{2}\overset{.}{\phi}\equiv L=const,
+% \end{equation}
+% \begin{equation}
+% p_{r}=\dfrac{\overset{.}{r}}{f(r)} .
+% \end{equation}
+% où E et L représentent l'énergie et le moment angulaire, respectivement \cite{rit,fit}. En utilisant
+% les équations d'Euler-Lagrange par rapport à t et, on obtient les équations,
+% \begin{equation}
+% \overset{.}{t}=\dfrac{E}{f(r)},
+% \end{equation}
+% et
+%  \begin{equation}
+% \overset{.}{\phi}=\dfrac{L}{r^{2}}
+% \end{equation}
+% L'hamiltonien de ce systéme est 
+% \begin{equation}
+% 2H=2\left( p_{\mu}\overset{.}{x^{\mu}} - l \right) 
+% \end{equation}
+% \begin{equation}
+% -E \overset{.}{t}+L\overset{.}{\phi}+\dfrac{\overset{.}{r^{2}}}{f(r)}=0
+% \end{equation}
+% le mouvement radial prend la forme suivante
+% \begin{equation}
+% \overset{.}{r^{2}}+V_{eff}(r)=0,
+% \end{equation}
+% où le potentiel effectif  se lit comme suit:
+% \begin{equation}
+% V_{eff}(r)=\dfrac{L^{2}}{r^{2}}f(r)-E^{2}
+% \end{equation}
+% On a $\overset{.}{r^{2}}>0$ danc il faut que $V_{eff}(r)<0$.  Le photon ne peut donc apparaître que dans la plage de $V_{eff}$ négatif \cite{effr}.
+% 
+% Parce que la classe la plus importante d'orbites sont des orbites circulaires, nous allons nous concentrer sur l'étude
+% des orbites circulaires instables dans lesquelles un photon venant de l'infini s'approche du tournant
+% points avec une vitesse radiale nulle. Le rayon r0 de l’orbite circulaire instable peut être trouvé par
+% résoudre simultanément les équations
+% 
+% \begin{equation}
+% 	V_{eff}(r_{0})=0 , \left( \dfrac{\partial V_{eff}(r)}{\partial r}\right)_{r_{0}}=0,\left( \dfrac{\partial^{2} V_{eff}(r)}{\partial r^{2}}\right)_{r_{0}}<0 . 
+% 	 \end{equation}
+ 
+\newpage
+\section*{Conclusion}
+Les trous noirs sont des objets célestes sur lesquels il reste encore beaucoup de questions en suspend. Dans ce modeste mémoire, nous avons essayé d'approcher du notion du trou noir ,il est défini en astrophysique  comme un objet massif dont le champ gravitationnel est si
+s'intense qu'il empêche toute forme de matière ou de rayonnement de s'en échappé .On a présentée aussi la formation de ces objets, puis leurs classifications, et on a fini par quelques
+méthodes de détection des trous noirs, même s'ils sont invisibles, ils ont une énorme influence sur la matière qu'ils entourent.\\
+ Ainsi, nous avons traité les trous noirs dans la
+théorie la plus compatible à décrire ce genre des objets, c'est la relativité générale, en se
+basant sur la notion de l'espace-temps,qui basé sur  l’espace-temps pour décrire le fort champ gravitationnel produit
+par les trous noirs, en donnant la métrique des différents types théoriques du trou noir qui sont
+définis par trois paramétres : la masse, la charge et le moment cinétique. On a défini ainsi les
+différentes régions caractéristiques du trou noir \\
+Nous nous sommes intéressés dans la suite à quelques rudiments de la thermodynamique des
+trous noirs. On a ainsi pu voir que l’affirmation "rien ne peut sortir d’un trou noir" est en réalité
+fausse, puisque Hawking a pu mettre en évidence la présence d’un rayonnement de particules
+qui ressemble à celui d'un rayonnement thermique. Nous avons aussi cités les quatre lois qui gouverne la dynamique des trous noirs, l’expression
+de la température de Hawkinge et l’entropie de Bekeinstein-Hawking.\\
+Ensuite, nous avons étudié le comportement critique d'un trou noir de Schwarzschild AdS,anssi nous avons exprimés leurs expressions des
+différentes grandeurs thermodynamiques ,la stabilité thermodynamique a été bien étudié en utilisant la capacité thermique.\\
+De m\^{e}me on a étudié la thermodynamique d’un trou noir AdS chargé dans un espace de phase
+étendu, en traitant la constante cosmologique et sa quantité conjuguée, comme des variables thermodynamiques associées à la pression et au volume, respectivement. Pour une
+charge de trou noir Q fixe, cette identification nous a permis d’écrire l’équation d’état
+comme suit P = P(V, T) et d’étudier son comportement en utilisant les techniques thermodynamiques standard. La stabilité thermodynamique a été bien étudié en utilisant la
+capacité thermique.
+Finalement, on a étudié la géothermodynamique d’un trou noir RN-AdS en se basant
+sur la géométrie de Ruppeiner Quevedo et HPEM et on a montré que seul Quevedo et
+Ruppeiner sont capable de décrire la transition de phase thermodynamique
+
+
+
+
+
+\begin{thebibliography}{99}
+	\bibitem{1}  V. P. Frolov and A. Zelnikov," Introduction to Black Hole Physics". Oxford University Press, 2011.
+\bibitem{2}  A.Adehchour, “Astrophysique nucléaire,” 2017.
+\bibitem{3}  H.E.MOUMNI, Thèse : "Thermodynamique des trous noirs et physique des
+cordes", LPHEA-FSSM-UCAM, 2014.
+\bibitem{4}  S. W. Hawking, “Gravitational radiation from colliding black holes,” Phys. Rev. Lett., vol. 26,pp. 1344–1346, 1971.
+\bibitem{5} M. Séguin, Astronomie et astrophysique cinq grandes idées pour explorer et comprendre l’Univers. Bruxelles St. Laurent : De Boeck université Ed. du Renouveau pdéagogique, 2002.
+\bibitem{6} J.Grain, "Relativite Generale et champs quantiques : quelques aspects de physique
+des trous noirs et de cosmologie en gravite de Lovelock, espaces de Sitter et
+dimensions supplementaires", Grenoble I, 2006.
+\bibitem{7} Blaise Goutéraux, Thèse : "Black-Hole Solutions to Einstein’s Equations in the
+ Presence of Matter and Modifications of Gravitation in Extra Dimensions", Université Paris-Sud XI, 2010.
+\bibitem{8}  Hobson, M., G. Efstathiou, and A. Lasenby (2010), Relativité Générale, de boeck,
+Bruxelles.
+\bibitem{9}  S.Codis, "Quelque modéles de trous noirs", Laboratoire physique Théorique ENS,
+2009.
+
+\bibitem{10}  J. Traschen, "An Introduction to Black Hole Evaporation", Londrina Winter
+School, 2000.
+\bibitem{11}  G. HAKIM, “Trous noirs de chern-simons à trois dimensions,” 2014.
+
+\bibitem{12}  S. Hawking, Hawking on the big bang and black holes. Singapore New Jersey : World Scientific, 1993.
+\bibitem{13} J. M. Bardeen, B. Carter, and S. W. Hawking, “The Four laws of black hole mechanics,” Commun. Math. Phys., vol. 31, pp. 161–170, 1973.
+\bibitem{14} V. P. Frolov, Black hole physics : basic concepts and new developments. Dordrecht Boston : Kluwer,
+1998
+\bibitem{15}  M. C. LoPresto, “"some simple black hole thermodynamics",” THE PHYSICS TEACHER, vol. 41,
+p. 299, May 2003.
+\bibitem{16}  D. Kastor, S. Ray, and J. Traschen, “Enthalpy and the Mechanics of AdS Black Holes,” Class. Quant.
+Grav., vol. 26, p. 195011, 2009.
+
+\bibitem{18} S. Gunasekaran, R. B. Mann and D. Kubiznak, Extended phase space thermodynamics for charged and
+rotating black holes and Born-Infeld vacuum polarization, JHEP 1211 (2012) 110 [arXiv:1208.6251].
+
+\bibitem{19} E. Spallucci and A. Smailagic, “Maxwell’s equal area law and the Hawking-Page phase transition,”J. Grav., vol. 2013, p. 525696, 2013.
+\bibitem{20}  S. W. Hawking and D. N. Page, “Thermodynamics of Black Holes in anti-De Sitter Space,” Commun.Math. Phys., vol. 87, p. 577, 1983.
+
+\bibitem{21} D. Kubiznak and R. B. Mann, P-V criticality of charged AdS black holes, JHEP 1207 (2012) 033
+[arXiv:1205.0559].
+\bibitem{22} Eamon Mc Caughey, "Hawking radiation screening and Penrose process shielding in the Kerr Black Hole", 1603.08774v1, 29 Mars 2016.
+
+\bibitem{23} E. Spallucci and A. Smailagic, “Maxwell’s equal area law and the Hawking-Page phase transition,”
+J. Grav., vol. 2013, p. 525696, 2013.
+\bibitem{24} J.-X. Zhao, M.-S. Ma, L.-C. Zhang, H.-H. Zhao, and R. Zhao, “The equal area law of asymptotically
+AdS black holes in extended phase space,” Astrophys. Space Sci., vol. 352, no. 2, pp. 763–768, 2014.
+\bibitem{1112} A. Belhaj, M. Chabab, H. El Moumni and M. B. Sedra, On Thermodynamics of AdS Black Holes in
+Arbitrary Dimensions, Chin. Phys. Lett. 29 (2012) 100401 [arXiv:1210.4617].
+\bibitem{1112}  S. Chen, X. Liu, C. Liu and J. Jing, P - V criticality of AdS black hole in f(R) gravity, Chin. Phys.
+Lett. 30 (2013) 060401 [arXiv:1301.3234].
+\bibitem{1112} R. G. Cai, Y. P. Hu, Q. Y. Pan and Y. L. Zhang, Thermodynamics of Black Holes in Massive Gravity,
+Phys. Rev. D 91 (2015) no.2, 024032 [arXiv:1409.2369].
+\bibitem{1112} J. Xu, L. M. Cao and Y. P. Hu, P-V criticality in the extended phase space of black holes in massive
+gravity, Phys. Rev. D 91 (2015) no.12, 124033 [arXiv:1506.03578].
+
+\bibitem{1112} M. Chabab, H. El Moumni and K. Masmar, On thermodynamics of charged AdS black holes
+in extended phases space via M2-branes background, Eur. Phys. J. C 76, no. 6, 304 (2016)
+[arXiv:1512.07832]
+\bibitem{xxxx} M. C. LoPresto, “"some simple black hole thermodynamics",” THE PHYSICS TEACHER, vol. 41,
+p. 299, May 2003
+
+
+\bibitem{rit}  S. L. Shapiro and S. A. Teukolsky, Black holes, white dwarfs, and neutron stars: The physics of
+compact objects, New York, USA: Wiley (1983) 645 p.
+\bibitem{fit} J. M. Bardeen, W. H. Press and S. A. Teukolsky, Rotating black holes: Locally nonrotating frames,
+energy extraction, and scalar synchrotron radiation, Astrophys. J. 178 (1972) 347. 
+\bibitem{22} Eamon Mc Caughey, "Hawking radiation screening and Penrose process shielding
+in the Kerr Black Hole", 1603.08774v1, 29 Mars 2016.
+\bibitem{effr} S. W. Wei and Y. X. Liu, Photon orbits and thermodynamic phase transition of d-dimensional charged
+AdS black holes, Phys. Rev. D 97 (2018) no.10, 104027 [arXiv:1711.01522].
+\bibitem{52} F. Weinhold, “Metric geometry of equilibrium thermodynamics ii,” vol. 63, pp. 2479–2483, 09 1975.
+\bibitem{53} G. Ruppeiner, “Thermodynamics : A riemannian geometric model,” Phys. Rev. A, vol. 20, pp. 1608–
+1613, Oct 1979.
+\bibitem{54} K. Jafarzade and J. Sadeghi, “Thermodynamic geometry and phase transition of charged accelerating
+AdS black hole,” 2017.
+\bibitem{55} H. Quevedo, “Black hole geometrothermodynamics,” Journal of Physics : Conference Series, vol. 831,
+no. 1, p. 012005, 2017.
+\bibitem{56} S. H. Hendi, S. Panahiyan, and B. Eslam Panah, “P–V criticality and geometrical thermodynamics
+of black holes with Born–Infeld type nonlinear electrodynamics,” Int. J. Mod. Phys., vol. D25, no. 01,
+p. 1650010, 2015.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,175 @@
+%!PS-Adobe-3.0 EPSF-2.0
+%%Title: Maple plot
+%%Creator: Maple 
+%%Pages:  1
+%%BoundingBox: 118 109 506 655 
+%%DocumentNeededResources: font Helvetica
+%%+ font Times-Roman
+%%+ font Times-Roman
+%%EndComments
+20 dict begin
+gsave
+/drawborder false def
+/m {moveto} def
+/l {lineto} def
+/C {setrgbcolor} def
+/Y /setcmykcolor where { %%ifelse Use built-in operator
+       /setcmykcolor get
+   }{ %%ifelse Emulate setcmykcolor with setrgbcolor
+       { %%def
+           1 sub 3 { %%repeat
+               3 index add neg dup 0 lt { pop 0 } if 3 1 roll
+           } repeat setrgbcolor
+       } bind
+   } ifelse def
+/G {setgray} def
+/S {stroke} def
+/NP {newpath} def
+%%%%This draws a filled polygon and avoids bugs/features
+%%%%   of some postscript interpreters
+%%%%GHOSTSCRIPT: has a bug in reversepath - removing
+%%%%the call to reversepath is a sufficient work around
+/P {gsave fill grestore reversepath stroke} def
+%%%%This function is needed for drawing text.  It takes two arguments: a
+%%%%string and a rotation. It outputs width and height.
+/stringbbox {
+    gsave NP 0 0 m    % Set origin for easy calculations.
+    dup rotate exch   % Set orientation, and put string on top.
+    false charpath flattenpath
+    0 exch sub rotate % Undo rotation.
+    pathbbox 4 2 roll pop pop  % Get dimens. of our string.
+    1.1 mul cvi exch 1.1 mul cvi exch % Pad some.
+    grestore} def
+/thin 3 def
+/medium 7 def
+/thick 16 def
+/boundarythick 20 def % thichess of bounding box
+%%IncludeResource: font Helvetica
+%%IncludeResource: font Times-Roman
+%%IncludeResource: font Times-Roman
+540.000000 72.000000 translate
+90 rotate
+/defaultTitleFont {/Helvetica findfont 219 scalefont setfont} def
+/defaultFont {/Helvetica findfont 133 scalefont setfont} def
+/userFont1 {/Times-Roman findfont 197 scalefont setfont} def
+/userFont2 {/Times-Roman findfont 186 scalefont setfont} def
+0.0936 0.0936 scale
+1 setlinejoin
+1 setlinecap
+0.0 setgray
+/inch {72 mul} def
+/fheight 0.35 inch neg def
+    0     0     0     1 Y
+medium setlinewidth
+[] 0 setdash defaultFont
+thin setlinewidth
+[20 30] 0 setdash NP 4082 3677 m 3987 4500 l
+S
+NP 4141 3014 m 4082 3677 l
+S
+NP 4189 2459 m 4141 3014 l
+S
+NP 5734 1871 m 4189 2459 l
+S
+NP 6230 1710 m 5734 1871 l
+S
+    0     1     1     0 Y
+medium setlinewidth
+[] 0 setdash NP 4263 1642 m 4281 1442 l
+S
+NP 4234 1985 m 4263 1642 l
+S
+NP 4215 2214 m 4234 1985 l
+S
+NP 4189 2459 m 4215 2214 l
+S
+    0     0     0     1 Y
+NP 2636 3014 m 1890 3677 l
+S
+NP 2891 2785 m 2636 3014 l
+S
+NP 3239 2459 m 2891 2785 l
+S
+NP 3508 2214 m 3239 2459 l
+S
+NP 3748 1985 m 3508 2214 l
+S
+NP 4095 1642 m 3748 1985 l
+S
+NP 4281 1442 m 4095 1642 l
+S
+medium setlinewidth
+NP
+1890 3677 20 0 360 arc S
+userFont1
+% bug patch -- we have a problem
+(NO BH REGION) dup 0 stringbbox 2 idiv 3128 exch sub exch 2 idiv 5281 exch sub exch m show
+userFont2
+% bug patch -- we have a problem
+(INTERM BH) dup 0 stringbbox 2 idiv 1745 exch sub exch 2 idiv 5070 exch sub exch m show
+userFont1
+% bug patch -- we have a problem
+(LARGE BH) dup 0 stringbbox 2 idiv 3471 exch sub exch 2 idiv 3171 exch sub exch m show
+(SMALL BH) dup 0 stringbbox 2 idiv 2214 exch sub exch 2 idiv 2010 exch sub exch m show
+(Critical Point) dup 0 stringbbox 2 idiv 3928 exch sub exch 2 idiv 2010 exch sub exch m show
+(T) dup 0 stringbbox 2 idiv 728 exch sub exch 2 idiv 5808 exch sub exch m show
+(q) dup 0 stringbbox 2 idiv 4385 exch sub exch 2 idiv 903 exch sub exch m show
+medium setlinewidth
+NP 692 500 m 692 4500 l
+S
+thin setlinewidth
+NP 648 500 m 692 500 l
+S
+NP 670 957 m 692 957 l
+S
+NP 670 1414 m 692 1414 l
+S
+NP 670 1871 m 692 1871 l
+S
+NP 670 2328 m 692 2328 l
+S
+NP 648 2785 m 692 2785 l
+S
+NP 670 3242 m 692 3242 l
+S
+NP 670 3699 m 692 3699 l
+S
+NP 670 4157 m 692 4157 l
+S
+medium setlinewidth
+NP 692 500 m 6230 500 l
+S
+thin setlinewidth
+NP 956 483 m 956 500 l
+S
+NP 2010 483 m 2010 500 l
+S
+NP 3065 483 m 3065 500 l
+S
+NP 4120 466 m 4120 500 l
+S
+NP 5175 483 m 5175 500 l
+S
+NP 6230 483 m 6230 500 l
+defaultFont
+S
+medium setlinewidth
+(0.1) dup 0 stringbbox 500 exch sub exch 629 exch sub exch m show
+(0.12) dup 0 stringbbox 2 idiv 2785 exch sub exch 629 exch sub exch m show
+(0.19) dup 0 stringbbox 452 exch sub exch 2 idiv 4120 exch sub exch m show
+boundarythick setlinewidth
+% The following draws a box around the plot,
+% if the variable drawborder is true
+drawborder { 
+/bd boundarythick 2 idiv def
+[] 0 setdash 
+NP bd bd m bd 5000 bd sub l 
+6923 bd sub 5000 bd sub l 
+6923 bd sub bd l 
+bd bd l S
+} if % end of if to draw the border
+
+showpage
+grestore
+end
+%%EOF

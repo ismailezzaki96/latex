@@ -1,0 +1,217 @@
+%===============================================================================
+% Template Name:      SUnORE Starter Presentation template
+% Template URI:       http://sunore.co.za/sunore-presentation/
+% Description:        Starter Presentation template for SUnORE 
+%                     Department of Industrial Engineering, 
+%                     Stellenbosch University
+% Version:            1.1.0
+% Author:             Johan Janse van Rensburg
+% Author URI:         http://johanjvrens.co.za/
+% License:            MIT License
+% License URI:        http://opensource.org/licenses/MIT
+%===============================================================================
+\documentclass[11pt,aspectratio=169]{beamer}
+
+
+\usetheme{auriga} %Themes http://www.hartwork.org/beamer-theme-matrix/
+%\usecolortheme{auriga}
+
+\hypersetup{pdfpagemode=FullScreen}
+
+
+\definecolor{red}{RGB}{181, 23, 0}
+\definecolor{blue}{RGB}{0, 118, 186}
+\definecolor{gray}{RGB}{146, 146, 146}
+\definecolor{colorA}{RGB}{96, 34, 59}
+\definecolor{colorB}{RGB}{140, 151, 154}
+\definecolor{secinhead}{RGB}{249,196,95}
+\definecolor{titlebg}{RGB}{51,51,51}
+%\setbeamercolor{structure}{fg=colorA,bg=colorB}
+\setbeamercolor{secsubsec}{fg=secinhead,bg=black}
+%\setbeamercolor{frametitle}{fg=secinhead,bg=gray}
+
+%=================================================
+% packages and new commands
+%=================================================
+\usepackage[ruled, linesnumbered, vlined]{algorithm2e}
+\usepackage{multirow, algorithmic, amsmath}
+\usepackage[francais]{babel}
+
+
+\usepackage{pgfpages}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% \ifnotes
+% \setbeamertemplate{note page}[plain]
+% \setbeameroption{show notes on second screen=right}
+% \fi
+
+
+\makeatletter
+\let\insertsupervisor\relax
+\newcommand\supervisortitle{Sous la direction de}
+\mode<all>
+{
+	\newcommand\supervisor[1]{\def\insertsupervisor{#1}}
+	\titlegraphic{}
+}
+\defbeamertemplate*{title page}{supdefault}[1][]
+{
+	\vbox{}
+	\vfill
+	\begingroup
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,#1]{title}
+		\usebeamerfont{title}\inserttitle\par%
+		\ifx\insertsubtitle\@empty\relax%
+		\else%
+		\vskip0.25em%
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+		\fi%     
+	\end{beamercolorbox}%
+	\vskip1em\par
+	\begin{beamercolorbox}[sep=8pt,center,#1]{author}
+		\usebeamerfont{author}\insertauthor
+	\end{beamercolorbox}
+	\ifx\insertsupervisor\relax\relax\else
+	\begin{beamercolorbox}[sep=8pt,center,#1]{}
+		\usebeamerfont{author}\supervisortitle:~\insertsupervisor
+	\end{beamercolorbox}\fi
+	\begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+		\usebeamerfont{institute}\insertinstitute
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[sep=8pt,center,#1]{date}
+		\usebeamerfont{date}\insertdate
+	\end{beamercolorbox}\vskip0.5em
+	
+	{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+	\endgroup
+	\vfill
+}
+
+
+
+
+
+
+
+
+
+
+\title[ \hspace{0.8cm} \insertframenumber/\inserttotalframenumber]{{\sc Physique des trous noirs: thermodynamique et transitions de phase }}
+
+
+ 
+\author{{ Ismail EZZAKI}}
+
+\supervisor{{ Mohamed \textsc{CHABAB}}}
+\date  {\today}
+\institute  { Université Cadi Ayyad \\	Faculté des Sciences Semlalia\\	Laboratoire de Physique des Hautes Énergies et Astrophysique}
+
+
+
+
+
+%=================================================
+% start presentation
+%=================================================
+\begin{document}
+	
+	\setbeamertemplate{titlepage}[supdefault]
+
+{
+  % rather than use the frame options [noframenumbering,plain], we make the
+  % color match, so that the indicated page numbers match PDF page numbers
+  \setbeamercolor{page number in head/foot}{fg=background canvas.bg}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+\begin{frame}
+
+  \frametitle{Outline}
+	\tableofcontents
+\end{frame}
+
+%========================
+% your slides:
+%========================
+\section{Introduction}
+
+\section{Les Trous Noirs En Astrophysique}
+\subsection{Formation des Trous Noirs}
+\subsection{Les differents types de Trous Noirs}
+\subsection{Détection des Trous Noirs }
+\subsection{Propriétés des trous noirs}
+\section{ les Trous Noirs En Relativité générale}
+
+\subsection{Les équations d'Einstein}
+\subsection{Le trou noir dans un espace asymptotiquement plat}
+
+\section{ LA THERMODYNAMIQUE DES TROUS	NOIRS}
+
+\subsection{Les quatre lois de la thremodynamique des trous noirs}
+
+\subsection{Rayonnement du trou noir}
+
+\subsection{Thermodynamique du trou noir  AdS}
+
+	
+\subsection{Géométrie thermodynamique et transition de phase}
+
+\input{slides/bullets}
+\input{slides/split}
+\input{slides/figure}
+\input{slides/centered}
+\input{slides/monospace}
+\input{slides/brackets}
+\input{slides/link}
+
+\input{examples/Algebraic-structure}
+\input{examples/Historical-events}
+\input{examples/Quaternion}
+
+\input{examples/Cl-structure}
+%\subsection{Clifford algebra simple example: $Cl(3,0)$ \& $Cl(1,3)$ }
+%\input{examples/space-time-algebra}
+% \subsection{Some applications of Clifford algebra}
+\input{examples/applications}
+% \section{ Gamma Matrices}
+%\subsection{Dirac equation}
+%\input{examples/Dirac-equation}
+% \subsection{Gamma matrices’ rule}
+\input{examples/Gamma-matrices-rule}
+% \subsection{Gammma matrices' Properties}
+%\input{examples/Definition-and-Properties}
+% \subsection{The fifth Gamma matrix $\gamma^5$}
+%\input{examples/Gamma-5}
+% \subsection{Bilinear covariants}
+\input{examples/Bilinear-covariants}
+% \subsection{Gammma representation}
+%\input{examples/Representation}
+\section{Conclusion}
+
+%========================
+% bibliography
+%========================
+\input{slides/bib}
+
+
+%========================
+% thanks
+%========================
+\begin{frame}\frametitle{Finaly...}
+\centering
+
+Thank you for your attention!\\
+Any Questions?
+\end{frame}
+
+
+
+%=================================================
+% end presentation
+%=================================================
+\end{document}

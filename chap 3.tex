@@ -1,0 +1,214 @@
+\documentclass[12pt,  a4paper, openright]{report} %twoside,
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hmargin=2cm,vmargin=2cm]{geometry}
+\usepackage[francais]{babel}
+\usepackage{color}
+\usepackage{here}
+\usepackage[Conny]{fncychap} % Sonny, Lenny, Glenn, Conny, Rejne, Bjarne
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\definecolor{Zgris}{rgb}{0.87,0.85,0.85}
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+	\begin{lrbox}{\BBbox}\begin{minipage}{\linewidth}}
+		{\end{minipage}\end{lrbox}\noindent\colorbox{Zgris}{\usebox{\BBbox}} \\
+	[.5cm]}
+
+
+
+
+%\hypersetup{pdfborder={0 0 0},colorlinks,urlcolor=false,citecolor=blue,linkcolor=blue}
+\renewcommand\thefootnote{\textcolor{black}{\arabic{footnote}}}
+\newcommand{\reporttitle}{Transition de phase dans les trous noirs au delà de la relativité génerale}     % Titre
+\newcommand{\reportauthor}{AICHA \textsc{EL HAMDAOUI}} % Auteur
+\newcommand{\reportsubject}{\textbf{Mémoire}\\présenté pour obtenir le diplôme de master en: \\
+	\textbf{Physique des Hautes Énergies, Astrophysique et Physique computationnelle  }  } % Sujet
+\newcommand{\HRule}{\rule{\linewidth}{0.7mm}}
+
+
+\newcommand{\chaptertoc}[1]{\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}
+	\markboth{\slshape\MakeUppercase{#1}}{\slshape\MakeUppercase{#1}}}
+
+
+
+
+\begin{document} 
+
+ 
+ 
+
+3.1 Problématique
+En $1970,$ Wheeler semble avoir ete le premier qui a observe que dans le cadre de la theorie classique, lexistence d'un trou noir n'est pas du tout compatible avec les lois de:
+la thermodynamique habituelles, particulierement avec le second principe de la thermodynamíque, à savoir la non-décroissance de l'entropies. En effet, si un trou noir aboorbe un corps chaud possédant une certaine entropie, un observateur à l'extérieur va constater une diminut ion de l'entropie totale de l'espace accessible à ses observations. Cette perte de l'entropie peut étre compensee si l'on attribue au trou noir une entropie égale à celle du corps absorbé C'est ce qui a postulé J. Bekenstein et trouve comme solution.
+
+Finalement, il devient necessaire d'associer une entropie à un trou noir pour résoudre ce paradoxe, et cette disparition de l'entropie peut ètre évité si on considère l'entropie généralisée :
+$$
+S=S_{T N}+S_{e \pi t}
+$$
+ou $S_{T N}$ est l'entropie du trou noir, et $S_{r s t}$ celle du milieu externe. Bekenstein suggera donc que l'entropie generalise ne peut que croitre [25], qui est en accord avec le second principe de la thermodynamique.
+
+Apres la proposition de Wheeler, une série de théoremes ont prouve que les horizons d'evenements des trous noirs présentent une analogie surprenante avec les lois de la thermodynamique ordinaire. Par exemple, Bekenstein au debut des années 1970 a propasé
+l'aire de leur horizon des teénements $"$ Mais par ailleurs S. Hawking avait montré un théoreme fondamental qui prouve que l'air $d$ 'un trou noir ne peut pas diminuer [22,26] D'où l'idée de postuler une entropie $\mathcal{S}$ proportionnelle à l'aire du trou noir $A$. Le coefficient de proportionnalité $\kappa$ est fixé par une autre découverte de Hawking appele : Evaporation des trous noirs [7]
+3.2 In thermodymamique des trous noirs
+L'etude des trous noirs indique que oss objets sont decrits seulement par trois parametres : la masse M. la charge $Q$ et le moment cinétique $J$. le parametre pertinent decrivant la structure d'un trou noir n'est pas son rayon, mais la surface de 1 'horizon 
+des ¿vénements. Il existe done une relation liant laire d'un trou noir $\mathcal{A}$ aux trois paramètres mentionnes [27] donnée par l'expression suivante trouve par Bekenstein au debut des ances 1970 :
+$$
+\delta \mathcal{M}=T \delta \mathcal{S}+\Omega_{h} \delta J+\sigma_{k} \delta Q
+$$
+Or, Hawking a découvert |7,28| que les trous noirs emettent un rayonnement avec un spectre de corps noir a la ternpérature caractéristique suivante
+$$
+T=\frac{N}{2 \pi}
+$$
+avec $\kappa$ la gravité de surface qui mesure a quelle vitemse le champ gravitationnel du trou noir devient infini en son voisinage. On note que pour un trou noir de Kerr-Newman qu'il est en rotation $J$ et qui porte une charge electrique $Q$, la gravité de surface est donnée par
+$$
+\kappa=\frac{\sqrt{M^{4}-M^{2} Q^{2}-J^{2}}}{2 M^{2} r_{+}-M Q^{2}}
+$$
+A partir de cette équation on peut rélever l'expression de la température d'un trou noir de Kerr $(Q=0),$ de Reissner-Nordstrom $(J=0)$ ou de Schwarzschild $(Q=J=0)$.
+
+Comme Bekenstein a remarqué que l'air de l'horizon $\mathcal{A}$ a un comportement similaire à l'entropie $\mathcal{S}$ d'un système thermodymamique fermé, il existe alors une relation liant les deux paramètres et elle est donnée par:
+$$
+S=\frac{\mathcal{A}}{4}^{1}
+$$
+Pour la solution de Kerr-Newman, $A$ s'écrit comme
+$$
+A=4 \pi\left(2 M^{2}-Q^{2}+2 M \sqrt{M^{2}-Q^{2}-\frac{J^{2}}{M^{2}}}\right)
+$$
+On peut alors recerire l'équation ( 3.2 ) comme suit
+$$
+\delta \mathcal{M}=\frac{\kappa}{8 \pi} \delta \mathcal{A}+\Omega_{h} \delta J+\rho_{h} \delta Q
+$$
+Où
+$\cdot \Omega_{h}=\frac{\text { dra }}{A}$ représente la vitesse angulaire de rotation, $a=\frac{J}{M}$
+$\Phi_{h}=\frac{4 \pi Q r_{+}}{A}$ est le potent iel electrique à l'horizon.
+Dans l'equation (3.7) on a injecté une petite quantité non nulle soit de matiere $6 . \mathcal{M}$, de moment angulaire $\delta J$ et de charge électrique $\delta Q$ Peu de temps après, Smarr trouva la formule suivante [29] :
+$$
+\mathcal{M}=\frac{\kappa}{8 \pi} \mathcal{A}+\Omega_{h} J+\phi_{h} Q
+$$
+Conceruant la masse d'un trou noir, elle peut s'fcrire en fonction de trois parametres, à savoir: l'air de son horizon $\mathcal{A}$, la charge $Q$ et le moment cinctique $J$.
+
+Dans le cas le plus general d'un trou noir de Kerr-Newman, la masse s'écrit comme une fonction des trois paramètres,
+$$
+M=M(\mathcal{A}, J, Q)
+$$
+la logeur de Planck domee par $\ell_{p}^{2}=\hbar G / c^{3}$
+
+
+3.3 Les quatre lois de la thermodynamique
+Comme Bekenstein (1973) a énoncé qu'um trou noir devrait avoir une entropie proportionnelle à sa surface d'horizon. Cette suggestion reliant les trous noirs et la thermodyun mique a été renforcée par la formulation des lois de la mécanique du trou noir (Bardeen $\mid 973)[30]$
+En plus de la masse totale $M$, du moment angulaire $J$ et de l'air d'horizon $\mathcal{A}$ des trous noirs, ces lois sont formulées en termes de la vitesse angulaire de l'horizon $\omega$, et sa surface de gravite $\kappa[31]$.
+
+Rappelons que la gravité de surface est la force à linfini nécessaire pour maintenir une unité stationnaire de masse près de l'horizon d'un trou noir. Bien sur, la force près de l'horizon diverge, mais il $y$ a un effet de redshift de sorte que la force a l'infini reste finie. Dans cette section, nous formulerons lanalogue des quatre principes de la thermodynamique en assimilant les trous noirs comme des systèmes thermodynamiques. Nous commensons avec lanalogie la plus évidente:
+3.3 .1 Deuxième principe
+$$
+\delta \mathcal{A} \geq 0
+$$
+Dans un processus quelconque d'interaction d'un ou plusieurs trous noirs entre eux, la somme des aires des horizons des trous noirs est une fonction croissante du temps. Autrement dit
+$$
+\mathcal{A}_{3} \geq \mathcal{A}_{1}+\mathcal{A}_{2}
+$$
+Cela établit l'analogie entre lair de l'horizon des événements et l'entropie. La deuxième loí pour les trous noirs est legerement plus forte que la loi thermodynamique correspondante. En effet, pour la thermodynamique standard on peut transferer l'entropie d'un système à un autre, il faut seulement que l'entropie totale ne diminue pas. Cependaut, on ne peut pas transférer l'horizon d'un trou noir à un autre, car les trous noirs ne peuvent pas bifurqué (diviser à deux branches). Ainsi, la deuxième loi de la thermodynamique des trous noirs exige que l'horizon de chaque trou noir ne devrait pas diminuer [32] .
+$3.3 .2 \quad$ Principe zéro
+"La gravité de surface $\kappa$ d'un trou noir stationnaire est constante sur tout I horizon d'un trou noir"
+
+La thermodynamique ne permet pas l'équilibre lorsque les differentes parties d'un système ont des températures differentes, L'existence d'un état d'équilibre thermodynamique est postulée par la loi zero de la thermodynamique. Pour la physique des trous thoirs, la loi zéro jour un rôle similaire.
+$3.3 .3 \quad$ Premier principe
+"Lorsqu'un système intégrant un trou noir passe d'un ctat stationnaire à un autre, la varration de sa masse entraine une rariation de l'energie cinetigue angulaire $\Omega_{n} \delta . J,$ une variation de l'éneryie potentielle dectrique on $\delta Q$ ct une variation d'éneryie de rayonnement $\frac{\kappa}{s_{\tau}} \delta \mathcal{A}$ ".
+
+
+
+Le premier principe se traduit done par lexpression
+$$
+d M=\frac{\kappa}{8 \pi} d \mathcal{A}+\Omega_{h} d J+\sigma_{h} d Q
+$$
+A comparer avec le premier principe de la thermodynamique ordinaire:
+$$
+d E=T \delta \mathcal{S}+\delta W
+$$
+où $\delta W$ représente le travail fourni. Le terme $d E$ ressemble bien au terme $c^{2} \delta M,$ on a pris $\left(c^{2}=1\right),$ de l'équation du trou noir, et le terme $\delta W$ correspond a $\Omega_{h} d J+\phi_{h} d Q .$ Pour que l'analogie entre trous noirs et thermodynamique présente un sens physique, il faut done supposer que le terme $\frac{\pi}{8 \pi} d \mathcal{A}$ puisse s'identifier au terme de la quantité de chaleur fournie au système $\delta Q=T \delta S$. On
+à l'entropie [27]
+3.3 .4 Troisième principe
+En thermodynamique, la troisième loi a été formulée de diverses facons. Deux formulations (essentiellement equivalentes), dues à Nernst, stipulent que:
+- Les processus isothermes réversibles deviennent isentropiques dans la limite de la température zéro;
+- - Il est impossible de réduire la température d'un système à zéro absolu par un nombre fini d'opérations,
+
+Une version plus forte, proposée par Planck, stipule que : Lorsque $T \rightarrow 0$, lentropie de tout système tend a une constante absolue, qui peut être prise égale à zéro.
+
+Bardeen, Carter and Hawking (1973) ont formulé lanalogue de la troisième loi pour les trous noirs sous la forme suivante [30,32,4]:
+fini d'opérations $"$ La température du trou noir disparait simultanément avec $\kappa$, ceci n'est possible que si un trou noir stationuaire isole est extrémal. l'impossibilité de transformer un trou noir à un état extrémal est fortement lice ì limpossibilite de realiser un état dans lequel apparaitrait une singularité nue et violerait le principe du "censeur cosmique'.
+
+Israed (1986) [33] a remarqué qu'il est difficile de definir le sens de la aséquence finie des opérationss en considérant seulennent les processus quasi-statiques analysés par Bardeen, Curter et Hawking (1973). Il a proposé la version suivante de la troisième loi :
+" Un trou noir non extrémal ne peut pas devenir crtrémal à un temps fini pour n'importe quel processus contimu dans lequel le tenseur d'energie-impulsion de la matiere accretter reste borné et satisfait la condition d'énergie faible au voisinage de l'horizon".
+
+Il faut noter spécialement qu'une autre formulation de la troisième loi de la thermodynamique, indiquant que l'entropie d'un système s'anmule à une temperature absolue nulle, n'est pas valable pour les trous noirs parce que $\mathcal{A}$ reste finie lorsque $\kappa \rightarrow 0 .$ Wald (1997) [34] a discuté la possibilite de violation de la troisième loi dans cette formulation pour une classe de systèmes thermodynamiques simples.
+
+Le tableau 3.1 représente une récapitulation de l'analogie entre les lois de la thermodynamique ordinaire et ceux du trou noir:
+
+
+
+
+\section { Rayonnement du trou noir}
+\subsection {Effet Hawking}
+Nous venons de présenter une analogie entre les lois de la thermodynamique des trous noirs et les principes de la thermodynamique ordinaire. Par exemple, si nous remplasons formellement dans le premier principe de la thenmodynamique $E$ par $M, T$ par $\frac{\kappa}{2 \pi}$ et $S$ par $d$, alors nous retrouvons le premier principe de la thermodyminique des trous noirs  De méme on a vue que l'air de l'horizon d'un trou noir ne peut qu'augmenter au cours du temps, par analogie avec le second principe.
+ Pourtant certains auteurs soulignent que cette analogie est purement mathématique, les trous noirs ne sont pas des objets thermodythamiques, parce qu'un trou noir est vide de matiere, il ne fait qu'absorber et n'émet rien $(T=0)$
+
+Jacob Bekenstein affirme que lanalogie avec la thermodynamique est bien de nature physique, Cotte interprétation fut énergiquement combattue par S. Hawking jusqu'au jour, en $1974,$ où il prit en compte les effets de la mécanique quantique jusqu'alors ignorés. A sa grande surprise, ses calculs indiquèrent que I l'hypothèse thermodynamique de J. Bekenstein était parfaitement fondée [36] :
+les trous noirs émettent bien une radiation".
+En effet, tout d'abord il faut comprendre que le vide $\mathrm{cn}$ fait n'est pas vide. Des particules sont erées en permanence par paire (particules et anti-particules).
+
+Par analogie avee l'effet tunnel, on peut sattendre à ce qu'une trajectoire classique-
+cependant autorisée au niveau quantique. Suivant cette idee, il a été montré par $\mathrm{Hartle } ~$ et Hauking que la probabilité quantique de sortir de l'intérieur d'un tron noir n'est pas nulle. De facon plus quantitative, il est possible d'établir que la distribution en énergie (i.e, la densité d'états quantiques) de particules traversant l'horizon par effet tumel et s'échappant du trou noir sera une distribution presque thermique de corps noir.
+
+Ainsi, le principe d'incertitude oblige, un tel état physique est perpétuellement animé de fluctuations quantiques sous la forme de création puis annihilation de paires particule/antiparticule. Ces paires s'annihilent généralement très rapidement. Au voisinage de I'horizon d'un petit trou noir, là où la courbure est gigantesque, leffet de marce (en termes classiques) peut cependant permettre de séparer les deux particules de la paire. L'une entre vers le trou noir et lautre est éjectée vers l'infini [11] , figure 3.1 .
+3.4.2 Evaporation
+Dans l'effet Hawking l'une des particules créces ( 2 savoir, la particule qui a l'energie négative) est cree sous l'horizon de l'evénement. tandis que l'autre, avec l'energie positive est crée en dehors de l'horizon. Le rayonnement Hawking emporte l'energie, et par conséquent la masse du trou noir diminue. Cette observation, basce sur la conservation de l'énergie, implique qu il doit y avoir un flux d'energie négative à travers l'horizon dans le trou noir. Cela peut arriver seulement si la movenne quantique de tenseur d'énergicimpulsion $T_{\mu \nu}$ viole la condition d'energie faible, nous souvent suppose que la condition d'énergie faible est satisfaite. Il y avait des raisons de croire en cela alors que nous avions affaire à des systemes classiques et des processus classiques. Maintenant, quand nous commencons la consideration des aspects quantiques de la physique du trou noir, nous pourrions nous attendre à ce que certains des résultats prouvés plus tôt ne soient pas directement applicables. La consequence la plus importante est la violation de la théorème des airs de Hawking dans le domaine quantique (Markov 1974) $\mid 37]$. Dans le processus de creation de particules quantiques la masse (et done la surface) d'un trou noir diminue. Ce processus est connu sous le nom " tévaporation d'un trou noir "[38], figure 3.2.
+\subsection {Luminosité d'un trou noir}
+Comme on a dejá signale, le savent Steven Hawking donne des expressions pour l'entropie
+$$
+S=\frac{k_{b} c^{3} A}{4 h G}
+$$
+
+ot la temperature
+$$
+T=\frac{h c^{3}}{8 \pi k_{b} G M}
+$$
+Avec $\mathcal{A}$ est l'air de l'horizon des evénements, $k_{b}$ est la constante de Boltzmann, $h=\frac{h}{2 \pi}$ ( $h$ est. la constante de Plank Connaissant le rayon de Schwarzschild, on peut calculer l'air de l'horizon $\mathcal{A}$ par
+$$
+A=4 \pi a^{2}=\frac{16 \pi G^{2} M^{2}}{e^{4}}
+$$
+Comme conséquence de l'évaporation, la diminution de masse du trou noir. On peut parler done de la luminosite et la duree de vie de ce dernier.
+
+Gràce aux résultats précédentes, la luminosito de tayommement d'Hawking est donnée par
+$$
+L=A \sigma T^{4}=\frac{\hbar c^{2}}{3840 \pi a^{2}}=\frac{\hbar c^{6}}{15639 \pi G^{2} M^{2}}
+$$
+\subsection { Durée de vie d'un trou noir}
+L'angmentation de la tempémture avec la perte de masse indiquée dans l'équation
+(3.15) staggere qu'avec le temps, la vitesse a laquelle l'energie est emise par le trou noir devrait également augmenter. Après plus de réarrangement, un taux de perte de masse donne
+$$
+\frac{d m}{d t}=\frac{h c^{4}}{15360 \pi G^{2} M^{2}}
+$$
+Pour trouver la durée de vie de trou noir $\tau$ en fonction de la masse initiale $M$ du trou noir, on sépare les variables de l'équation (3.18) et on intègre entre un temps initial supposant égale 0 et un certain temps $\tau$. on obtient
+$$
+\tau=\int_{0}^{\tau} \mathrm{d} t=-\frac{15360 \pi G^{2}}{h c^{4}} \int_{0}^{M} M^{2} \mathrm{d} M
+$$
+Finalement, la durée de vie de tron noir de masse initiale $M$ est égale
+$$
+\tau=\frac{5120 \pi G^{2}}{h c^{4}} M^{3}
+$$
+Apres les calculs des constantes, on obtient
+$$
+\tau=10^{-16} M^{3} s \cdot k g^{-3}
+$$
+cst la durée de vie d'un trou noir une fois qu'il commence à s'évaporer. La température de Hawking d'un trou noir peut être approchée des valeurs des constantes
+$$
+T \cong \frac{10^{23}}{M}
+$$
+c'est seulement à propos de $10^{-17} K^{12}$ au-dessts du zéro absolu même pour les plus petits trous noirs stellaires (environ 3 masses solaires).
+
+
+
+\end{document}

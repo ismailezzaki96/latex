@@ -1,0 +1,169 @@
+\documentclass[12pt,  a4paper, openright]{report} %twoside,
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hmargin=2cm,vmargin=2cm]{geometry}
+\usepackage[francais]{babel}
+\usepackage{color}
+\usepackage{here}
+\usepackage[Conny]{fncychap} % Sonny, Lenny, Glenn, Conny, Rejne, Bjarne
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+
+\def\lesssim{\mathrel{\hbox{\rlap{\hbox{\lower5pt\hbox{$\sim$}}}\hbox{$<$}}}}
+\def\gtrsim{\mathrel{\hbox{\rlap{\hbox{\lower5pt\hbox{$\sim$}}}\hbox{$>$}}}}
+\def\ni{\noindent}
+\def\bfn{\mbox{\boldmath$\nabla$}}
+\def\bfhl{\hat{{\mbox{\boldmath$\ell$}}}}
+
+
+
+\definecolor{Zgris}{rgb}{0.87,0.85,0.85}
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+	\begin{lrbox}{\BBbox}\begin{minipage}{\linewidth}}
+		{\end{minipage}\end{lrbox}\noindent\colorbox{Zgris}{\usebox{\BBbox}} \\
+	[.5cm]}
+
+
+
+
+%\hypersetup{pdfborder={0 0 0},colorlinks,urlcolor=false,citecolor=blue,linkcolor=blue}
+\renewcommand\thefootnote{\textcolor{blue}{\arabic{footnote}}}
+\newcommand{\reporttitle}{Physique des trous noirs: thermodynamique et transitions de phase}     % Titre
+\newcommand{\reportauthor}{Ismail  \textsc{EZZAKI}} % Auteur
+\newcommand{\reportsubject}{\textbf{Mémoire}\\présenté pour obtenir le diplôme de master en: \\
+	\textbf{Physique des Hautes Énergies, Astrophysique et Physique computationnelle  }  } % Sujet
+\newcommand{\HRule}{\rule{\linewidth}{0.7mm}}
+
+
+\newcommand{\chaptertoc}[1]{\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}
+	\markboth{\slshape\MakeUppercase{#1}}{\slshape\MakeUppercase{#1}}}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+
+
+\begin{document}
+
+\input{garde_page}
+
+\newpage
+\input{Remerciement}
+
+
+\tableofcontents
+
+
+\input{chapter/introduction}
+	\chapter{Les trous noirs en astrophysique}
+\input{chapter/chap1}
+	\chapter{Les trous noirs en relativité générale}
+
+\input{chapter/chap2}
+	\chapter{La thermodynamique des trous noirs}
+
+\input{chapter/chap3}
+	\chapter{LA transition de Phase du trous noirs}
+
+\input{chapter/chap4}
+
+\newpage
+\section*{Conclusion}
+\input{chapter/Conclusion}
+
+ 
+
+\begin{thebibliography}{99}
+\bibitem{1}  V. P. Frolov and A. Zelnikov," Introduction to Black Hole Physics". Oxford University Press, 2011.
+\bibitem{2}  A.Adehchour, “Astrophysique nucléaire,” 2017.
+\bibitem{3}  H.E.MOUMNI, Thèse : "Thermodynamique des trous noirs et physique des
+cordes", LPHEA-FSSM-UCAM, 2014.
+\bibitem{4}  S. W. Hawking, “Gravitational radiation from colliding black holes,” Phys. Rev. Lett., vol. 26,pp. 1344–1346, 1971.
+\bibitem{5} M. Séguin, Astronomie et astrophysique cinq grandes idées pour explorer et comprendre l’Univers. Bruxelles St. Laurent : De Boeck université Ed. du Renouveau pdéagogique, 2002.
+\bibitem{6} J.Grain, "Relativite Generale et champs quantiques : quelques aspects de physique
+des trous noirs et de cosmologie en gravite de Lovelock, espaces de Sitter et
+dimensions supplementaires", Grenoble I, 2006.
+\bibitem{7} Blaise Goutéraux, Thèse : "Black-Hole Solutions to Einstein’s Equations in the
+ Presence of Matter and Modifications of Gravitation in Extra Dimensions", Université Paris-Sud XI, 2010.
+\bibitem{8}  Hobson, M., G. Efstathiou, and A. Lasenby (2010), Relativité Générale, de boeck,
+Bruxelles.
+\bibitem{9}  S.Codis, "Quelque modéles de trous noirs", Laboratoire physique Théorique ENS,
+2009.
+\bibitem{10}  J. Traschen, "An Introduction to Black Hole Evaporation", Londrina Winter
+School, 2000.
+\bibitem{11}  G. HAKIM, “Trous noirs de chern-simons à trois dimensions,” 2014.
+\bibitem{12}  S. Hawking, Hawking on the big bang and black holes. Singapore New Jersey : World Scientific, 1993.
+\bibitem{13} J. M. Bardeen, B. Carter, and S. W. Hawking, “The Four laws of black hole mechanics,” Commun. Math. Phys., vol. 31, pp. 161–170, 1973.
+\bibitem{14} V. P. Frolov, Black hole physics : basic concepts and new developments. Dordrecht Boston : Kluwer,
+1998
+\bibitem{15}  M. C. LoPresto, “"some simple black hole thermodynamics",” THE PHYSICS TEACHER, vol. 41,
+p. 299, May 2003.
+\bibitem{16}  D. Kastor, S. Ray, and J. Traschen, “Enthalpy and the Mechanics of AdS Black Holes,” Class. Quant.
+Grav., vol. 26, p. 195011, 2009.
+
+\bibitem{18} S. Gunasekaran, R. B. Mann and D. Kubiznak, Extended phase space thermodynamics for charged and
+rotating black holes and Born-Infeld vacuum polarization, JHEP 1211 (2012) 110 [arXiv:1208.6251].
+
+\bibitem{19} E. Spallucci and A. Smailagic, “Maxwell’s equal area law and the Hawking-Page phase transition,”J. Grav., vol. 2013, p. 525696, 2013.
+\bibitem{20}  S. W. Hawking and D. N. Page, “Thermodynamics of Black Holes in anti-De Sitter Space,” Commun.Math. Phys., vol. 87, p. 577, 1983.
+
+\bibitem{21} D. Kubiznak and R. B. Mann, P-V criticality of charged AdS black holes, JHEP 1207 (2012) 033
+[arXiv:1205.0559].
+\bibitem{22} Eamon Mc Caughey, "Hawking radiation screening and Penrose process shielding in the Kerr Black Hole", 1603.08774v1, 29 Mars 2016.
+
+\bibitem{23} E. Spallucci and A. Smailagic, “Maxwell’s equal area law and the Hawking-Page phase transition,”
+J. Grav., vol. 2013, p. 525696, 2013.
+\bibitem{24} J.-X. Zhao, M.-S. Ma, L.-C. Zhang, H.-H. Zhao, and R. Zhao, “The equal area law of asymptotically
+AdS black holes in extended phase space,” Astrophys. Space Sci., vol. 352, no. 2, pp. 763–768, 2014.
+\bibitem{1112} A. Belhaj, M. Chabab, H. El Moumni and M. B. Sedra, On Thermodynamics of AdS Black Holes in
+Arbitrary Dimensions, Chin. Phys. Lett. 29 (2012) 100401 [arXiv:1210.4617].
+\bibitem{1112}  S. Chen, X. Liu, C. Liu and J. Jing, P - V criticality of AdS black hole in f(R) gravity, Chin. Phys.
+Lett. 30 (2013) 060401 [arXiv:1301.3234].
+\bibitem{1112} R. G. Cai, Y. P. Hu, Q. Y. Pan and Y. L. Zhang, Thermodynamics of Black Holes in Massive Gravity,
+Phys. Rev. D 91 (2015) no.2, 024032 [arXiv:1409.2369].
+\bibitem{1112} J. Xu, L. M. Cao and Y. P. Hu, P-V criticality in the extended phase space of black holes in massive
+gravity, Phys. Rev. D 91 (2015) no.12, 124033 [arXiv:1506.03578].
+\bibitem{1112} M. Chabab, H. El Moumni and K. Masmar, On thermodynamics of charged AdS black holes
+in extended phases space via M2-branes background, Eur. Phys. J. C 76, no. 6, 304 (2016)
+[arXiv:1512.07832]
+\bibitem{xxxx} M. C. LoPresto, “"some simple black hole thermodynamics",” THE PHYSICS TEACHER, vol. 41,
+p. 299, May 2003
+
+
+\bibitem{rit}  S. L. Shapiro and S. A. Teukolsky, Black holes, white dwarfs, and neutron stars: The physics of
+compact objects, New York, USA: Wiley (1983) 645 p.
+\bibitem{fit} J. M. Bardeen, W. H. Press and S. A. Teukolsky, Rotating black holes: Locally nonrotating frames,
+energy extraction, and scalar synchrotron radiation, Astrophys. J. 178 (1972) 347. 
+\bibitem{22} Eamon Mc Caughey, "Hawking radiation screening and Penrose process shielding
+in the Kerr Black Hole", 1603.08774v1, 29 Mars 2016.
+\bibitem{effr} S. W. Wei and Y. X. Liu, Photon orbits and thermodynamic phase transition of d-dimensional charged
+AdS black holes, Phys. Rev. D 97 (2018) no.10, 104027 [arXiv:1711.01522].
+\bibitem{52} F. Weinhold, “Metric geometry of equilibrium thermodynamics ii,” vol. 63, pp. 2479–2483, 09 1975.
+\bibitem{53} G. Ruppeiner, “Thermodynamics : A riemannian geometric model,” Phys. Rev. A, vol. 20, pp. 1608–
+1613, Oct 1979.
+\bibitem{54} K. Jafarzade and J. Sadeghi, “Thermodynamic geometry and phase transition of charged accelerating
+AdS black hole,” 2017.
+\bibitem{55} H. Quevedo, “Black hole geometrothermodynamics,” Journal of Physics : Conference Series, vol. 831,
+no. 1, p. 012005, 2017.
+\bibitem{56} S. H. Hendi, S. Panahiyan, and B. Eslam Panah, “P–V criticality and geometrical thermodynamics
+of black holes with Born–Infeld type nonlinear electrodynamics,” Int. J. Mod. Phys., vol. D25, no. 01,
+p. 1650010, 2015.
+\end{thebibliography}
+
+%=================================================
+% Appendices
+%=================================================
+\appendix
+\input{appendix/appendixA}
+
+
+
+\end{document}

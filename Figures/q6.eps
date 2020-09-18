@@ -1,0 +1,397 @@
+%!PS-Adobe-3.0 EPSF-2.0
+%%Title: Maple plot
+%%Creator: Maple 
+%%Pages:  1
+%%BoundingBox: 114 115 506 662 
+%%DocumentNeededResources: font Helvetica
+%%+ font Times-Roman
+%%+ font Times-Roman
+%%EndComments
+20 dict begin
+gsave
+/drawborder false def
+/m {moveto} def
+/l {lineto} def
+/C {setrgbcolor} def
+/Y /setcmykcolor where { %%ifelse Use built-in operator
+       /setcmykcolor get
+   }{ %%ifelse Emulate setcmykcolor with setrgbcolor
+       { %%def
+           1 sub 3 { %%repeat
+               3 index add neg dup 0 lt { pop 0 } if 3 1 roll
+           } repeat setrgbcolor
+       } bind
+   } ifelse def
+/G {setgray} def
+/S {stroke} def
+/NP {newpath} def
+%%%%This draws a filled polygon and avoids bugs/features
+%%%%   of some postscript interpreters
+%%%%GHOSTSCRIPT: has a bug in reversepath - removing
+%%%%the call to reversepath is a sufficient work around
+/P {gsave fill grestore reversepath stroke} def
+%%%%This function is needed for drawing text.  It takes two arguments: a
+%%%%string and a rotation. It outputs width and height.
+/stringbbox {
+    gsave NP 0 0 m    % Set origin for easy calculations.
+    dup rotate exch   % Set orientation, and put string on top.
+    false charpath flattenpath
+    0 exch sub rotate % Undo rotation.
+    pathbbox 4 2 roll pop pop  % Get dimens. of our string.
+    1.1 mul cvi exch 1.1 mul cvi exch % Pad some.
+    grestore} def
+/thin 3 def
+/medium 7 def
+/thick 16 def
+/boundarythick 20 def % thichess of bounding box
+%%IncludeResource: font Helvetica
+%%IncludeResource: font Times-Roman
+%%IncludeResource: font Times-Roman
+540.000000 72.000000 translate
+90 rotate
+/defaultTitleFont {/Helvetica findfont 219 scalefont setfont} def
+/defaultFont {/Helvetica findfont 133 scalefont setfont} def
+/userFont1 {/Times-Roman findfont 240 scalefont setfont} def
+/userFont2 {/Times-Roman findfont 219 scalefont setfont} def
+0.0936 0.0936 scale
+1 setlinejoin
+1 setlinecap
+0.0 setgray
+/inch {72 mul} def
+/fheight 0.35 inch neg def
+    0     0     0     1 Y
+medium setlinewidth
+[] 0 setdash defaultFont
+[30] 0 setdash NP 4260 500 m 4260 1573 l
+S
+    1     1     0     0 Y
+thin setlinewidth
+[20 30] 0 setdash NP 2368 4467 m 2349 4500 l
+S
+NP 2482 4270 m 2368 4467 l
+S
+NP 2595 4080 m 2482 4270 l
+S
+NP 2707 3897 m 2595 4080 l
+S
+NP 2816 3722 m 2707 3897 l
+S
+NP 2925 3554 m 2816 3722 l
+S
+NP 3031 3393 m 2925 3554 l
+S
+NP 3135 3240 m 3031 3393 l
+S
+NP 3237 3093 m 3135 3240 l
+S
+NP 3337 2954 m 3237 3093 l
+S
+NP 3434 2821 m 3337 2954 l
+S
+NP 3529 2695 m 3434 2821 l
+S
+NP 3621 2576 m 3529 2695 l
+S
+NP 3710 2463 m 3621 2576 l
+S
+NP 3797 2357 m 3710 2463 l
+S
+NP 3880 2258 m 3797 2357 l
+S
+NP 3961 2164 m 3880 2258 l
+S
+NP 4038 2076 m 3961 2164 l
+S
+NP 4111 1995 m 4038 2076 l
+S
+NP 4182 1919 m 4111 1995 l
+S
+NP 4249 1849 m 4182 1919 l
+S
+NP 4312 1784 m 4249 1849 l
+S
+NP 4372 1724 m 4312 1784 l
+S
+NP 4428 1669 m 4372 1724 l
+S
+NP 4480 1619 m 4428 1669 l
+S
+NP 4529 1574 m 4480 1619 l
+S
+NP 4574 1533 m 4529 1574 l
+S
+NP 4616 1497 m 4574 1533 l
+S
+NP 4653 1465 m 4616 1497 l
+S
+NP 4687 1436 m 4653 1465 l
+S
+NP 4717 1411 m 4687 1436 l
+S
+NP 4744 1390 m 4717 1411 l
+S
+NP 4767 1372 m 4744 1390 l
+S
+NP 4787 1357 m 4767 1372 l
+S
+NP 4803 1345 m 4787 1357 l
+S
+NP 4816 1336 m 4803 1345 l
+S
+NP 4826 1329 m 4816 1336 l
+S
+NP 4832 1325 m 4826 1329 l
+S
+NP 4836 1322 m 4832 1325 l
+S
+    0     1     1     0 Y
+medium setlinewidth
+[] 0 setdash NP 4836 1322 m 4836 1322 l
+S
+NP 4834 1323 m 4836 1322 l
+S
+NP 4829 1326 m 4834 1323 l
+S
+NP 4822 1331 m 4829 1326 l
+S
+NP 4812 1337 m 4822 1331 l
+S
+NP 4800 1343 m 4812 1337 l
+S
+NP 4786 1351 m 4800 1343 l
+S
+NP 4771 1360 m 4786 1351 l
+S
+NP 4753 1370 m 4771 1360 l
+S
+NP 4734 1380 m 4753 1370 l
+S
+NP 4714 1390 m 4734 1380 l
+S
+NP 4692 1401 m 4714 1390 l
+S
+NP 4670 1412 m 4692 1401 l
+S
+NP 4647 1423 m 4670 1412 l
+S
+NP 4623 1434 m 4647 1423 l
+S
+NP 4598 1446 m 4623 1434 l
+S
+NP 4574 1457 m 4598 1446 l
+S
+NP 4549 1467 m 4574 1457 l
+S
+NP 4525 1478 m 4549 1467 l
+S
+NP 4501 1488 m 4525 1478 l
+S
+NP 4477 1497 m 4501 1488 l
+S
+NP 4454 1507 m 4477 1497 l
+S
+NP 4431 1515 m 4454 1507 l
+S
+NP 4410 1523 m 4431 1515 l
+S
+NP 4390 1531 m 4410 1523 l
+S
+NP 4371 1538 m 4390 1531 l
+S
+NP 4353 1544 m 4371 1538 l
+S
+NP 4337 1550 m 4353 1544 l
+S
+NP 4322 1555 m 4337 1550 l
+S
+NP 4309 1559 m 4322 1555 l
+S
+NP 4297 1563 m 4309 1559 l
+S
+NP 4287 1566 m 4297 1563 l
+S
+NP 4279 1568 m 4287 1566 l
+S
+NP 4272 1570 m 4279 1568 l
+S
+NP 4267 1571 m 4272 1570 l
+S
+NP 4264 1572 m 4267 1571 l
+S
+NP 4261 1573 m 4264 1572 l
+S
+NP 4260 1573 m 4261 1573 l
+S
+NP 4260 1573 m 4260 1573 l
+4260 1573 l
+4260 1573 l
+4260 1573 l
+S
+NP 4259 1574 m 4260 1573 l
+S
+NP 4256 1574 m 4259 1574 l
+S
+NP 4250 1576 m 4256 1574 l
+S
+NP 4241 1578 m 4250 1576 l
+S
+NP 4227 1580 m 4241 1578 l
+S
+NP 4208 1584 m 4227 1580 l
+S
+NP 4180 1590 m 4208 1584 l
+S
+NP 4144 1597 m 4180 1590 l
+S
+NP 4096 1605 m 4144 1597 l
+S
+NP 4034 1616 m 4096 1605 l
+S
+NP 3956 1630 m 4034 1616 l
+S
+NP 3858 1646 m 3956 1630 l
+S
+NP 3737 1665 m 3858 1646 l
+S
+NP 3588 1689 m 3737 1665 l
+S
+NP 3408 1716 m 3588 1689 l
+S
+NP 3190 1747 m 3408 1716 l
+S
+NP 2928 1784 m 3190 1747 l
+S
+NP 2615 1826 m 2928 1784 l
+S
+NP 2244 1875 m 2615 1826 l
+S
+NP 1804 1930 m 2244 1875 l
+S
+NP 1285 1992 m 1804 1930 l
+S
+NP 692 2061 m 1285 1992 l
+userFont2
+% bug patch -- we have a problem
+S
+medium setlinewidth
+    0     0     0 0.992157 Y
+(Tc) dup 0 stringbbox 2 idiv 671 exch sub exch 2 idiv 4458 exch sub exch m show
+(T) dup 0 stringbbox 2 idiv 671 exch sub exch 2 idiv 5953 exch sub exch m show
+(G) dup 0 stringbbox 2 idiv 4339 exch sub exch 2 idiv 969 exch sub exch m show
+userFont1
+% bug patch -- we have a problem
+(g\) q=qc) dup 0 stringbbox 2 idiv 4271 exch sub exch 2 idiv 3461 exch sub exch m show
+    0     0     0     1 Y
+medium setlinewidth
+NP 692 500 m 692 4500 l
+S
+thin setlinewidth
+NP 670 614 m 692 614 l
+S
+NP 670 842 m 692 842 l
+S
+NP 648 1071 m 692 1071 l
+S
+NP 670 1300 m 692 1300 l
+S
+NP 670 1528 m 692 1528 l
+S
+NP 670 1757 m 692 1757 l
+S
+NP 670 1985 m 692 1985 l
+S
+NP 648 2214 m 692 2214 l
+S
+NP 670 2442 m 692 2442 l
+S
+NP 670 2671 m 692 2671 l
+S
+NP 670 2900 m 692 2900 l
+S
+NP 670 3128 m 692 3128 l
+S
+NP 648 3357 m 692 3357 l
+S
+NP 670 3585 m 692 3585 l
+S
+NP 670 3814 m 692 3814 l
+S
+NP 670 4042 m 692 4042 l
+S
+NP 670 4271 m 692 4271 l
+S
+NP 648 4500 m 692 4500 l
+S
+medium setlinewidth
+NP 692 500 m 6230 500 l
+S
+thin setlinewidth
+NP 692 466 m 692 500 l
+S
+NP 969 483 m 969 500 l
+S
+NP 1246 483 m 1246 500 l
+S
+NP 1523 483 m 1523 500 l
+S
+NP 1799 483 m 1799 500 l
+S
+NP 2076 466 m 2076 500 l
+S
+NP 2353 483 m 2353 500 l
+S
+NP 2630 483 m 2630 500 l
+S
+NP 2907 483 m 2907 500 l
+S
+NP 3184 483 m 3184 500 l
+S
+NP 3461 466 m 3461 500 l
+S
+NP 3738 483 m 3738 500 l
+S
+NP 4015 483 m 4015 500 l
+S
+NP 4292 483 m 4292 500 l
+S
+NP 4569 483 m 4569 500 l
+S
+NP 4846 466 m 4846 500 l
+S
+NP 5123 483 m 5123 500 l
+S
+NP 5399 483 m 5399 500 l
+S
+NP 5676 483 m 5676 500 l
+S
+NP 5953 483 m 5953 500 l
+S
+NP 6230 466 m 6230 500 l
+defaultFont
+S
+medium setlinewidth
+(1.2) dup 0 stringbbox 2 idiv 1071 exch sub exch 629 exch sub exch m show
+(1.3) dup 0 stringbbox 2 idiv 2214 exch sub exch 629 exch sub exch m show
+(1.4) dup 0 stringbbox 2 idiv 3357 exch sub exch 629 exch sub exch m show
+(1.5) dup 0 stringbbox 2 idiv 4500 exch sub exch 629 exch sub exch m show
+(0.16) dup 0 stringbbox 452 exch sub exch pop 692 exch m show
+(0.17) dup 0 stringbbox 452 exch sub exch 2 idiv 2076 exch sub exch m show
+(0.18) dup 0 stringbbox 452 exch sub exch 2 idiv 3461 exch sub exch m show
+(0.19) dup 0 stringbbox 452 exch sub exch 2 idiv 4846 exch sub exch m show
+(0.2) dup 0 stringbbox 452 exch sub exch 2 idiv 6230 exch sub exch m show
+boundarythick setlinewidth
+% The following draws a box around the plot,
+% if the variable drawborder is true
+drawborder { 
+/bd boundarythick 2 idiv def
+[] 0 setdash 
+NP bd bd m bd 5000 bd sub l 
+6923 bd sub 5000 bd sub l 
+6923 bd sub bd l 
+bd bd l S
+} if % end of if to draw the border
+
+showpage
+grestore
+end
+%%EOF

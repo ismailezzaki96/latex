@@ -1,0 +1,568 @@
+ \section{Introducion}
+ TODO
+ 
+ La relativité générale est une théorie de la gravité. Elle se compose de deux parties. D'une part, il y a une description de la courbure de l'espace-temps, qui décrit le comportement des particules. D'autre part, il y a les équations du champ d'Einstein, qui décrivent comment l'énergie-momentum courbe l'espace-temps. 
+ 
+ La relativité générale est construit sur la théorie spéciale de la relativité, qui est incluse dans le principe d'équivalence:
+  «Dans un champ de gravitation, il est toujours possible, en tout point de l’espace, de choisir un référentiel (inertiel) dans lequel les lois de la physique sont localement identiques à celles en l’absence du champ de gravitation».
+
+  Notez qu'en GR, il n'est pas possible d'étendre nos coordonnées à l'ensemble de
+l'espace-temps. Dans un système de coordonnées locales, la gravité n'est pas perceptible et s'il y a
+aucune autre force, l'objet se déplace en ligne droite et on a : 
+	\begin{equation}
+	\frac {d^{2}\xi^\alpha} {d\tau^{2} }= 0
+	\end{equation}
+	
+ Dans un autre système de coordonnées $ x^\mu = x^\mu(\xi^\alpha)$ cette equation devient :
+
+ $${d^2 x^\lambda \over d\tau^2} + \Gamma^\lambda_{\mu\nu}{dx^\mu \over
+d\tau}  {dx^\nu \over d\tau}= 0, \eqno(3)$$
+ 
+
+Cette équation de mouvement est connue sous le nom d'équation géodésique, où la connexion affine est définie comme
+
+$$\Gamma^\lambda_{\mu\nu} = {\partial x^\lambda \over \partial
+\xi^\alpha} \ \ {\partial^2 \xi^\alpha \over \partial x^{\mu}dx^\nu}
+\eqno (4)$$
+
+le temps propre est défini par:
+$$d\tau^2 := \eta_{\mu\nu} d\xi^\mu d\xi^{\nu},$$
+$$(\eta_{\mu\nu} = +1,\ -1,\ -1,\ -1 ).$$
+
+Il peut également être écrit en coordonnées générales:
+$$d\tau^2 := g_{\mu\nu} dx^\mu dx^{\nu},$$
+
+où le tenseur métrique $g_{\mu\nu}$
+
+ $$g_{\mu\nu} = {\partial \xi^\alpha \over \partial x^\mu}  {\partial \xi^\beta
+\over \partial x^{\nu}} \eta_{\alpha\beta},$$
+
+Les symboles ChristoUel $\Gamma^\sigma_{\mu\lambda} $ sont
+
+
+$$\Gamma^\sigma_{\mu\lambda} = {1 \over 2}g^{\sigma\nu} 
+\left [ {\partial g_{\mu\nu} \over \partial x^\lambda} +
+{\partial g_{\lambda\nu} \over \partial x^\mu} -
+{\partial g_{\mu\lambda} \over \partial x^\nu} \right ] . \eqno(7)$$
+
+	\section{ Les équations d’Einstein}
+	L’équation d'Einstein ou équation du champ d'Einstein, publiée par Albert Einstein, pour la première fois le 25 novembre 1915, est l'équation aux dérivées partielles principales de la relativité générale. C'est une équation dynamique qui décrit comment la matière et l'énergie modifient la géométrie de l'espace-temps. Cette courbure de la géométrie autour d'une source de matière est alors interprétée comme le champ gravitationnel de cette source. Le mouvement des objets dans ce champ est décrit très précisément par l'équation de sa géodésique.
+	
+	On ne peut pas démontrer les équations d’Einstein. Toutefois on peut argumenter de la
+	façon suivante :\\
+	$\ast$ C’est l’équation la plus simple possible satisfaisant au principe précédent.\\
+	$\ast$ Elle est mathématiquement cohérent et définit un problème de valeurs initiales.\\
+	$\ast$ Elle redonne l’équation de Newton dans une limite appropriée (la limite non relativiste).\\
+	\\
+	
+	TODO
+	\begin{equation}
+ 	T^{\alpha \beta} (x)= \sum_n{\frac{p^{\alpha}_n p^{\beta}_n} {p^{0}_n} \delta^{3} (x-x_n(t)) }
+ 	\end{equation}
+	
+	
+	La forme mathématique de l’équation d’Einstein s’écrit \cite{7}
+	\begin{equation}
+	R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}+g_{\mu\nu}\Lambda=8\pi GT_{\mu\nu}
+	\end{equation}
+	
+	-$ R_{\mu\nu}$ : est le tenseur de Ricci, calculé à partir de la courbure de Riemann : $R_{\alpha\beta}$ =$ R_{\mu\alpha\mu\beta}$\\
+	\\
+	-$g_{\mu\nu}$ est la métrique de l’espace temps.\\
+	\\
+	-R : scalaire de Ricci.\\
+	\\
+	- $\Lambda$: constante cosmologique.\\
+	\\
+	- G : constante gravitationnelle de Newton.\\
+	\\
+	-$T_{\mu\nu}$: est le tenseur d’énergie-impulsion.\\
+	\\
+	où la courbure de Riemann et le symbole de Christoffel :
+	\begin{equation}
+	R_{\beta\gamma\delta}^{\alpha}= \partial_{\gamma}\Gamma_{\beta\delta}^{\alpha}-\partial_{\delta}\Gamma_{\beta\delta}^{\varepsilon}+ \Gamma_{\beta\delta}^{\varepsilon}         \Gamma_{\varepsilon\gamma}^\alpha- \Gamma\Gamma_{\beta\gamma}^{\varepsilon}\Gamma_{\varepsilon\delta}^{\alpha}
+	\end{equation}
+	
+	
+	\begin{equation}
+	\Gamma_{\alpha\beta\gamma} = \dfrac{1}{2}( \partial_{\alpha}g_{\beta\gamma}+\partial_{\delta}g_{\gamma\alpha}-\partial_{\gamma}g_{\alpha\beta})
+	\end{equation}
+	
+	Il est possible d’obtenir l’équation d’Einstein à partir du principe de moindre action, avec
+	l’action d’Einstein-Hilbert définie par $(\Lambda = 0)$ :
+	\begin{equation}
+	S_{EH} = \int (L_{G} + L_{M})\sqrt{-g} d^{4}x =  \int\left(\dfrac{R}{2k} + L_{M} \right)\sqrt{-g} d^{4}x
+	\end{equation}
+	avec $L_{G}$ et $L_{M}$ représentent la densité lagrangienne de la gravité et de la matière présente
+	respectivement, où $k = \dfrac{8Gpi}{c^{4}}$  et$ \sqrt{-g} = d^{4}x$ est l’élément de volume spatio-temporel peu importe le système de référence.\\
+	Le principe de moindre action stipule qu’une variation de l’action d’Einstein-Hilbert par rapport
+	à la métrique inverse doit être nulle ce qui nous permet d’obtenir :
+	\begin{equation}
+	\dfrac{\delta S_{EH}}{\delta g^{\mu\nu}} = \int\left[\dfrac{1}{2k}\dfrac{\delta (\sqrt{-g}R)}{
+		\delta g^{\mu\nu}}+\dfrac{\delta \sqrt{-g}L_{M}}{\delta g^{\mu\nu}} \right]\delta g^{\mu\nu}d^{4}x
+	\end{equation}
+	\begin{equation}
+	= \int\left[\dfrac{1}{2k}\dfrac{\delta R}{\delta g^{\mu\nu}}+\dfrac{1}{2k}\dfrac{R\delta \sqrt{-g}}{\sqrt{-\sqrt{g}\delta g^{\mu\nu}}}+\dfrac{1}{\sqrt{-g}}\dfrac{\delta L_{M}}{\delta g^{\mu\nu}}\right]\delta g^{\mu\nu}\sqrt{-g}d^{4}x 
+	\end{equation}
+	
+	$$=0$$
+	Danc on trouve:
+	\begin{equation}
+	\dfrac{\delta R}{\delta g^{\mu\nu}}+\dfrac{R\delta\sqrt{-g}}{\sqrt{-g}\delta g^{\mu\nu}}=-2k\dfrac{1}{\sqrt{-g}}\dfrac{\delta L_{M} }{\delta g^{\mu\nu}}
+	\end{equation}
+	
+	alors:
+	$$\dfrac{\delta R}{\delta g^{\mu\nu}}=R_{\mu\nu}$$ et $$\dfrac{R\delta\sqrt{-g}}{\sqrt{-g}\delta g^{\mu\nu}}=-\dfrac{1}{2}Rg_{\mu\nu}$$
+	et on définisse le tenseur d'énergie à partir de $L_{M}$  $$T_{\mu\nu}=-2k\dfrac{1}{\sqrt{-g}}\dfrac{\delta L_{M} }{\delta g^{\mu\nu}}$$
+	
+	Danc La forme mathématique de l’équation d’Einstein s’écrit  :
+	\begin{equation}
+	R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}=T_{\mu\nu}
+	\end{equation}
+	
+	\section{The Newtonian limit}
+	
+Lets start with the equation of motion 
+$$
+{d^2x^\mu \over d\tau^2}  +\Gamma^\mu_{\lambda\nu}
+{dx^2 \over d\tau}
+{dx^\lambda \over d\tau}
+= 0. \eqno (12)
+$$
+and let us assume  that the particles moves slowly
+$${d{\bf x} \over d\tau} \ll 
+{dt \over d\tau}, \ \ 
+v\ll c.$$
+If the particle moves slowly, {\it we can ignore the three-velocity terms}
+in (12),
+$${d^2x^\mu \over d\tau^2} + 
+\Gamma^\mu_{00}\; c^2
+\left ({dt \over d\tau}\right )^2 =0 .\eqno (13)
+$$
+Assume further that the gravitational field is stationary, then all
+time derivatives of $g_{\mu\nu}$ are zero.  
+
+Recall the equation relating the affine connection to the metric tensor,
+\begin{eqnarray*}
+\Gamma^\mu_{\lambda\nu} & = &
+{1\over 2} g^{\kappa\mu} \left \{
+{\partial g_{\nu\kappa}\over \partial x^\lambda} + 
+{\partial g_{\lambda\kappa} \over \partial x^\nu} -
+{\partial g_{\nu\lambda} \over \partial x^\kappa}
+\right \} .
+\end{eqnarray*}
+Then the components appearing in equation (13) are
+\begin{eqnarray*}
+\Gamma^\mu_{00} & = & 
+{1\over 2}g^{\kappa\mu} \left \{
+{\partial g_{0\kappa} \over \partial x^0} +
+{\partial g_{0\kappa} \over \partial x^0} -
+{\partial g_{00} \over \partial x^\kappa}
+\right \}\\
+& = & 
+- {1\over 2}g^{\kappa\mu} 
+{\partial g_{00}\over \partial x^\kappa}.
+\end{eqnarray*}
+Since we are assuming that the gravitational field is weak, the metric must be
+{\it nearly} Minkowski:
+$$g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}, \qquad  h_{\mu\nu} \ll
+\eta_{\mu\nu}, $$
+and so, to first order in $h_{\mu\nu}$
+\begin{eqnarray*}
+ \Gamma^\mu_{00 } & = & 
+-{1\over 2} \eta^{\kappa\mu} 
+{\partial h_{00} \over \partial x^\kappa},\\
+ \Gamma^0_{00} & = & 
+-{1\over 2} {\partial h_{00} \over \partial x^0} =0, \\
+ \Gamma^i_{00} & = &
+{1\over 2}{\partial h_{00} \over \partial x^i},
+\end{eqnarray*}
+where the latin index in the last line runs over the spatial
+dimensions $(i= 1, 2, 3)$.
+
+Inserting these components into the equation of motion (13) gives
+\begin{eqnarray*}
+{d^2t \over d\tau^2} & = & 0, \qquad
+{\rm i.e.} \quad {dt\over d\tau} = {\rm constant}, \\
+{d^2{\bf x}\over d\tau^2} & = &
+-c^2 \left ({dt\over d\tau }\right )^2
+{1\over 2}\bfn h_{00}.
+\end{eqnarray*}
+But, since $dt/d\tau = {\rm constant}$, we can combine these two
+equations to give the following equation of motion 
+$$ {d^2x \over dt^2} = - {1\over 2}c^2 \bfn h_{\circ\circ}.$$  
+
+
+Now, compare this equation with the usual {\it Newtonian}
+equation of motion of a particle in a gravitational field,
+$${d^2{\bf x} \over dt^2} = - \bfn \phi$$
+they are {\it identical}, if we set
+$$h_{00} = {2\phi \over c^2}.$$
+Hence our theory tends to the Newtonian limit if the metric
+in a weak gravitational field has
+$$g_{00} = \left (1 + { 2\phi \over c^2}\right ).$$
+How big is the correction to the Minkowski metric? Here are some
+values of $\phi/c^2$ for various systems:
+\[
+\begin{array}{c}
+\phi/c^2 = 
+\left \{
+\begin{array}{ll}
+10^{-9} & \parbox{6cm}{at the surface of the Earth}\\
+& \\
+10^{-6} & \parbox{6cm} {at the surface of the Sun}\\
+& \\
+10^{-5} & \parbox{6cm}{in the early Universe (cosmic microwave
+background)}\\
+& \\
+10^{-4} & \parbox{6cm}{at the surface of a white dwarf.}
+\end{array}
+\right.
+\end{array}
+\]
+You see that even at the surface of a dense object like a white dwarf,
+the value of $\phi/c^2$ is much smaller than unity and hence the weak
+field limit will be an excellent approximation. 
+
+	
+	\section{Black hole solutions in general relativity}
+	L’intensité du champ gravitationnel est maximale à proximité du trou noir, mais elle décroît
+	à mesure qu’on s’en éloigne. De plus si on est infiniment éloigné du trou noir, ce champ gravitationnel est carrément inexistant et l’espace temps est essentiellement plat.
+	Donc la métrique asymptotiquement plate, est la solution des équations d’Einstein pour laquelle
+	la métrique tend vers celle de l’espace-temps plat (Minkowski) pour r tend vers l’infini.
+	Dans la suite on va discuter la métrique des différents types théoriques des trous noirs à savoir :\\
+	\\
+	- Le trou noir de Schwarzschild.\\
+	\\
+	- Le trou noir de Reissner Nordstrom.\\
+	\\
+	- Le trou noir de Kerr.\\
+	\\
+	- Le trou noir de Kerr-Newman.
+	
+	
+	
+	\subsection{ Symétrie sphérique et métrique de Schwarzschild }
+	La "métrique de Schwarzschild" (1916) est une solution de l'équation d'Einstein dans le cas d'un champ gravitationnel isotrope. Elle fournit les trois preuves principales de la Relativité Générale: le décalage des horloges, la déviation de la lumière par le Soleil et l'avance du périhélie de Mercure. Ces trois preuves sont très importantes car l'équation d'Einstein n'était pas démontrée expérimentalement à l'époque.\\
+	\\
+	
+	Dans cette section, nous trouverons la solution pour le trou noir le plus simple, le Schwarz-métrique schild. Avant de discuter de cette métrique, examinons d'abord de plus prèssymétrie sphérique. Nous avons vu que la métrique est définie comme
+	
+	$$
+d s^{2}=g_{\mu \nu} d x^{\mu} d x^{\nu}
+$$
+
+Pour l'espace Minkowski, cela se lit
+
+$$
+d s^{2}=-d t^{2}+d x^{2}+d y^{2}+d z^{2}
+$$
+ou, en changeant en coordonnées polaires,
+
+$$
+d s^{2}=-d t^{2}+d r^{2}+r^{2} d \theta^{2}+r^{2} \sin ^{2} \theta d \phi^{2}=-d t^{2}+d r^{2}+r^{2} d \Omega^{2}
+$$
+où
+$$
+d \Omega^{2}=d \theta^{2}+\sin ^{2} \theta d \phi^{2}
+$$
+	
+Nous sommes libres de multiplier tous les termes d'Eqn. 2.32 par des préfacteurs séparés
+
+$$
+d s^{2}=-e^{2 \alpha(r)} d t^{2}+e^{2 \beta(r)} d r^{2}+e^{2 \gamma(r)} r^{2} d \Omega^{2}
+$$
+
+
+car la forme de la métrique reste la meme , c'est-a-dire que le coefficient
+
+as the shape of the metric stays the same, i.e. the coefficient of the $d \rho^{2}$ is still $\sin ^{2} \theta$ that of the $d \theta^{2}$ term.
+
+ 
+ Nous avons utilisé des exponentielles pour que le signe dules conditions restent les mêmes. Dene une nouvelle coordonnée $
+\bar{r}$ comme
+
+ $$
+\bar{r}=c^{\lambda(r)} r
+$$
+
+qui donne 
+
+$$
+d \bar{r}=e^{\gamma} d r+e^{\gamma} r d \gamma=\left(1+r \frac{d \gamma}{d r}\right) e^{\gamma} d r
+$$
+
+En termes de nouvelle coordonnée radiale, Eqn. 2.35 devient
+
+$$
+d s^{2}=-e^{2 \alpha(r)} d t^{2}+\left(1+r \frac{d \gamma}{d r}\right)^{-2} e^{2 \beta(r)-2 \gamma(r)} d \bar{r}^{2}+\bar{r}^{2} d \Omega^{2}
+$$
+
+Maintenant, faites les réétiquettes suivantes
+
+$$
+\left(1+r \frac{d \gamma}{d r}\right)^{-2} e^{2 \beta(r)-2 \gamma(r)} \stackrel{\bar{r}}{\rightarrow} \stackrel{\rightarrow}{r} e^{2 \beta(r)}
+$$
+
+La métrique (Eqn.2,38) devient alors
+
+$$
+d s^{2}=-r^{2 n(r)} d t^{2}+c^{23(r)} d r^{2}+r^{2} d \Omega^{2}
+$$
+
+Nous pouvons maintenant passer à la métrique Schwarzschild. Commencez avec le Minkowski métrique dans le cas d'un espace statique et sphérique symétrique, Eqn. 2.40. Calculer les symboles Christoel, le tenseur de Riemann et enfin le tenseur de Ricci. le Equations de champ d'Einstein (voir Eqn.2.17) en lecture sous vide
+
+
+$$
+R_{\mu \nu}=0
+$$
+Utilisez ceci pour déterminer $\alpha$ et $\beta$. On obtient la métrique de Schwarzschild
+
+$$
+d s^{2}=-\left(1-\frac{R_{S}}{r}\right) d t^{2}+\left(1-\frac{R_{S}}{r}\right)^{-1} d r^{2}+r^{2} d \Omega^{2}
+$$
+
+La constante $R_S$ , le rayon de Schwarzschild, peut être trouvée en comparant la métrique
+à la limite du champ faible, dans laquelle le composant  $t t$  lit (voir Eqn.2.28)
+
+
+$$
+g_{00}=-\left(1-\frac{2 G M}{r}\right)
+$$
+
+Les deux sont les mêmes si on identifie
+
+$$
+R_{\mathrm{S}}=2 G M
+$$
+
+
+Nous interprétons $M $comme la masse. Notez que comme $M \rightarrow 0$, on récupère le Minkowski métrique.
+
+La même chose se produit pour $r\rightarrow c$, une propriété connue sous le nom d'atité asymptotique.
+On voit qu'il y a une singularité à $r = 0$. À $r = 2GM$ il n'y a pas de réel singularité, mais le problème est causé par un mauvais système de coordonnées. Il est donc
+parfois appelé singularité coordonnée. Transformez-vous en plus approprié
+coordonnées en définissant la coordonnée de la tortue $r^{*}$ comme
+
+$$
+r^{*}=r+2 G M \ln \left(\frac{r}{2 G M}-1\right)
+$$
+
+et on defini
+
+$$
+\begin{array}{l}
+v=t+r^{*} \\
+u=t-r^{*}
+\end{array}
+$$
+
+
+La combinaison de la coordonnée spatiale $r$ et de la coordonnée temporelle $v$ est
+connues sous le nom de coordonnées Eddington-Finkelstein, en termes desquelles la métrique
+lit
+
+$$
+d s^{2}=-\left(1-\frac{2 G M}{r}\right) d v^{2}+(d v d r+d r d r)+r^{2} d \Omega^{2}
+$$
+
+Un diagramme utilisant les nouvelles coordonnées est dessiné à la Fig. 2.1. On voit qu'à $r =2GM$ nous n'avons pas affaire à une singularité, mais à un horizon d'événements. La lumière les cônes s'inclinent, de sorte que pour $r < 2GM$, tous les chemins orientés vers le futur sont dans la direction de $r$ décroissant. Si la matière est à l'intérieur de son propre horizon d'événements, nous avons un soi-disant trou noir. En général, l'horizon des événements peut également être trouvé par $g _{rr} = 0$.
+
+Nous voulons maintenant trouver une transformation conforme appropriée, comme expliqué à l'annexe A. Dene
+
+$$
+\begin{array}{l}
+v^{\prime}=e^{v / 4 G M} \\
+u^{\prime}=-e^{-u / 4 G M}
+\end{array}
+$$
+
+En termes de ces coordonnées, la métrique Schwarzschild lit
+
+$$
+d s^{2}=-\frac{16 G^{3} M^{3}}{r} e^{-r / 2 G M}\left(d v^{\prime} d u^{\prime}+d u^{\prime} d v^{\prime}\right)+r^{2} d \Omega^{2}
+$$
+
+où $r $ est défini implicitement via
+
+$$
+v^{\prime} u^{\prime}=-\left(\frac{\tau}{2 G M}-1\right) e^{r / 2 G M}
+$$
+
+Encore une fois, tout comme dans l'espace-temps, nous utilisons l'arctan pour mapper l'innité à une nuit valeur de coordonnée
+
+$$
+-\frac{\pi}{2}<v^{\prime \prime}<+\frac{\pi}{2} 
+$$
+
+
+$$
+-\frac{\pi}{2}<u^{\prime \prime}<+\frac{\pi}{2}
+$$
+$$
+-\frac{\pi}{2}<v^{\prime \prime}+u^{\prime \prime}<+\frac{\pi}{2}
+$$
+
+
+La métrique $v$, $u$ est liée de manière conforme à l'espace de Minkowski. Le conforme
+Le diagramme de l'espace-temps de Schwarzschild est dessiné à la Fig. 2.2. La singularité est indiqué par une ligne ondulée. On voit qu'une fois que l'on franchit la ligne $r = 2GM$ il y a pas d'échappement, car tous les chemins temporels vous amènent à $r = 0$. Notez que la structure de l'innité conforme est égale à celle de l'espace de Minkowski, comme il se doit à cause de atness asymptotique.
+
+
+\subsection*{ singularité : }
+La métrique montre deux singularitées pour deux valeurs de r différentes:\\
+\\
+-La coordonnée r = 0, où la composante $g_{00}$ diverge.\\
+\\
+- La coordonnée $ r = \dfrac{2GM}{c^{2}} = r_{s}$ (rayon de Schwarzschild), où $g_{11}$  qui tend vers l’infinie.\\
+Pour déterminer la singularité physique, un critère simple qui caractérise un problème sérieux est une courbure qui devient infinie. Nous savons quelle est mesurée par le tenseur de Riemann et il n’est pas simple de dire quand un tenseur diverge,car ses composantes dépendent des coordonnées. Mais nous pouvons construire des scalaires à partir du tenseur de courbure et comme les scalaires ne dépendent pas des coordonnées il sera instructif de considérer leur comportement. Par exemple, on calcule le scalaire invariant à partir de tenseur de Riemann :
+\begin{equation}
+R^{\mu\nu\alpha\beta}R_{\mu\nu\alpha\beta}=\dfrac{12r_{s}^{2}}{r^{6}}
+\end{equation}
+Le scalaire est infini en r=0. Cela suffit à nous convaincre que r = 0 est une vraie singularité
+et la singularité à r = $r_{s}$ est une singularité de coordonnées . 
+\subsection*{ La solution de Schwarzschild dans les coordonnées de Kruskal-Szekers : }
+En 1960, Martin Kruskal et George Szekeres construisent une nouvelle métrique permettant d'étudier tous les types de mouvements d'un corps à l'extérieur et sous le rayon de Schwarzschild.\\
+Kruskal et Szekeres utilisent des coordonnées sans dimension,  u pour la coordonnée radiale et  v pour la coordonnée temporelle, définies dans le but d'éliminer le terme $(1-\dfrac{r_{s}}{r})$ dans la nouvelle métrique. Elles reconstruisent  r(u,v),t(u,v) par des fonctions transcendantes.\\
+Les variables  u et v sont définies par \cite{9}
+\begin{equation}
+u^{2}-v^{2}=(\dfrac{r}{r_{s}}-1)e^{\dfrac{r}{r_{s}}}
+\end{equation}
+\begin{equation}
+\dfrac{u+v}{u-v}=e^{\dfrac{ct}{r_{s}}}
+\end{equation}
+
+On distingue deux cas pour le temps :\\
+si $r(u,v)>r_{s}$ alors 
+\begin{equation}
+\tanh\dfrac{ct}{2r_{s}}=\dfrac{v}{u}
+\end{equation}
+
+si $r(u,v)<r_{s}$ alors 
+\begin{equation}
+\tanh\dfrac{ct}{2r_{s}}=\dfrac{u}{v}
+\end{equation}
+On obtient la métrique diagonale :
+\begin{equation}
+ds^{2}=\dfrac{4r_{s}^{3}}{r}e^{-\frac{r}{r_{s}}}(du^{2}-dv^{2})+r^{2}(d\theta^{2}+sin^{2}\theta d\phi^{2})
+\end{equation}
+
+qui est définie pour tout  $r(u,v)>0$. Le temps t est par contre infini au rayon de Schwarzschild (u =+v  et  u=-v).La métrique en coordonnées u et v peut être prolongé à la région entre
+la singularité et l’horizon des événements, et par conséquent la condition r = 0 correspond au
+parabole $ v^{2}-u^{2} = 1$.\\
+On a donc maintenant deux singularités : \\
+$u=\sqrt{v^{2}-1}$ et $u=-\sqrt{v^{2}-1}$\\
+Les droites  r=Cste en coordonnées de Schwarzschild sont les hyperboles\\ $ u^{2}-v^{2}=Cste$ en coordonnées de Kruskal. Leurs asymptotes sont les bissectrices $ u=v$ et $ u=-v$. Les droites  t=Cste en coordonnées de Schwarzschild sont les droites $ \dfrac{v}{u}=Cste$ passant par l'origine en coordonnées de Kruskal. Les singularités sont représentées par les frontières des zones hyperboliques grises sur le dessin ci-dessus.\\
+\\
+Les géodésiques de type lumière sont les lignes orientées à 45 degré. Il est facile de vérifier que pour  $ds=0$ , on a $ du^{2}=dv^{2}$.\\
+\\
+La métrique de Schwarzschild différencie deux régions de l'espace-temps délimitées par l'horizon des événements. La région $ r>2M$ est segmentée en deux avec la métrique de Kruskal-Szekeres.
+
+La condition $ r>r_{s}$ correspond $ u^{2}>v^{2}$ à $ u>|v|$ et $u<-|v|$\\
+La totalité de la géométrie de Schwarzschild est donc représentée par quatre régions différentes en coordonnées de Kruskal.
+\begin{center}
+	
+\end{center}
+Figure 2.2 – L’espace-temps en représentation de coordonnées de Kruskal-Szekeres
+pour un trou noir de Schwarzschild.
+
+\subsection{La métrique de Reissner Nordstrom}
+En astrophysique, un trou noir de Reissner-Nordström est un trou noir qui possède une masse M, une charge électrique non nulle Q, et pas de moment angulaire (i.e. un trou noir chargé, mais sans rotation). Puisque la répulsion électromagnétique d'une masse chargée, lors de la compression durant la formation du trou noir, est très largement supérieure à l'attraction gravitationnelle (par environ 40 ordres de grandeur), on pense qu'il s'est formé très peu de ces trous noirs.\\
+\\
+C'est La solution de l'équation d'Einstein en présence de charge Q \cite{7},il été obtenue en 1918 par Hans Reissner et Gunnar Nordström:\\
+\begin{equation}
+R_{\mu\nu}-\dfrac{1}{2}g_{\mu\nu}R+g_{\mu\nu}\Lambda=8G\pi T_{\mu\nu}
+\end{equation}
+
+avec:
+\begin{equation}
+T_{\mu\nu}=\dfrac{1}{4\pi}F_{\mu}^{\delta}F_{\nu\delta}-\dfrac{1}{4}g_{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}
+\end{equation}
+
+On utilise la même démarche par avant pour déterminer la métrique de trou noir chargé,
+l’expression finale est donnée par :
+\begin{equation}
+ds^{2}=-(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})dt^{2}+(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})^{-1}dr^{2}-r^{2}d\theta^{2}-r^{2}sin^{2}(\theta)d\phi^{2}
+\end{equation}
+où les unités géométriques ont été utilisées, c'est-à-dire que la vitesse de la lumière, la constante gravitationnelle et la constante de Coulomb sont égales à 1 $(c=G=1)$ 
+\subsection*{La singularité :}
+Tandis que les trous noirs chargés avec $|Q|<M$ (et surtout avec  $|Q|<< M$) sont similaires aux trous noirs de Schwarzschild, les trous noirs de Reissner-Nordström ont deux horizons : l'horizon des événements et l'horizon interne de Cauchy . Comme pour les autres trous noirs, l'horizon des événements dans l'espace-temps peut être localisé en résolvant l'équation de la métrique : $ g_{00}=0$. Les solutions montrent que l'horizon des événements est situé à :\\
+\\
+-L’horizon intérieur :
+\begin{equation}
+r_{-} = M -\sqrt{M^{2}-Q^{2}}
+\end{equation}
+
+-L’horizon extérieur :
+\begin{equation}
+r_{+} = M + \sqrt{M^{2}-Q^{2}}
+\end{equation}
+La solution dégénère en une singularité lorsque  $|Q|=M$.\\
+\\
+On pense que les trous noirs avec $ |Q|>M$ n'existent pas dans la nature, puisqu'ils contiendraient une singularité nue. Leur existence serait en contradiction avec le principe de censure cosmique du physicien britannique Roger Penrose, qui est généralement considéré comme vrai.
+\subsection{La métrique de Kerr:}
+l'analyse des trous noirs est restée longtemps tributaire de la métrique de schwarzchild et La métrique de Reissner Nordstrom,elles s'appliquent à un trou noir immobile (c’est-à-dire dépourvu de moment d’inertie). Elles ne sont donc pas représentatives de la majorité des trous noirs : en s’effondrant sur elle-même, une étoile conserve son moment d’inertie. Il était donc indispensable de disposer d’une métrique prenant en compte ledit moment d’inertie.\\
+\\
+C’est un mathématicien néo-zélandais, Roy Patrick Kerr , qui découvrit en 1963, une solution exacte des équations d’Einstein permettant de décrire le comportement de l’espace-temps autour d’un trou noir en rotation \cite{1}. Cette solution a révolutionné l’étude des trous noirs. Elle a ouvert un véritable âge d’or dans cette discipline. La métrique sur laquelle elle repose est aujourd’hui appelée métrique de Kerr.\\
+\\
+Soit un trou noir de masse M en rotation et soit J son moment d’inertie.\\
+
+La métrique de Kerr qui décrit l’espace-temps autour de ce trou noir s’exprime de la manière suivante :
+\begin{equation}
+ds^{2}=-(1-\dfrac{2Mr}{\Sigma})dt^{2}+\dfrac{\Sigma}{\Delta}dr^{2}+\Sigma d\theta^{2}+\dfrac{Asin^{2}\theta}{\Sigma} d\phi^{2}-\dfrac{4Marsin^{2}\theta }{\Sigma} dt d\phi
+\end{equation}
+
+avec:
+
+$$A=(r^{2}+a^{2})^{2}-\Delta a^{2}sin^{2}\theta$$
+\\
+$$\Sigma =r^{2}+a^{2}cos^{2}\theta$$
+\\
+$$\Delta=r^{2}-2Mr+a^{2}$$
+\\
+M: est la masse.\\
+J=aM est le moment angulaire du tro noir.\\ on travail dans la convention de c=G=1\\
+Le paramètre $a$ représente le moment cinétique du trou noir. Si le trou noir est immobile $ a= 0 $ et on retrouve la métrique de Schwarzschild. Le moment cinétique maximum est atteint lorsque $\alpha=\dfrac{r_{s}}{2}$ On parle alors de trou noir extrême (ou extrémal).
+\subsection*{La singularité}
+La métrique de Kerr ne possède qu’une singularité intrinsèque là où $ \Sigma= 0$,c'est à dire si : $r = 0$ et $ cos\theta = 0$.
+Si on pose $r = 0$ et $\theta =\dfrac{\pi}{2}  $ dans la la formule (2.33) on retrouve l’équation d’un cercle de rayon a dans le plan z = 0 :
+\begin{equation}
+x^{2} + y^{2} = a^{2}
+\end{equation}
+avec Le changement des coordonnées de Boyer-Lindquist $r,\theta,\phi$ vers les coordonnées cartésiennes x,y,z est donnés par :\\
+$\bullet$ $x = \sqrt{r^{2}+a^{2}} sin\theta cos\phi$ \\
+$\bullet$ $y = \sqrt{r^{2}+a^{2}}sin\theta cos\phi$ \\
+$\bullet$ $z = rcos\theta$ \\
+Cette équation définit la forme de singularité de trou noir de Kerr. Il existe aussi deux autres
+singularité où $\Delta = 0$, cela impose que :\\
+$\bullet$ $r_{+}=M+\sqrt{M^{2}-a^{2}}$ : représente l’horizon extérieur.\\
+$\bullet$ $r_{-}=M-\sqrt{M^{2}-a^{2}}$ : représente l’horizon intérieur.
+\subsection*{Ergosphère :}
+L'ergosphère est dite limite statique en ce sens que les particules qui la franchissent sont obligatoirement entraînées dans le sens de rotation du trou noir, autrement dit, elles y possèdent un moment angulaire de même signe que  J.Cet entraînement confère du moment cinétique et de l'énergie mécanique à une particule qui pénètre dans l'ergosphère puis s'en échappe, de sorte que le trou noir voit son moment cinétique diminuer. C'est le processus de Penrose, qui permet de pomper de l'énergie à un trou noir en rotation. \\
+Cette surface est obtenu lorsque $g_{tt}$ s’annule ($g_{rr}$ infini),on a :\\
+$$g_{00} = -(1 - \dfrac{2Mr}{\Sigma} ) = -\dfrac{1}{\Sigma}(\Delta - a^{2}\cos^{2}\theta)$$
+- $g_{00}$ s’annule pour : \\
+$r = r_{s+} = M^{2} + \sqrt{M^{2}-a^{2}cos^{2}\theta}$ et $r = r_{s-} = M^{2} -\sqrt{M^{2}-a^{2} cos^{2}\theta }$.$r_{s-}$ est complètement intérieure à $r_{s+}$.\\
+- La surface $r_{s+}$ est appelée limite statique, le volume compris entre $r_{s+}$ et $ r = r_{+} $ est appelé l’ergosphère.
+\begin{center}
+
+\end{center}
+Figure 2.3 – Représentation d’un trou noir de Kerr
+\subsection{La métrique de Kerr-Newmann}
+En astronomie, un trou noir de Kerr-Newman est un trou noir de masse M avec une charge électrique Q non nulle et un moment cinétique J également non nul. Il tient son nom du physicien Roy Kerr, découvreur de la solution de l'équation d'Einstein dans le cas d'un trou noir en rotation non chargé, et Ezra T. Newman, codécouvreur de la solution pour une charge non nulle, en 1965.\\
+Le trou noir de Kerr-Newmann est décrit par la métrique du même nom, qui s'écrit :
+\begin{equation}
+ds^{2}=-\dfrac{\Delta}{\rho^{2}}(dt-asin^{2}\theta d\phi)^{2}+\dfrac{sin^{2}}{\rho^{2}}[(r^{2}+a^{2})d\phi-adt]^{2}+\dfrac{\rho^{2}}{\Delta}dr^{2}+\rho^{2}d\theta^{2}
+\end{equation}
+
+où :
+
+$$\Delta=r^{2}-2Mr+a^{2}+Q^{2}$$
+et :
+$$\rho^{2}=r^{2}+a^{2}cos^{2}\theta$$ 
+et finalement :
+$$a=\dfrac{J}{M}$$
+Quand $Q=a=0$, la métrique de Kerr-Newmann se réduit à la métrique de Schwarzschild (cas non chargé et sans rotation). Lorsque $a=0$, elle se réduit à la métrique de Reissner-Nordström, et lors que $ Q=0$ à la métrique de Kerr. Lorsque $ M=Q=0$, le cas se réduit à la métrique d'un espace de Minkowski vide, mais dans des coordonnées sphéroïdales peu habituelles.
+
+De la même manière que la métrique de Kerr, celle de Kerr-Newmann décrit un trou noir seulement lorsque $a^{2}+Q^{2}< M^{2}$.	
+	
+Le résultat de Newmann représente la solution la plus générale de l'équation d'Einstein pour le cas d'un espace-temps stationnaire, axisymétrique, et asymptotiquement plat en présence d'un champ électrique en quatre dimensions. Bien que la métrique de Kerr-Newmann représente une généralisation de la métrique de Kerr, elle n'est pas considérée comme très importante en astrophysique puisque des trous noirs « réalistes » n'auraient généralement pas une charge électrique importante.

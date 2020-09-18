@@ -1,0 +1,68 @@
+
+and entropy but, as they considered different expressions for temperature, their formulas for entropy differ.
+
+It is interesting to express the entropy of a Schwarzschild black bole of a mass $M$ in SI units in terms of solar mass $M_{\odot}:$
+$$
+S \approx 1,45.10^{54}\left(\frac{M}{M_{0}}\right)^{2} J . K^{-1}
+$$
+The eutropy of the Sun is in the order of $10^{35} J . K^{-1}$ [quote Bekenstein $\left.1973\right] .$ This makes it obvious that the entropy per unit mass of a black hole is by many orders of magnitude greater than for stars.
+
+After washing out of initial conditions, a Kerr-Newman black hole is fully described by its mass, charge and angular momentum Misner et al. are many possible ways a black hole with a given values of these three quantities can be formed, for example by a collapse of a normal star, a collapse of a neutron star, a collision of gravitational waves, a collision of two black holes, etc. However, once a black hole is formed and initial conditions are washed out, these cases become undistinguishable. The black hole entropy can be then interpreted as a measure of inaccessibility of information about its specific internal configuration. We now have an expression for the blatk hole entropy which, at least in the context of classical general relativity, is non-decreasing and tends to increase when the black hole absorbs matter. It is also independent of the configuration of matter inside the event horizon. Since it is in principle possible to measure black hole's mask, angular momentum and charge and use them to compute its event horizon area, the black hole entropy can be, at least in principle, determined by an external observer. We will soon see that it nlyo plays the role of the common entropy in the first law of black hole thermodynamics,
+
+This line of reasoning led Bekenstein to formulation of the generalized second law of thermodynamics: The common entropy in the black hole exterior plus the black hole entropy never decreases Bekenstein
+
+We shall return to this law and to the interpretation of the black hole entropy in chapter $\mathbb{Z}$
+$1.3 \quad$ The First Law
+1.3.1 Bekenstein's Derivation for a Kerr-Newman Black Hole
+
+For a Kerr-Newman black hole it is possible to derive an equation analogous to the first law of thermodynamics Bekenstein $[1973] .$ We start by taking the rationalized area $a$ of such a black hole with mass $M,$ angular momentum $J$ and charge $Q .$ It is possible to see that:
+$$
+\begin{array}{c}
+\alpha=r_{+}^{2}+a^{2} \\
+\alpha=2 M r_{+}-Q^{2}
+\end{array}
+$$
+where
+$$
+r_{\pm}=M \pm \sqrt{M^{2}-Q^{2}-a^{2}}
+$$
+$$
+11
+$$
+
+
+
+are values of the radial coordinate corresponding to the event horizons of a KerrNewman black hole. We can obtain a formula for the difference of mass $\delta M$ between two slightly different Kerr-Newman black holes by varying equation 1.35
+$$
+\delta \alpha=2\left(r_{+} \delta M+M \delta r_{+}-Q \delta Q\right)
+$$
+We now separately evaluate $\delta r_{+}:$
+$$
+\delta r_{+}=\delta M+\frac{2}{r_{+}-r_{-}}\left(M \delta M-a\left(\frac{\delta J}{M}+\frac{a}{M} \delta M-Q \delta Q\right)-Q \delta Q\right)
+$$
+By substituting this result into equation [1.37] we get:
+$$
+\delta \alpha=2\left(r_{+} \delta M+M \delta M+\frac{2}{r_{+}-r_{-}}\left(M^{2} \delta M-a \delta J+a^{2} \delta M-M Q \delta Q\right)-Q \delta Q\right)
+$$
+Our goal is to get a formula for the change of mass, To achieve it we will put all terms containing $\delta M$ to the left side:
+$$
+\begin{array}{c}
+2\left(r_{+}+M+\frac{2}{r_{+}-r_{-}}\left(M^{2}+a^{2}\right)\right) \delta M= \\
+=\delta \alpha+2 \frac{2}{r_{+}-r_{-}}\left(a \delta J+\left(M+\frac{r_{+}-r_{-}}{2}\right) Q \delta Q\right) \\
+\frac{2}{r_{+}-r_{-}}\left(r_{+}\left(r_{+}-r_{-}\right)+M\left(r_{+}-r_{-}\right)+2 M^{2}+2 a^{2}\right) \delta M= \\
+=\delta \alpha+\frac{4}{r_{+}-r_{-}}\left(a \delta J+r_{-} Q \delta Q\right) \\
+\frac{2}{r_{+}-r_{+}}\left(2 M\left(r_{+}-r_{-}\right)+2 M^{2}-2 Q^{2}-2 a^{2}+2 M^{2}+2 a^{2}\right) \delta M= \\
+=\delta \alpha+\frac{4}{r_{+}-r_{-}}\left(a \delta J+r_{+} Q \delta Q\right)
+\end{array}
+$$
+Using now equation [1.35] to express $M_{+}$ we will arrive to the final form of the first law:
+$$
+\delta M=\frac{r_{+}-r_{-}}{4 \alpha} \delta_{\alpha}+\frac{a}{\alpha} \delta J+\frac{r_{+} Q}{\alpha} Q \delta Q
+$$
+If we now compare equation [1.40] with its thermodynamical analogue, we see that if the change in black hole's mass corresponds to the change in energy, then the term $(a / \alpha) \delta J+\left(r_{+} Q / \alpha\right) Q \delta Q$ is equivalent to the work done on the black hole in order to change its charge and angular momentum. Specifically, a / a represents the rotational angular frequency of the black hole and $\left(r_{+} Q / \alpha\right) Q$ is the electric potential on the outer event horizon. Since $\delta \alpha$ is proportional to the black hole's entropy, the term $\left(r_{+}-r_{-}\right) / 4 \alpha$ (multiplied by a certain constant) is analogous to black hole temperature.
+
+Temperature defined in this way is non-negative, just like the thermodynamic temperature, and equals zero only for extremal black holes. However, the term temperature can not be successfully applied to a black hole fully described by general relativity. because such a black hole does not radiate and thus ean not be in thermal equilibrium with black body radiation at any non-zero temperature. Therefore, in the context of elassical general relativity, this analogy should be regarded as purely formal.
+
+
+
+

@@ -35,22 +35,19 @@ LATEXFILES = 	*.acn\
 	*.xdy\
 	*.tdo\
 
-filename  := "rapport"
+filename  := "presentation"
 
 all:
 	make clean
 	make pdf
+	make show
 
 pdf:
-	pdflatex  --output-dir=tmp ${filename}.tex
-	rm -f $(LATEXFILES)
-	mv tmp/${filename}.pdf  ${filename}.pdf
+	pdflatex -synctex=1 -interaction=nonstopmode presentation.tex
 show:
-	okular  ${filename}.pdf
+	okular  presentation.pdf
 clean:
-	rm -f tmp/$(LATEXFILES)
+	rm -f $(LATEXFILES)
 	rm -f ${filename}.pdf
-docx:
-	pandoc ${filename}.tex   -o ${filename}.docx
 
 .PHONY: all pdf show clean

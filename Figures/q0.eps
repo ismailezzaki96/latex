@@ -1,0 +1,529 @@
+%!PS-Adobe-3.0 EPSF-2.0
+%%Title: Maple plot
+%%Creator: Maple 
+%%Pages:  1
+%%BoundingBox: 114 124 506 655 
+%%DocumentNeededResources: font Helvetica
+%%+ font Times-Roman
+%%+ font Times-Roman
+%%EndComments
+20 dict begin
+gsave
+/drawborder false def
+/m {moveto} def
+/l {lineto} def
+/C {setrgbcolor} def
+/Y /setcmykcolor where { %%ifelse Use built-in operator
+       /setcmykcolor get
+   }{ %%ifelse Emulate setcmykcolor with setrgbcolor
+       { %%def
+           1 sub 3 { %%repeat
+               3 index add neg dup 0 lt { pop 0 } if 3 1 roll
+           } repeat setrgbcolor
+       } bind
+   } ifelse def
+/G {setgray} def
+/S {stroke} def
+/NP {newpath} def
+%%%%This draws a filled polygon and avoids bugs/features
+%%%%   of some postscript interpreters
+%%%%GHOSTSCRIPT: has a bug in reversepath - removing
+%%%%the call to reversepath is a sufficient work around
+/P {gsave fill grestore reversepath stroke} def
+%%%%This function is needed for drawing text.  It takes two arguments: a
+%%%%string and a rotation. It outputs width and height.
+/stringbbox {
+    gsave NP 0 0 m    % Set origin for easy calculations.
+    dup rotate exch   % Set orientation, and put string on top.
+    false charpath flattenpath
+    0 exch sub rotate % Undo rotation.
+    pathbbox 4 2 roll pop pop  % Get dimens. of our string.
+    1.1 mul cvi exch 1.1 mul cvi exch % Pad some.
+    grestore} def
+/thin 3 def
+/medium 7 def
+/thick 16 def
+/boundarythick 20 def % thichess of bounding box
+%%IncludeResource: font Helvetica
+%%IncludeResource: font Times-Roman
+%%IncludeResource: font Times-Roman
+540.000000 72.000000 translate
+90 rotate
+/defaultTitleFont {/Helvetica findfont 219 scalefont setfont} def
+/defaultFont {/Helvetica findfont 133 scalefont setfont} def
+/userFont1 {/Times-Roman findfont 240 scalefont setfont} def
+/userFont2 {/Times-Roman findfont 219 scalefont setfont} def
+0.0936 0.0936 scale
+1 setlinejoin
+1 setlinecap
+0.0 setgray
+/inch {72 mul} def
+/fheight 0.35 inch neg def
+    0     0     0     1 Y
+medium setlinewidth
+[] 0 setdash defaultFont
+    1     1     0     0 Y
+thin setlinewidth
+[20 30] 0 setdash NP 1354 4497 m 1354 4500 l
+S
+NP 1362 4438 m 1354 4497 l
+S
+NP 1370 4380 m 1362 4438 l
+S
+NP 1378 4322 m 1370 4380 l
+S
+NP 1386 4265 m 1378 4322 l
+S
+NP 1394 4209 m 1386 4265 l
+S
+NP 1402 4154 m 1394 4209 l
+S
+NP 1410 4099 m 1402 4154 l
+S
+NP 1419 4044 m 1410 4099 l
+S
+NP 1427 3991 m 1419 4044 l
+S
+NP 1436 3938 m 1427 3991 l
+S
+NP 1444 3885 m 1436 3938 l
+S
+NP 1453 3833 m 1444 3885 l
+S
+NP 1462 3782 m 1453 3833 l
+S
+NP 1470 3732 m 1462 3782 l
+S
+NP 1479 3682 m 1470 3732 l
+S
+NP 1488 3633 m 1479 3682 l
+S
+NP 1497 3584 m 1488 3633 l
+S
+NP 1507 3536 m 1497 3584 l
+S
+NP 1516 3489 m 1507 3536 l
+S
+NP 1525 3442 m 1516 3489 l
+S
+NP 1535 3396 m 1525 3442 l
+S
+NP 1544 3350 m 1535 3396 l
+S
+NP 1554 3305 m 1544 3350 l
+S
+NP 1563 3261 m 1554 3305 l
+S
+NP 1573 3218 m 1563 3261 l
+S
+NP 1583 3175 m 1573 3218 l
+S
+NP 1593 3132 m 1583 3175 l
+S
+NP 1603 3090 m 1593 3132 l
+S
+NP 1613 3049 m 1603 3090 l
+S
+NP 1623 3009 m 1613 3049 l
+S
+NP 1633 2969 m 1623 3009 l
+S
+NP 1643 2930 m 1633 2969 l
+S
+NP 1654 2891 m 1643 2930 l
+S
+NP 1664 2853 m 1654 2891 l
+S
+NP 1675 2816 m 1664 2853 l
+S
+NP 1685 2779 m 1675 2816 l
+S
+NP 1696 2743 m 1685 2779 l
+S
+NP 1707 2707 m 1696 2743 l
+S
+NP 1718 2673 m 1707 2707 l
+S
+NP 1728 2638 m 1718 2673 l
+S
+NP 1739 2605 m 1728 2638 l
+S
+NP 1750 2572 m 1739 2605 l
+S
+NP 1761 2539 m 1750 2572 l
+S
+NP 1773 2508 m 1761 2539 l
+S
+NP 1784 2477 m 1773 2508 l
+S
+NP 1795 2446 m 1784 2477 l
+S
+NP 1806 2417 m 1795 2446 l
+S
+NP 1817 2387 m 1806 2417 l
+S
+NP 1829 2359 m 1817 2387 l
+S
+NP 1840 2331 m 1829 2359 l
+S
+NP 1852 2304 m 1840 2331 l
+S
+NP 1863 2277 m 1852 2304 l
+S
+NP 1874 2251 m 1863 2277 l
+S
+NP 1886 2226 m 1874 2251 l
+S
+NP 1897 2202 m 1886 2226 l
+S
+NP 1908 2178 m 1897 2202 l
+S
+NP 1920 2154 m 1908 2178 l
+S
+NP 1931 2132 m 1920 2154 l
+S
+NP 1942 2110 m 1931 2132 l
+S
+NP 1954 2088 m 1942 2110 l
+S
+NP 1965 2068 m 1954 2088 l
+S
+NP 1976 2048 m 1965 2068 l
+S
+NP 1987 2028 m 1976 2048 l
+S
+NP 1998 2010 m 1987 2028 l
+S
+NP 2009 1992 m 1998 2010 l
+S
+NP 2020 1974 m 2009 1992 l
+S
+NP 2030 1957 m 2020 1974 l
+S
+NP 2041 1941 m 2030 1957 l
+S
+NP 2051 1926 m 2041 1941 l
+S
+NP 2061 1911 m 2051 1926 l
+S
+NP 2071 1897 m 2061 1911 l
+S
+NP 2081 1883 m 2071 1897 l
+S
+NP 2091 1870 m 2081 1883 l
+S
+NP 2100 1858 m 2091 1870 l
+S
+NP 2109 1846 m 2100 1858 l
+S
+NP 2118 1835 m 2109 1846 l
+S
+NP 2127 1824 m 2118 1835 l
+S
+NP 2136 1814 m 2127 1824 l
+S
+NP 2144 1804 m 2136 1814 l
+S
+NP 2152 1795 m 2144 1804 l
+S
+NP 2160 1787 m 2152 1795 l
+S
+NP 2167 1779 m 2160 1787 l
+S
+NP 2174 1772 m 2167 1779 l
+S
+NP 2181 1765 m 2174 1772 l
+S
+NP 2188 1758 m 2181 1765 l
+S
+NP 2194 1752 m 2188 1758 l
+S
+NP 2200 1747 m 2194 1752 l
+S
+NP 2205 1742 m 2200 1747 l
+S
+NP 2211 1737 m 2205 1742 l
+S
+NP 2216 1733 m 2211 1737 l
+S
+NP 2220 1729 m 2216 1733 l
+S
+NP 2224 1725 m 2220 1729 l
+S
+NP 2228 1722 m 2224 1725 l
+S
+NP 2232 1719 m 2228 1722 l
+S
+NP 2235 1717 m 2232 1719 l
+S
+NP 2239 1714 m 2235 1717 l
+S
+NP 2241 1712 m 2239 1714 l
+S
+NP 2244 1710 m 2241 1712 l
+S
+NP 2246 1709 m 2244 1710 l
+S
+NP 2248 1708 m 2246 1709 l
+S
+NP 2250 1706 m 2248 1708 l
+S
+NP 2251 1706 m 2250 1706 l
+S
+NP 2252 1705 m 2251 1706 l
+S
+NP 2253 1704 m 2252 1705 l
+S
+NP 2254 1704 m 2253 1704 l
+S
+NP 2255 1703 m 2254 1704 l
+S
+NP 2255 1703 m 2255 1703 l
+S
+NP 2256 1703 m 2255 1703 l
+S
+NP 2256 1703 m 2256 1703 l
+2256 1703 l
+2256 1703 l
+S
+NP 2256 1702 m 2256 1703 l
+S
+NP 2256 1702 m 2256 1702 l
+2256 1702 l
+2256 1702 l
+2256 1702 l
+S
+NP 2257 1702 m 2256 1702 l
+S
+NP 2257 1702 m 2257 1702 l
+2257 1702 l
+S
+NP 2258 1702 m 2257 1702 l
+S
+NP 2259 1701 m 2258 1702 l
+S
+NP 2260 1701 m 2259 1701 l
+S
+NP 2261 1701 m 2260 1701 l
+S
+NP 2263 1700 m 2261 1701 l
+S
+NP 2265 1699 m 2263 1700 l
+S
+NP 2267 1698 m 2265 1699 l
+S
+NP 2270 1697 m 2267 1698 l
+S
+NP 2273 1696 m 2270 1697 l
+S
+NP 2277 1695 m 2273 1696 l
+S
+NP 2281 1694 m 2277 1695 l
+S
+NP 2286 1692 m 2281 1694 l
+S
+NP 2291 1690 m 2286 1692 l
+S
+NP 2297 1689 m 2291 1690 l
+S
+NP 2304 1687 m 2297 1689 l
+S
+NP 2312 1684 m 2304 1687 l
+S
+NP 2321 1682 m 2312 1684 l
+S
+NP 2330 1679 m 2321 1682 l
+S
+NP 2341 1677 m 2330 1679 l
+S
+NP 2352 1674 m 2341 1677 l
+S
+NP 2365 1670 m 2352 1674 l
+S
+NP 2378 1667 m 2365 1670 l
+S
+NP 2393 1664 m 2378 1667 l
+S
+NP 2410 1660 m 2393 1664 l
+S
+NP 2428 1656 m 2410 1660 l
+S
+NP 2447 1652 m 2428 1656 l
+S
+NP 2468 1647 m 2447 1652 l
+S
+NP 2490 1643 m 2468 1647 l
+S
+NP 2515 1638 m 2490 1643 l
+S
+NP 2541 1633 m 2515 1638 l
+S
+NP 2570 1627 m 2541 1633 l
+S
+NP 2600 1622 m 2570 1627 l
+S
+NP 2634 1616 m 2600 1622 l
+S
+NP 2669 1610 m 2634 1616 l
+S
+NP 2708 1603 m 2669 1610 l
+S
+NP 2749 1597 m 2708 1603 l
+S
+NP 2793 1590 m 2749 1597 l
+S
+NP 2841 1583 m 2793 1590 l
+S
+NP 2893 1576 m 2841 1583 l
+S
+NP 2948 1568 m 2893 1576 l
+S
+NP 3008 1560 m 2948 1568 l
+S
+NP 3072 1552 m 3008 1560 l
+S
+NP 3141 1543 m 3072 1552 l
+S
+NP 3216 1535 m 3141 1543 l
+S
+NP 3296 1525 m 3216 1535 l
+S
+NP 3383 1516 m 3296 1525 l
+S
+NP 3477 1506 m 3383 1516 l
+S
+NP 3579 1496 m 3477 1506 l
+S
+NP 3690 1486 m 3579 1496 l
+S
+NP 3810 1475 m 3690 1486 l
+S
+NP 3940 1464 m 3810 1475 l
+S
+NP 4083 1452 m 3940 1464 l
+S
+NP 4239 1440 m 4083 1452 l
+S
+NP 4410 1428 m 4239 1440 l
+S
+NP 4598 1415 m 4410 1428 l
+S
+NP 4805 1401 m 4598 1415 l
+S
+NP 5035 1388 m 4805 1401 l
+S
+NP 5290 1373 m 5035 1388 l
+S
+NP 5575 1358 m 5290 1373 l
+S
+NP 5895 1342 m 5575 1358 l
+S
+NP 6230 1327 m 5895 1342 l
+userFont2
+% bug patch -- we have a problem
+S
+medium setlinewidth
+[] 0 setdash     0     0     0 0.992157 Y
+(T) dup 0 stringbbox 2 idiv 665 exch sub exch 2 idiv 5973 exch sub exch m show
+(G) dup 0 stringbbox 2 idiv 4300 exch sub exch 2 idiv 885 exch sub exch m show
+userFont1
+% bug patch -- we have a problem
+(a\) q=0) dup 0 stringbbox 2 idiv 4300 exch sub exch 2 idiv 3268 exch sub exch m show
+    0     0     0     1 Y
+medium setlinewidth
+NP 692 500 m 692 4500 l
+S
+thin setlinewidth
+NP 648 500 m 692 500 l
+S
+NP 670 700 m 692 700 l
+S
+NP 670 899 m 692 899 l
+S
+NP 670 1100 m 692 1100 l
+S
+NP 670 1299 m 692 1299 l
+S
+NP 648 1500 m 692 1500 l
+S
+NP 670 1700 m 692 1700 l
+S
+NP 670 1900 m 692 1900 l
+S
+NP 670 2100 m 692 2100 l
+S
+NP 670 2300 m 692 2300 l
+S
+NP 648 2500 m 692 2500 l
+S
+NP 670 2700 m 692 2700 l
+S
+NP 670 2900 m 692 2900 l
+S
+NP 670 3100 m 692 3100 l
+S
+NP 670 3300 m 692 3300 l
+S
+NP 648 3500 m 692 3500 l
+S
+NP 670 3700 m 692 3700 l
+S
+NP 670 3900 m 692 3900 l
+S
+NP 670 4100 m 692 4100 l
+S
+NP 670 4300 m 692 4300 l
+S
+NP 648 4500 m 692 4500 l
+S
+medium setlinewidth
+NP 692 500 m 6230 500 l
+S
+thin setlinewidth
+NP 821 483 m 821 500 l
+S
+NP 1336 483 m 1336 500 l
+S
+NP 1851 483 m 1851 500 l
+S
+NP 2366 466 m 2366 500 l
+S
+NP 2881 483 m 2881 500 l
+S
+NP 3397 483 m 3397 500 l
+S
+NP 3912 483 m 3912 500 l
+S
+NP 4427 483 m 4427 500 l
+S
+NP 4942 466 m 4942 500 l
+S
+NP 5457 483 m 5457 500 l
+S
+NP 5973 483 m 5973 500 l
+defaultFont
+S
+medium setlinewidth
+(0) dup 0 stringbbox 500 exch sub exch 629 exch sub exch m show
+(1) dup 0 stringbbox 2 idiv 1500 exch sub exch 629 exch sub exch m show
+(2) dup 0 stringbbox 2 idiv 2500 exch sub exch 629 exch sub exch m show
+(3) dup 0 stringbbox 2 idiv 3500 exch sub exch 629 exch sub exch m show
+(4) dup 0 stringbbox 2 idiv 4500 exch sub exch 629 exch sub exch m show
+(0.2) dup 0 stringbbox 452 exch sub exch 2 idiv 2366 exch sub exch m show
+(0.4) dup 0 stringbbox 452 exch sub exch 2 idiv 4942 exch sub exch m show
+boundarythick setlinewidth
+% The following draws a box around the plot,
+% if the variable drawborder is true
+drawborder { 
+/bd boundarythick 2 idiv def
+[] 0 setdash 
+NP bd bd m bd 5000 bd sub l 
+6923 bd sub 5000 bd sub l 
+6923 bd sub bd l 
+bd bd l S
+} if % end of if to draw the border
+
+showpage
+grestore
+end
+%%EOF
